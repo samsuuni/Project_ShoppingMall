@@ -52,6 +52,7 @@
 								<span class="ltext-202 txt-center cl0 respon2">
 									<!-- MainPage Text -->
 									Men Collection 201818181818181818181818181818
+									${msg }
 								</span>
 							</div>
 								
