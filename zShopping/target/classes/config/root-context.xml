@@ -14,11 +14,11 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 
-	<mvc:resources location="/css/" mapping="css/**"/>
-	<mvc:resources location="/js/" mapping="/js/**"/>
-	<mvc:resources location="/fonts/" mapping="/fonts/**"/>
-	<mvc:resources location="/images/" mapping="/images/**"/>
-	<mvc:resources location="/vendor/" mapping="/vendor/**"/>
+	<mvc:resources location="/WEB-INF/css/css/" mapping="css/**"/>
+	<mvc:resources location="/WEB-INF/css/js/" mapping="/js/**"/>
+	<mvc:resources location="/WEB-INF/css/fonts/" mapping="/fonts/**"/>
+	<mvc:resources location="/WEB-INF/css/images/" mapping="/images/**"/>
+	<mvc:resources location="/WEB-INF/css/vendor/" mapping="/vendor/**"/>
 	
 	<!-- 기존 스프링 설정파일에서 했던 작업 똑같이 해야함 -->
 	<!-- 디비 접속 마이바티스 빈등록 등등 -->
