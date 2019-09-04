@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+
+	<!-- 기존 스프링 설정파일에서 했던 작업 똑같이 해야함 -->
+	<!-- 디비 접속 마이바티스 빈등록 등등 -->
+	<context:property-placeholder
+		location="classpath:config/db.properties" />
+
+	<!-- 어노테이션으로 등록한 빈을 찾아서 빈으로 만들어줘야함 -->
+	<context:component-scan
+		base-package="shopping.dao, shopping.service, shopping.controller" />
+		
+	<!-- 어노테이션 bean -->
+	<mvc:annotation-driven/>
+
+	<!-- 디비접속 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.user}" />
+		<property name="password" value="${db.pwd}" />
+	</bean>
+
+	<!-- 마이바티스 사용하기 위한 빈등록 -->
+	<!-- sqlSessionFactory빈이 있어야 한다. -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+
+		<!-- 마이바티스설정파일 -->
+		<property name="configLocation"
+			value="classpath:config/mybatisConfig.xml" />
+		<!-- 매퍼위치파일 -->
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:mapper/cartMapper.xml</value>
+				<value>classpath:mapper/inventoryMapper.xml</value>
+				<value>classpath:mapper/orderMapper.xml</value>
+				<value>classpath:mapper/productMapper.xml</value>
+				<value>classpath:mapper/userMapper.xml</value>
+			</list>
+		</property>
+		<!-- 데이타소스빈 -->
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- 마이바티스 인터페이스 매퍼 설정 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="shopping.mapper" />
+		<property name="annotationClass" value="shopping.mapper.MyMapper" />
+	</bean>
+
+
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- 카멜매핑 셋팅 -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+
+	<!-- 알리아스 설정 -->
+	<typeAliases>
+		<typeAlias type="shopping.vo.CartVO" alias="cart" />
+		<typeAlias type="shopping.vo.InventoryVO" alias="inventory" />
+		<typeAlias type="shopping.vo.OrderVO" alias="order" />
+		<typeAlias type="shopping.vo.ProductVO" alias="product" />
+		<typeAlias type="shopping.vo.UserVO" alias="user" />
+	</typeAliases>
+
+</configuration>
