@@ -18,9 +18,9 @@ public class UserController {
 	UserService userService;
 	
 	//로그인 화면
-	@RequestMapping("login.do")
+	@RequestMapping("/login.do")
 	public String login() {
-		return "cozastore-master/login";
+		return "/homepage/login.jsp";
 	}
 	
 	//로그인 처리
@@ -33,5 +33,18 @@ public class UserController {
 	@RequestMapping("logout.do")
 	public void logout(HttpSession session) {
 		userService.logOut(session);
+	}
+	
+	
+	//메인화면
+	@RequestMapping("main")
+	public String main() {
+		return "/main.jsp";
+	}
+	
+	// 상품화면
+	@RequestMapping("product")
+	public String product() {
+		return "/main.jsp";
 	}
 }

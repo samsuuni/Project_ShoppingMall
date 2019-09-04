@@ -20,51 +20,19 @@
 			<nav class="limiter-menu-desktop container">
 
 				<!-- Logo desktop -->
-				<a href="#" class="logo"> <img src="images/icons/logo-01.png"
+				<a href="main.jsp" class="logo"> <img src="images/icons/logo-01.png"
 					alt="IMG-LOGO">
 				</a>
 
 				<!-- Product Category desktop -->
 				<div class="menu-desktop flex-w flex-l-m filter-tope-group m-tb-10">
-					<ul class="main-menu">
-
-						<li class="active-menu">
-							<button
-								class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
-								data-filter="*">All Products</button>
-						</li>
-
-						<li data-label1="">
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".women">Women</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".men">Men</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".bag">Bag</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".shoes">Shoes</button>
-						</li>
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".watches">Watches</button>
-						</li>
-					</ul>
 				</div>
 
 
 
 				<!-- Icon header -->
 				<div class="wrap-icon-header flex-w flex-r-m">
-				<!-- 장바구니에서 위에 카운트해주는거 -->
+					<!-- 장바구니에서 위에 카운트해주는거 -->
 					<div
 						class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
 						data-notify="0">
@@ -122,9 +90,7 @@
 
 			<li>
 				<div class="right-top-bar flex-w h-full">
-					<a href="#" class="flex-c-m p-lr-10 trans-04">
-							My Account
-						</a>
+					<a href="#" class="flex-c-m p-lr-10 trans-04"> My Account </a>
 
 				</div>
 			</li>
@@ -133,41 +99,41 @@
 
 
 
-			<!-- Product Category mobile -->
-				<div class="menu-mobile flex-w flex-l-m filter-tope-group m-tb-10">
-					<ul class="main-menu">
+		<!-- Product Category mobile -->
+		<div class="menu-mobile flex-w flex-l-m filter-tope-group m-tb-10">
+			<ul class="main-menu">
 
-						<li class="active-menu">
-							<button
-								class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
-								data-filter="*">All Products</button>
-						</li>
+				<li class="active-menu">
+					<button
+						class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
+						data-filter="*">All Products</button>
+				</li>
 
-						<li data-label1="">
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".women">Women</button>
-						</li>
+				<li data-label1="">
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+						data-filter=".women">Women</button>
+				</li>
 
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".men">Men</button>
-						</li>
+				<li>
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+						data-filter=".men">Men</button>
+				</li>
 
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".bag">Bag</button>
-						</li>
+				<li>
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+						data-filter=".bag">Bag</button>
+				</li>
 
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".shoes">Shoes</button>
-						</li>
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".watches">Watches</button>
-						</li>
-					</ul>
-				</div>
+				<li>
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+						data-filter=".shoes">Shoes</button>
+				</li>
+				<li>
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+						data-filter=".watches">Watches</button>
+				</li>
+			</ul>
+		</div>
 
 
 
@@ -213,8 +179,6 @@
 		</div>
 
 		<div class="header-cart-content flex-w js-pscroll">
-		
-			<!-- Cart Image Start  -->
 			<ul class="header-cart-wrapitem w-full">
 				<li class="header-cart-item flex-w flex-t m-b-12">
 					<div class="header-cart-item-img">
@@ -252,7 +216,6 @@
 					</div>
 				</li>
 			</ul>
-			<!-- Cart Image End  -->
 
 			<div class="w-full">
 				<div class="header-cart-total w-full p-tb-40">Total: $75.00</div>
