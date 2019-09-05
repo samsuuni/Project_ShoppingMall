@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Header -->
 <header class="header-v4">
 	<!-- Header desktop -->
@@ -8,10 +8,21 @@
 		<!-- Topbar -->
 		<div class="top-bar">
 			<div class="content-topbar flex-sb-m h-full container">
-				<div class="left-top-bar">some body help me</div>
-
+				<c:if test="${empty email}">
+				<div class="left-top-bar">please login your account</div>
+				</c:if>
+				<c:if test="${!empty email}">
+				<div class="left-top-bar">welcome ${email }</div>
+				</c:if>
+				
+				
 				<div class="right-top-bar flex-w h-full">
-					<a href="login.jsp" class="flex-c-m trans-04 p-lr-25"> My Account </a>
+					<c:if test="${empty email}">
+					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
+					</c:if>
+					<c:if test="${!empty email}">
+					<span class="logCheck"><a href="login?page=${ pageContext.request.requestURL }" class="flex-c-m trans-04 p-lr-25"> LOG OUT </a></span>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -20,7 +31,7 @@
 			<nav class="limiter-menu-desktop container">
 
 				<!-- Logo desktop -->
-				<a href="main.jsp" class="logo"> <img src="images/icons/logo-01.png"
+				<a href="main" class="logo"> <img src="images/icons/logo-01.png"
 					alt="IMG-LOGO">
 				</a>
 

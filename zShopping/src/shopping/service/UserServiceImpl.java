@@ -24,10 +24,11 @@ public class UserServiceImpl implements UserService{
 		ModelAndView mav = new ModelAndView();
 		if(result == true) { // 로그인 성공
 			mav.setViewName("/WEB-INF/index");
+			mav.setViewName("main");
 			mav.addObject("msg", "success");
 			session.setAttribute("email", session.getAttribute("email"));
 		} else {
-			mav.setViewName("cozastore-master/login");
+			mav.setViewName("login");
 			mav.addObject("msg", "failure");
 		}
 		return mav;
