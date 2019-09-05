@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,11 +31,10 @@
 <!--===============================================================================================-->
 </head>
 <body style="background-color: #666666;">
-	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="loginCheck.do" method="post" name="loginForm">
+				<form class="login100-form validate-form" action="loginCheck" method="post" name="loginForm">
 					<span class="login100-form-title p-b-43">
 						Login to continue
 					</span>
@@ -117,6 +117,8 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/logmain.js"></script>
+	<script>
+	</script>
 
 </body>
 </html>

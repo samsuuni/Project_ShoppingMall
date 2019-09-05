@@ -9,19 +9,19 @@
 		<!-- Topbar -->
 		<div class="top-bar">
 			<div class="content-topbar flex-sb-m h-full container">
-				<c:if test="${empty email}">
+				<c:if test="${empty user.user_name}">
 				<div class="left-top-bar">please login your account</div>
 				</c:if>
-				<c:if test="${!empty email}">
-				<div class="left-top-bar">welcome ${email }</div>
+				<c:if test="${!empty user.user_name}">
+				<div class="left-top-bar">welcome ${user.user_name }</div>
 				</c:if>
 
 				<div class="right-top-bar flex-w h-full">
-					<c:if test="${empty email}">
+					<c:if test="${empty user.user_name}">
 					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
 					</c:if>
-					<c:if test="${!empty email}">
-					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG OUT </a></span>
+					<c:if test="${!empty user.user_name}">
+					<span class="logCheck"><a href="logout" class="flex-c-m trans-04 p-lr-25"> LOG OUT </a></span>
 					</c:if>
 				</div>
 			</div>
@@ -47,22 +47,22 @@
 
 						<li data-label1="">
 							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".women">Women</button>
+								data-filter=".category1">category1</button>
 						</li>
 
 						<li>
 							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".men">Men</button>
+								data-filter=".category2">category2</button>
 						</li>
 
 						<li>
 							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".bag">Bag</button>
+								data-filter=".category3">category3</button>
 						</li>
 
 						<li>
 							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".shoes">Shoes</button>
+								data-filter=".category4">category4</button>
 						</li>
 						<li>
 							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"

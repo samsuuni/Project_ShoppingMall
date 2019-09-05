@@ -23,9 +23,9 @@ public class UserController {
 	UserService userService;
 	
 	//로그인 화면
-	@RequestMapping("/login.do")
+	@RequestMapping("/login")
 	public String login() {
-		return "/login";
+		return "login";
 	}
 	
 	// 로그인 화면
@@ -36,15 +36,16 @@ public class UserController {
 
 	
 	//로그인 처리
-	@RequestMapping("loginCheck.do")
+	@RequestMapping("loginCheck")
 	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
 		boolean result = userService.loginCheck(user, session);
 		ModelAndView mav = new ModelAndView();
+		System.out.println("userID " + user.getUser_loginId());
 		if(result) { // login 성공시 page 전환
 			mav.setViewName("main");
 			mav.addObject("msg", "success");
 		}else { // login 실패시 page 전환
-			mav.setViewName("login.do");
+			mav.setViewName("login");
 			mav.addObject("msg", "failure");
 		}
 		return mav;
@@ -56,14 +57,14 @@ public class UserController {
 //	}
 	
 	//로그인처리
-	@PostMapping("/loginCheck")
-	public String loginCheck(@RequestParam("email") String email,@RequestParam("pass") String pass, Model model) {
-		// 아이디랑 패스워드를 가지고 DB에서 얘네 나머지 정보 다 가져오기.
-		model.addAttribute("email", email);
-		model.addAttribute("pass", pass);
-		model.addAttribute("msg", "로그인 성공");
-		return "main";
-	}
+//	@PostMapping("/loginCheck")
+//	public String loginCheck(@RequestParam("email") String email,@RequestParam("pass") String pass, Model model) {
+//		// 아이디랑 패스워드를 가지고 DB에서 얘네 나머지 정보 다 가져오기.
+//		model.addAttribute("email", email);
+//		model.addAttribute("pass", pass);
+//		model.addAttribute("msg", "로그인 성공");
+//		return "main";
+//	}
 //	@PostMapping("/loginCheck")
 //	public String loginCheck(@RequestParam("email") String email,@RequestParam("pass") String pass, Model model) {
 //		model.addAttribute("email", email);
@@ -74,9 +75,10 @@ public class UserController {
 	
 	
 	//로그아웃 처리
-	@RequestMapping("logout.do")
-	public void logout(HttpSession session) {
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
 		userService.logOut(session);
+		return "main";
 	}
 	
 	
