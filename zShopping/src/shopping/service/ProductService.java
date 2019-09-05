@@ -1,12 +1,11 @@
-package shopping.mapper;
+package shopping.service;
 
 import java.util.List;
 
 import shopping.vo.ProductVO;
 
-@MyMapper
-public interface ProductMapper {
+public interface ProductService {
 
+	// 상품리스트 가져오기
 	public List<ProductVO> selectAll();
-	
 }

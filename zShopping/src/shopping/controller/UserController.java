@@ -40,6 +40,7 @@ public class UserController {
 	//로그인처리
 	@PostMapping("/loginCheck")
 	public String loginCheck(@RequestParam("email") String email,@RequestParam("pass") String pass, Model model) {
+		// 아이디랑 패스워드를 가지고 DB에서 얘네 나머지 정보 다 가져오기.
 		model.addAttribute("email", email);
 		model.addAttribute("pass", pass);
 		model.addAttribute("msg", "로그인 성공");
@@ -60,9 +61,5 @@ public class UserController {
 		return "main";
 	}
 	
-	// 상품화면
-	@RequestMapping("/product")
-	public String product() {
-		return "product";
-	}
+
 }

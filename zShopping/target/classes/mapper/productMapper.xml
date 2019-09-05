@@ -6,7 +6,39 @@
 
 <!-- productDB SQL Mapper -->
 <mapper namespace="shopping.mapper.ProductMapper">
-
-
+	<select id="selectAll" resultType="product">
+		select * from product
+	</select>
+	
+<!-- userDB SQL Mapper -->
+<!-- <mapper namespace="shopping.mapper.UserMapper">
+	<insert id="insertUser" parameterType="user">
+		insert into user
+		(user_name,user_loginId,user_password,user_address,user_birth,user_age,user_phone,user_gender)
+		values
+		(#{user_name},#{user_loginId},#{user_password},#{user_address},#{user_birth},#{user_age},#{user_phone},#{user_gender})
+	</insert>
+	<delete id="deleteUser" parameterType="int">
+		delete from user where user_id=#{user_id}
+	</delete>
+	<update id="updateUser" parameterType="user">
+		update user
+		set user_name = #{user_name},
+			user_loginId = #{user_loginId},
+			user_password = #{user_password},
+			user_address = #{user_address},
+			user_birth = #{user_birth},
+			user_age = #{user_age},
+			user_phone = #{user_phone},
+			user_gender = #{user_gender}
+		where user_id = #{user_id}
+	</update>
+	<select id="selectAll" resultType="user">
+		select * from user
+	</select>
+	<select id="selectOne" resultType="user" parameterType="int">
+		select * from user where user_id=#{user_id}
+	</select>
+</mapper> -->
 
 </mapper>
