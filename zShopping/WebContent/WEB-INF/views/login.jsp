@@ -34,7 +34,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="${path}/user/loginCheck.do" method="post">
+				<form class="login100-form validate-form" action="loginCheck" method="post">
 					<span class="login100-form-title p-b-43">
 						Login to continue
 					</span>
@@ -69,7 +69,7 @@
 					</div>
 					<div class="container-login100-form-btn m-t-10">
 						<div class="signup-form-btn">
-						<a href="SIGN UP.jsp">
+						<a href="singUp">
 							Sign Up
 						</a>
 						</div>

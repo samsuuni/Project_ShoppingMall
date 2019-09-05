@@ -21,10 +21,10 @@ public class UserServiceImpl implements UserService{
 		boolean result = userDao.loginCheck(user);
 		ModelAndView mav = new ModelAndView();
 		if(result == true) { // 로그인 성공
-			mav.setViewName("index");
+			mav.setViewName("main");
 			mav.addObject("msg", "success");
 		} else {
-			mav.setViewName("cozastore-master/login");
+			mav.setViewName("login");
 			mav.addObject("msg", "failure");
 		}
 		return mav;

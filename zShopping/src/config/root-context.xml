@@ -67,6 +67,16 @@
 		<property name="basePackage" value="shopping.mapper" />
 		<property name="annotationClass" value="shopping.mapper.MyMapper" />
 	</bean>
+	
+	<!-- 컨트롤러에서 스트링으로 파일 위치를 반환할 때 -->
+	<!-- 앞에 : /WEB-INF/views 없앨수잇음 -->
+	<!-- 뒤에 : .jsp 없앨수잇음 -->
+ 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 반환되는 스트링의 앞에 붙이는 문자 -->
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<!-- 반환되는 스트링 뒤에 붙이는 문자 -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
 
 
 </beans>
