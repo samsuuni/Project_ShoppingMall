@@ -6,7 +6,25 @@
 
 <!-- cartDB SQL Mapper -->
 <mapper namespace="shopping.mapper.CartMapper">
-
+	<insert id="insertCart" parameterType="cart">
+		insert into cart(user_id, prod_id, prod_name, prod_price, prod_totalPrice, prod_cartAmt)
+		values(#{user_id}, #{prod_id}, #{prod_name}, #{prod_price}, #{prod_totalPrice}, #{prod_cartAmt})
+	</insert>
+	<delete id="deleteCart" parameterType="int">
+		delete from cart where cart_id=#{cart_id}
+	</delete>
+	<update id="updateCartAmt" parameterType="cart">
+		update cart set prod_cartAmt=#{prod_cartAmt}, prod_totalPrice=#{prod_totalPrice} where cart_id=#{cart_id}
+	</update>
+	<select id="viewCartWithUserId" parameterType="int" resultType="cart">
+		select * from cart where user_id=#{user_id}
+	</select>
+	<delete id="cleanCart" parameterType="int">
+		delete from cart where user_id=#{user_id}
+	</delete>
+	<select id="cartExists" parameterType="cart" resultType="cart">
+		select * from cart where user_id=#{user_id} and prod_id=#{prod_id}
+	</select>
 
 
 </mapper>
