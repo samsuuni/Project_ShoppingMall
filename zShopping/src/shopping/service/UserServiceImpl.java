@@ -19,19 +19,13 @@ public class UserServiceImpl implements UserService{
 
 	//로그인 체크
 	@Override
-	public ModelAndView loginCheck(UserVO user, HttpSession session) {
+	public boolean loginCheck(UserVO user, HttpSession session) {
 		boolean result = userDao.loginCheck(user);
-		ModelAndView mav = new ModelAndView();
-		if(result == true) { // 로그인 성공
-			mav.setViewName("/WEB-INF/index");
-			mav.setViewName("main");
-			mav.addObject("msg", "success");
-			session.setAttribute("email", session.getAttribute("email"));
-		} else {
-			mav.setViewName("login");
-			mav.addObject("msg", "failure");
+		if(result) { // 로그인 성공시 loginID , name 세션에 등록
+			UserVO userDB = viewUser(user);
+			session.setAttribute("user", userDB);
 		}
-		return mav;
+		return result;
 	}
 	//로그인 정보
 	@Override
@@ -41,8 +35,9 @@ public class UserServiceImpl implements UserService{
 	//로그아웃
 	@Override
 	public void logOut(HttpSession session) {
+		//로그아웃시 login page 전환, msg 등록, 세션 초기화
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("cozastore-master/login");
+		mav.setViewName("login.do");
 		mav.addObject("msg", "logout");
 		session.invalidate();
 	}

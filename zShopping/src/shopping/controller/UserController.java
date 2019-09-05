@@ -26,20 +26,28 @@ public class UserController {
 	//로그인 화면
 	@RequestMapping("/login.do")
 	public String login() {
-		return "/login.jsp";
+		return "/login";
 	}
+	
 	// 로그인 화면
-	@GetMapping("/login")
-	public String loginPage() {
-		return "login";
-	}
+//	@GetMapping("/login")
+//	public String loginPage() {
+//		return "login";
+//	}
 
 	
 	//로그인 처리
 	@RequestMapping("loginCheck.do")
 	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
-		ModelAndView mav = userService.loginCheck(user, session);
-		System.out.println(session.getAttribute("email"));
+		boolean result = userService.loginCheck(user, session);
+		ModelAndView mav = new ModelAndView();
+		if(result) { // login 성공시 page 전환
+			mav.setViewName("main");
+			mav.addObject("msg", "success");
+		}else { // login 실패시 page 전환
+			mav.setViewName("login.do");
+			mav.addObject("msg", "failure");
+		}
 		return mav;
 	}
 //	@PostMapping("/loginCheck")
@@ -49,13 +57,13 @@ public class UserController {
 //	}
 	
 	//로그인처리
-	@PostMapping("/loginCheck")
-	public String loginCheck(@RequestParam("email") String email,@RequestParam("pass") String pass, Model model) {
-		model.addAttribute("email", email);
-		model.addAttribute("pass", pass);
-		model.addAttribute("msg", "로그인 성공");
-		return "main";
-	}
+//	@PostMapping("/loginCheck")
+//	public String loginCheck(@RequestParam("email") String email,@RequestParam("pass") String pass, Model model) {
+//		model.addAttribute("email", email);
+//		model.addAttribute("pass", pass);
+//		model.addAttribute("msg", "로그인 성공");
+//		return "main";
+//	}
 	
 	
 	//로그아웃 처리

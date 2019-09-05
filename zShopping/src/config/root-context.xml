@@ -43,7 +43,7 @@
 
 	<!-- 마이바티스 사용하기 위한 빈등록 -->
 	<!-- sqlSessionFactory빈이 있어야 한다. -->
-	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 
 		<!-- 마이바티스설정파일 -->
 		<property name="configLocation"
@@ -61,7 +61,10 @@
 		<!-- 데이타소스빈 -->
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-
+	<!-- sqlSessionTemplate -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+	</bean>
 	<!-- 마이바티스 인터페이스 매퍼 설정 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="shopping.mapper" />

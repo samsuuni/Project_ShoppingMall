@@ -17,7 +17,7 @@ public class UserDAOImpl implements UserDAO{
 	@Autowired
 	private UserMapper userMapper;
 	
-//	@Autowired
+	@Autowired
 	SqlSession sqlSession;
 	//회원 정보 업데이트
 	@Override
@@ -47,18 +47,18 @@ public class UserDAOImpl implements UserDAO{
 	//로그인 체크
 	@Override
 	public boolean loginCheck(UserVO user) {
-		String name = sqlSession.selectOne("user.loginCheck", user);
+		String name = sqlSession.selectOne("shopping.mapper.UserMapper.loginCheck", user);
 		return (name == null)? false : true;
 	}
 	//로그인 정보
 	@Override
 	public UserVO viewUser(UserVO user) {
-		return sqlSession.selectOne("user.viewUser", user);
+		return sqlSession.selectOne("shopping.mapper.UserMapper.viewUser", user);
 	}
 	//로그아웃
 	@Override
 	public void logout(HttpSession session) {
-		session.removeAttribute("login");
+//		session.removeAttribute("email");
 		session.invalidate();
 	}
 	

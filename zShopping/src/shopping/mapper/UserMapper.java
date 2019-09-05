@@ -11,4 +11,6 @@ public interface UserMapper {
 	public void deleteUser(int id);
 	public UserVO selectOne(String email);
 	public List<UserVO> selectAll();
+	public void loginCheck(UserVO user);
+	public void viewUser(UserVO user);
 }

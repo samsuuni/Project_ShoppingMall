@@ -10,7 +10,7 @@ import shopping.vo.UserVO;
 
 public interface UserService {
 	//회원 로그인 체크
-	public ModelAndView loginCheck(UserVO user, HttpSession session);
+	public boolean loginCheck(UserVO user, HttpSession session);
 	//회원 로그인 정보
 	public UserVO viewUser(UserVO user);
 	//회원 로그아웃

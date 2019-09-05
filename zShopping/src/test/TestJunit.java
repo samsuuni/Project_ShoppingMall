@@ -21,6 +21,7 @@ class TestJunit {
 		UserService us = context.getBean("userService", UserService.class);
 		
 		UserVO user = new UserVO();
+		
 		user.setUser_loginId("powerRanger");
 		user.setUser_name("blue");
 		user.setUser_gender("Man");
@@ -31,6 +32,7 @@ class TestJunit {
 		
 		LocalDate birth = LocalDate.of(1989, 07, 18);
 		user.setUser_birth(birth);
+		
 		
 		us.insertUser(user);
 //		us.deleteUser(1);

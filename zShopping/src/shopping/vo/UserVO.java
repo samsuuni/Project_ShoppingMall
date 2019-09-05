@@ -3,6 +3,7 @@ package shopping.vo;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Repository;
 
 public class UserVO {
 	private int user_id;
