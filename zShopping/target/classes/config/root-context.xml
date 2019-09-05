@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 
-	<mvc:resources location="/WEB-INF/css/css/" mapping="css/**"/>
+	<mvc:resources location="/WEB-INF/css/css/" mapping="/css/**"/>
 	<mvc:resources location="/WEB-INF/css/js/" mapping="/js/**"/>
 	<mvc:resources location="/WEB-INF/css/fonts/" mapping="/fonts/**"/>
 	<mvc:resources location="/WEB-INF/css/images/" mapping="/images/**"/>

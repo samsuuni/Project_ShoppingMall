@@ -36,8 +36,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 	//회원 정보(one)
 	@Override
-	public UserVO selectOne(int id) {
-		return userMapper.selectOne(id);
+	public UserVO selectOne(String email) {
+		return userMapper.selectOne(email);
 	}
 	//회원 정보(all)
 	@Override

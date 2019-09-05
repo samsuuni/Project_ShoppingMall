@@ -20,13 +20,14 @@ public class UserController {
 	//로그인 화면
 	@RequestMapping("/login.do")
 	public String login() {
-		return "/homepage/login.jsp";
+		return "/login.jsp";
 	}
 	
 	//로그인 처리
 	@RequestMapping("loginCheck.do")
 	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
 		ModelAndView mav = userService.loginCheck(user, session);
+		System.out.println(session.getAttribute("email"));
 		return mav;
 	}
 	//로그아웃 처리

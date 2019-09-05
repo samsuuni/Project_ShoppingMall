@@ -1,5 +1,7 @@
 package shopping.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,9 @@ public class UserServiceImpl implements UserService{
 		boolean result = userDao.loginCheck(user);
 		ModelAndView mav = new ModelAndView();
 		if(result == true) { // 로그인 성공
-			mav.setViewName("index");
+			mav.setViewName("/WEB-INF/index");
 			mav.addObject("msg", "success");
+			session.setAttribute("email", session.getAttribute("email"));
 		} else {
 			mav.setViewName("cozastore-master/login");
 			mav.addObject("msg", "failure");
@@ -55,12 +58,11 @@ public class UserServiceImpl implements UserService{
 		userDao.deleteUser(id);
 	}
 	@Override
-	public void selectUser(int id) {
-		userDao.selectOne(id);
+	public UserVO selectUser(String email) {
+		return userDao.selectOne(email);
 	}
 	@Override
-	public void selectAll() {
-		userDao.selectAll();
+	public List<UserVO> selectAll() {
+		return userDao.selectAll();
 	}
-	
 }

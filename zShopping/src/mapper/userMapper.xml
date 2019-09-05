@@ -31,6 +31,6 @@
 		select * from user
 	</select>
 	<select id="selectOne" resultType="user" parameterType="int">
-		select * from user where user_id=#{user_id}
+		select * from user where user_loginId=#{user_loginId}
 	</select>
 </mapper>

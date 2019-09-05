@@ -1,5 +1,7 @@
 package shopping.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +22,7 @@ public interface UserService {
 	//회원 탈퇴
 	public void deleteUser(int id);
 	//회원 정보 (1인)
-	public void selectUser(int id);
+	public UserVO selectUser(String email);
 	//회원 정보 (all)
-	public void selectAll();
+	public List<UserVO> selectAll();
 }
