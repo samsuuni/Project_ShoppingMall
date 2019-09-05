@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +22,33 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	// 로그인 화면
-	@GetMapping("/login")
-	public String loginPage() {
-		return "login";
+	//로그인 화면
+	@RequestMapping("/login.do")
+	public String login() {
+		return "/login";
 	}
+	
+	// 로그인 화면
+//	@GetMapping("/login")
+//	public String loginPage() {
+//		return "login";
+//	}
 
 	
 	//로그인 처리
+	@RequestMapping("loginCheck.do")
+	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
+		boolean result = userService.loginCheck(user, session);
+		ModelAndView mav = new ModelAndView();
+		if(result) { // login 성공시 page 전환
+			mav.setViewName("main");
+			mav.addObject("msg", "success");
+		}else { // login 실패시 page 전환
+			mav.setViewName("login.do");
+			mav.addObject("msg", "failure");
+		}
+		return mav;
+	}
 //	@PostMapping("/loginCheck")
 //	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
 //		ModelAndView mav = userService.loginCheck(user, session);
@@ -46,6 +64,13 @@ public class UserController {
 		model.addAttribute("msg", "로그인 성공");
 		return "main";
 	}
+//	@PostMapping("/loginCheck")
+//	public String loginCheck(@RequestParam("email") String email,@RequestParam("pass") String pass, Model model) {
+//		model.addAttribute("email", email);
+//		model.addAttribute("pass", pass);
+//		model.addAttribute("msg", "로그인 성공");
+//		return "main";
+//	}
 	
 	
 	//로그아웃 처리

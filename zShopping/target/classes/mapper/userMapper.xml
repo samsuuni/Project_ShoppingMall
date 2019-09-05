@@ -31,6 +31,15 @@
 		select * from user
 	</select>
 	<select id="selectOne" resultType="user" parameterType="int">
-		select * from user where user_id=#{user_id}
+		select * from user where user_loginId=#{user_loginId}
+	</select>
+	<select id="loginCheck" resultType="String" parameterType="user">
+		select user_name from user
+		where user_loginId=#{user_loginId} and user_password=#{user_password}
+	</select>
+	<select id="viewUser" resultType="user" parameterType="user">
+		select user_name, user_loginId
+		from user 
+		where user_loginId=#{user_loginId} and user_password=#{user_password}
 	</select>
 </mapper>

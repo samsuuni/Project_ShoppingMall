@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.servlet.ModelAndView;
+
 import shopping.vo.UserVO;
 
 public interface UserDAO {
@@ -12,7 +14,7 @@ public interface UserDAO {
 	public void updateUser(UserVO user);
 	public void deleteUser(int id);
 	public void insertUser(UserVO user);
-	public UserVO selectOne(int id);
+	public UserVO selectOne(String email);
 	public List<UserVO> selectAll();
 	
 	//로그인 체크

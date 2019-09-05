@@ -34,19 +34,18 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="loginCheck" method="post">
+				<form class="login100-form validate-form" action="loginCheck.do" method="post" name="loginForm">
 					<span class="login100-form-title p-b-43">
 						Login to continue
 					</span>
 					
-					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="email">
+						<input class="input100" id="email" type="text" name="user_loginId" placeholder="email">
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" placeholder="password">
+						<input class="input100" id="pass" type="password" name="user_password" placeholder="password">
 					</div>
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
@@ -63,13 +62,13 @@
 			
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" id="loginBtn">
 							Login
 						</button>
 					</div>
 					<div class="container-login100-form-btn m-t-10">
 						<div class="signup-form-btn">
-						<a href="singUp">
+						<a href="signUp">
 							Sign Up
 						</a>
 						</div>

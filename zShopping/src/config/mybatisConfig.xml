@@ -6,9 +6,9 @@
 <configuration>
 
 	<!-- 카멜매핑 셋팅 -->
-	<settings>
+	<!-- <settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
-	</settings>
+	</settings> -->
 
 	<!-- 알리아스 설정 -->
 	<typeAliases>

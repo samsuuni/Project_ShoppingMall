@@ -84,5 +84,23 @@
         $(thisAlert).removeClass('alert-validate');
     }
     
+    /* 로그인 버튼 클릭시 page 전환 */
+    /*$("#loginBtn").click(function(){ //
+    	var email = $("email").val();
+    	var pass = $("pass").val();
+    	if(email==''){
+    		alert("write email plz");
+    		$("#email").focus();
+    		return;
+    	}
+    	if(pass==''){
+    		alert("write pass plz");
+    		$("#pass").focus();
+    		return;
+    	}
+    	document.loginForm.action="loginCheck.do"
+    	document.loginForm.submit();
+    	
+    })*/
 
 })(jQuery);
