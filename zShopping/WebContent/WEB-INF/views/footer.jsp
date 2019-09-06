@@ -119,9 +119,19 @@
 </div>
 
 
+<!-- Check email and password -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+	$(function(){
+		var msg = "${msg}";
+		if(msg=="failure"){
+			alert("please check your email or password");
+		}
+	});
+</script>
+
 
 <!-- Load More Button -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
 	$(function() {
 		$(".buttonTest").on('click', function() {

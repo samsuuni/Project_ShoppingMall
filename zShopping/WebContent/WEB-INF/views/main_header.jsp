@@ -44,127 +44,17 @@
 				<!-- Icon header -->
 				<div class="wrap-icon-header flex-w flex-r-m">
 					<!-- 장바구니에서 위에 카운트해주는거 -->
+					<c:set var="cnt" value="0"/>
+					<c:forEach var="cart" items="${cartList }">
+						<c:set var="cnt" value="${cnt + 1 }"/>
+					</c:forEach>
 					<div
 						class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-						data-notify="0">
+						data-notify="${cnt }">
 						<i class="zmdi zmdi-shopping-cart"></i>
 					</div>
 				</div>
 			</nav>
-		</div>
-	</div>
-
-
-
-
-	<!-- Header Mobile -->
-	<div class="wrap-header-mobile">
-		<!-- Logo moblie -->
-		<div class="logo-mobile">
-			<a href="index.html"><img src="images/icons/logo-01.png"
-				alt="IMG-LOGO"></a>
-		</div>
-
-		<!-- Icon header -->
-		<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-			<div
-				class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-				<i class="zmdi zmdi-search"></i>
-			</div>
-
-			<div
-				class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-				data-notify="2">
-				<i class="zmdi zmdi-shopping-cart"></i>
-			</div>
-
-			<a href="#"
-				class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
-				data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
-			</a>
-		</div>
-
-		<!-- Button show menu -->
-		<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-			<span class="hamburger-box"> <span class="hamburger-inner"></span>
-			</span>
-		</div>
-	</div>
-
-
-	<!-- Menu Mobile -->
-	<div class="menu-mobile">
-		<ul class="topbar-mobile">
-			<li>
-				<div class="left-top-bar">some body help me</div>
-			</li>
-
-			<li>
-				<div class="right-top-bar flex-w h-full">
-					<a href="#" class="flex-c-m p-lr-10 trans-04"> My Account </a>
-
-				</div>
-			</li>
-		</ul>
-
-
-
-
-		<!-- Product Category mobile -->
-		<div class="menu-mobile flex-w flex-l-m filter-tope-group m-tb-10">
-			<ul class="main-menu">
-
-				<li class="active-menu">
-					<button
-						class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
-						data-filter="*">All Products</button>
-				</li>
-
-				<li data-label1="">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-						data-filter=".women">Women</button>
-				</li>
-
-				<li>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-						data-filter=".men">Men</button>
-				</li>
-
-				<li>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-						data-filter=".bag">Bag</button>
-				</li>
-
-				<li>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-						data-filter=".shoes">Shoes</button>
-				</li>
-				<li>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-						data-filter=".watches">Watches</button>
-				</li>
-			</ul>
-		</div>
-
-
-
-	</div>
-
-	<!-- Modal Search -->
-	<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-		<div class="container-search-header">
-			<button
-				class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-				<img src="images/icons/icon-close2.png" alt="CLOSE">
-			</button>
-
-			<form class="wrap-search-header flex-w p-l-15">
-				<button class="flex-c-m trans-04">
-					<i class="zmdi zmdi-search"></i>
-				</button>
-				<input class="plh3" type="text" name="search"
-					placeholder="Search...">
-			</form>
 		</div>
 	</div>
 </header>
@@ -190,46 +80,32 @@
 		</div>
 
 		<div class="header-cart-content flex-w js-pscroll">
+		
+		
+		<!-- cart image start -->
+					<!-- Cart Image Start  -->
 			<ul class="header-cart-wrapitem w-full">
+				<c:set var="sum" value="0"/>
+				<c:forEach var="cart" items="${cartList }">
 				<li class="header-cart-item flex-w flex-t m-b-12">
 					<div class="header-cart-item-img">
-						<img src="images/item-cart-01.jpg" alt="IMG">
+						<img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG">
 					</div>
 
 					<div class="header-cart-item-txt p-t-8">
 						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-							White Shirt Pleat </a> <span class="header-cart-item-info"> 1
-							x $19.00 </span>
+							${cart.prod_name } </a> <span class="header-cart-item-info"> 1
+							x $${cart.prod_price } </span>
 					</div>
 				</li>
+				<c:set var="sum" value="${sum + cart.prod_price }"/>
+				</c:forEach>
 
-				<li class="header-cart-item flex-w flex-t m-b-12">
-					<div class="header-cart-item-img">
-						<img src="images/item-cart-02.jpg" alt="IMG">
-					</div>
-
-					<div class="header-cart-item-txt p-t-8">
-						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-							Converse All Star </a> <span class="header-cart-item-info"> 1
-							x $39.00 </span>
-					</div>
-				</li>
-
-				<li class="header-cart-item flex-w flex-t m-b-12">
-					<div class="header-cart-item-img">
-						<img src="images/item-cart-03.jpg" alt="IMG">
-					</div>
-
-					<div class="header-cart-item-txt p-t-8">
-						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-							Nixon Porter Leather </a> <span class="header-cart-item-info">
-							1 x $17.00 </span>
-					</div>
-				</li>
 			</ul>
+			<!-- Cart Image End  -->
 
 			<div class="w-full">
-				<div class="header-cart-total w-full p-tb-40">Total: $75.00</div>
+				<div class="header-cart-total w-full p-tb-40">Total: ${sum }</div>
 
 				<div class="header-cart-buttons flex-w w-full">
 					<a href="shoping-cart.html"
@@ -239,6 +115,8 @@
 						Check Out </a>
 				</div>
 			</div>
+			
+			
 		</div>
 	</div>
 </div>

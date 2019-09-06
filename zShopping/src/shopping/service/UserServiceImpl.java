@@ -1,5 +1,6 @@
 package shopping.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import shopping.dao.UserDAO;
+import shopping.vo.CartVO;
 import shopping.vo.UserVO;
 
 @Service("userService")
@@ -25,6 +27,16 @@ public class UserServiceImpl implements UserService{
 			UserVO userDB = viewUser(user);
 			session.setAttribute("user", userDB);
 		}
+		CartVO cart = new CartVO(1, 2, 1, "product-01", 50000, 2, 100000);
+		CartVO cart2 = new CartVO(1, 2, 2, "product-02", 23400, 1, 23400);
+		CartVO cart3 = new CartVO(1, 2, 3, "product-03", 23400, 3, 70200);
+		List<CartVO> cartList = new ArrayList<CartVO>();
+		
+		cartList.add(cart);
+		cartList.add(cart2);
+		cartList.add(cart3);
+		session.setAttribute("cartList", cartList);
+		System.out.println("service메소드에서 cartList : " + cartList);
 		return result;
 	}
 	//로그인 정보
