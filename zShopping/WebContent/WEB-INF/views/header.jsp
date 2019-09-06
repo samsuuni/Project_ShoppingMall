@@ -6,6 +6,8 @@
 <header class="header-v4">
 	<!-- Header desktop -->
 	<div class="container-menu-desktop">
+	
+	
 		<!-- Topbar -->
 		<div class="top-bar">
 			<div class="content-topbar flex-sb-m h-full container">
@@ -31,7 +33,7 @@
 			<nav class="limiter-menu-desktop container">
 
 				<!-- Logo desktop -->
-				<a href="#" class="logo"> <img src="images/icons/logo-01.png"
+				<a href="main" class="logo"> <img src="images/icons/logo-01.png"
 					alt="IMG-LOGO">
 				</a>
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import shopping.service.CartService;
 import shopping.vo.CartVO;
 
-@Controller
+//@Controller
 public class CartController {
 //	
 //	@Autowired
@@ -49,5 +49,4 @@ public class CartController {
 //	public void cleanCart(int user_id) {
 //		cartService.cleanCart(user_id);
 //	}
-//	
 }
