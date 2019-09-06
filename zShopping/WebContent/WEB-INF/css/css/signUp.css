@@ -251,10 +251,15 @@ body {
   color: #222;
   font-weight: 400;
   background: #282828;
-  padding: 90px 0; }
+  padding: 0; }
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+}
 
 .container {
-  width: 1400px;
+  width: 100%;
   position: relative;
   margin: 0 auto;
   background: #fff; }
@@ -436,7 +441,7 @@ select {
 
 @media screen and (max-width: 992px) {
   .container {
-    width: calc(100% - 40px);
+    width: calc(100%);
     max-width: 100%; }
 
   .signup-content {
@@ -450,7 +455,7 @@ select {
     width: 100%; } }
 @media screen and (max-width: 768px) {
   .register-form {
-    padding: 50px 40px 50px 40px; } }
+    padding: 0px 0px 0px 0px; } }
 @media screen and (max-width: 575px) {
   .form-row {
     flex-direction: column;
