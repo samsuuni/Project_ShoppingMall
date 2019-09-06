@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import shopping.service.CartService;
 import shopping.vo.CartVO;
 
-//@Controller
+@Controller
 public class CartController {
-//	
-//	@Autowired
-//	private CartService cartService;
-//	
+	
+	@Autowired
+	private CartService cartService;
+	
 //	//장바구니 상품 추가
 //	@RequestMapping("/shopping-cart")
 //	public String addToCart(CartVO cart, Model model) {		
 //		cartService.addToCart(cart);
 //		model.addAttribute("varCart", cart);
-//		return "shopping-cart.jsp";
+//		return "shopping-cart";
 //	}
 //	
-//	//장바구니 목록 불러오기
-//	@RequestMapping("/shopping-cart")
-//	public String viewUserCart(int user_id, Model model) {		
-//		List<CartVO> cartlist = cartService.viewUserCart(user_id);
-//		model.addAttribute("varCartList", cartlist);
-//		return "shopping-cart.jsp";
-//	}
+	//장바구니 목록 불러오기
+	@RequestMapping("/cart")
+	public String viewUserCart(int user_id, Model model) {		
+		List<CartVO> cartList = cartService.viewUserCart(user_id);
+		model.addAttribute("cartList", cartList);
+		return "shopping_cart";
+	}
 //	
 //	
 //	//Ajax(장바구니 화면에서 실행)
@@ -48,6 +48,11 @@ public class CartController {
 //	@RequestMapping("/shopping-cart")
 //	public void cleanCart(int user_id) {
 //		cartService.cleanCart(user_id);
+//	}
+	
+//	@RequestMapping("/cart")
+//	public String cart() {
+//		return "shopping_cart";
 //	}
 	
 }

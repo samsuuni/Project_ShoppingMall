@@ -158,8 +158,6 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/logmain.js"></script>
-	<script>
-	</script>
 
 </body>
 </html>
