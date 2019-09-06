@@ -83,9 +83,9 @@ public class UserController {
 	
 	
 	//메인화면
-	@RequestMapping("/main")
+	@RequestMapping("main")
 	public String main() {
-		return "main";
+		return "/main";
 	}
 	
 
