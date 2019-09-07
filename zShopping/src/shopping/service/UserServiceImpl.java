@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import shopping.dao.CartDAO;
 import shopping.dao.UserDAO;
+import shopping.vo.CartVO;
 import shopping.vo.UserVO;
 
 @Service("userService")
@@ -16,15 +18,31 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	UserDAO userDao;
+	
+	@Autowired
+	CartDAO cartDao;
 
 	//로그인 체크
 	@Override
 	public boolean loginCheck(UserVO user, HttpSession session) {
 		boolean result = userDao.loginCheck(user);
-		if(result) { // 로그인 성공시 loginID , name 세션에 등록
+		if(result) { // 로그인 성공시 loginID , name 세션에 등록  +user_id
 			UserVO userDB = viewUser(user);
 			session.setAttribute("user", userDB);
+			
+			List<CartVO> cartList = cartDao.viewCartWithUserId(userDB.getUser_id());
+			session.setAttribute("cartList", cartList);
+			System.out.println("UserService에서 cartList : " + cartList);
 		}
+//		CartVO cart = new CartVO(1, 2, 1, "product-01", 50000, 2, 100000);
+//		CartVO cart2 = new CartVO(1, 2, 2, "product-02", 23400, 1, 23400);
+//		CartVO cart3 = new CartVO(1, 2, 3, "product-03", 23400, 3, 70200);
+//		List<CartVO> cartList = new ArrayList<CartVO>();
+//		
+//		cartList.add(cart);
+//		cartList.add(cart2);
+//		cartList.add(cart3);
+		
 		return result;
 	}
 	//로그인 정보

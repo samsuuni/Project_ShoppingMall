@@ -2,7 +2,15 @@
 (function ($) {
     "use strict";
 
-
+/*     check email and password
+	$(function(){
+		var msg = "${msg}";
+		if(msg=="failure"){
+			alert("please check your email or password");
+		}
+	});
+    */
+    
     /*==================================================================
     [ Focus Contact2 ]*/
     $('.input100').each(function(){

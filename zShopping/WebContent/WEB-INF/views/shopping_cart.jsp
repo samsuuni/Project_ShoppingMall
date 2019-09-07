@@ -59,7 +59,7 @@
 								<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
+											<img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG">
 										</div>
 									</td>
 									<td class="column-2">${cart.prod_name }</td>
@@ -150,9 +150,9 @@
 							</div>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+						 <a href="checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 							Proceed to Checkout
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>

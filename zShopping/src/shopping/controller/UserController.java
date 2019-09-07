@@ -1,5 +1,6 @@
 package shopping.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import shopping.service.UserService;
+import shopping.vo.CartVO;
 import shopping.vo.UserVO;
 
 @Controller
@@ -26,7 +28,7 @@ public class UserController {
 	public String login() {
 		return "login";
 	}
-	
+
 
 	
 	//로그인 처리
@@ -34,22 +36,22 @@ public class UserController {
 	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
 		boolean result = userService.loginCheck(user, session);
 		ModelAndView mav = new ModelAndView();
-		System.out.println("userID " + user.getUser_loginId());
 		if(result) { // login 성공시 page 전환
 			mav.setViewName("main");
-			mav.addObject("msg", "success");
 		}else { // login 실패시 page 전환
 			mav.setViewName("login");
 			mav.addObject("msg", "failure");
 		}
+		
 		return mav;
 	}
 
 	
 	//로그아웃 처리
-	@RequestMapping("logout")
-	public String logout(HttpSession session) {
+	@RequestMapping("/logout")
+	public String logout(String page, HttpSession session, Model model) {
 		userService.logOut(session);
+		model.addAttribute("page", page);
 		return "main";
 	}
 	
