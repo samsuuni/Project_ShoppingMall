@@ -128,7 +128,7 @@
 
     /*==================================================================
     [ Isotope ]*/
-    var $topeContainer = $('.isotope-grid');
+/*    var $topeContainer = $('.isotope-grid');
     var $filter = $('.filter-tope-group');
 
     // filter items on button click
@@ -165,7 +165,7 @@
 
             $(this).addClass('how-active1');
         });
-    });
+    });*/
 
     /*==================================================================
     [ Filter / Search product ]*/
@@ -222,6 +222,10 @@
     $('.btn-num-product-up').on('click', function(){
         var numProduct = Number($(this).prev().val());
         $(this).prev().val(numProduct + 1);
+    });
+    
+    $('.test').on('click', function(){
+    	alert('gkdl');
     });
 
     /*==================================================================

@@ -12,7 +12,6 @@ import shopping.service.ProductService;
 import shopping.vo.ProductVO;
 
 @Controller
-@SessionAttributes("productList")
 public class ProductController {
 	
 	@Autowired
@@ -23,6 +22,13 @@ public class ProductController {
 		List<ProductVO> productList = productService.selectAll();
 		model.addAttribute("productList", productList);
 		return "product";
+	}
+	
+	@RequestMapping("/productCategory")
+	public String productViewCategory(String prod_category, Model model) {
+		List<ProductVO> productList = productService.selectProductCategory(prod_category);
+		model.addAttribute("productList", productList);
+		return "productCategory";
 	}
 
 }

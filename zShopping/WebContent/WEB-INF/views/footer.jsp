@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Footer -->
 <footer class="bg3 p-t-75 p-b-32">
 	<div class="container">
@@ -132,7 +132,7 @@
 
 
 <!-- Load More Button -->
-<script>
+<!-- <script>
 	$(function() {
 		$(".buttonTest").on('click', function() {
 			/* isotope-grid클래스의 height에 1251.27 더해야함 */
@@ -142,6 +142,26 @@
 			$(".test").css('display','');
 		});
 	});
+</script> -->
+<script>
+/* url에서 파라미터값 가져오는 function */
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+		$(function(){
+			if(getParameterByName('prod_category')!=null){
+				
+			var test = getParameterByName('prod_category');
+			$("."+test).parent().parent().children().removeClass('active-menu');
+			$("."+test).parent().addClass('active-menu');
+			}
+		});
+		
+
+	
 </script>
 
 
