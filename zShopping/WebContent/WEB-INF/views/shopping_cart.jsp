@@ -169,17 +169,21 @@
 			        if(numProduct2 > 0) $(this).next().next().val(numProduct2 - 1);
 			        var cartAmt = $('.cartAmt').val();
 			        alert(cartAmt);
-			        $.ajax({
-			        	type : 'GET',
-			        	url : '/shoppingCartUpdate',
-			        	data : {'cartAmt':$('.cartAmt').val()},
-			        	success : function(msg){
-			        		alert('success');
-			        		msg.msg;
-			        	}, error: function(){
-			        		alert('false');
-			        	}
+			      	  $.ajax({
+			      		  type:'post',
+			      		  data: cartAmt,
+			      		  url:"shoppingCartUpdate",
+			      		  dataType:"json",
+			      		  contentType:"application/json; charset=UTF-8",
+			      		  success:function(cartAmt){
+			      				  alert("cartAmt" + cartAmt);
+			      		  },
+			      		  error : function(error){
+			      			  alert("error : "+"null 값이adfa");
+			      		  }
+			      	  });
 			        });
+
 			    });
 
 			    $('.btn-num-product-upup').on('click', function(){
@@ -191,7 +195,6 @@
 			        alert(cartAmt);
 			        
 			    });
-			});
 		</script>
 		
 

@@ -39,11 +39,8 @@ public class CartController {
 	@RequestMapping("/shoppingCartUpdate")
 	@ResponseBody
 	public Map cartUpdate(@RequestBody String cartAmt) {
-		System.out.println(cartAmt);
-		System.out.println("하하하하핳");
 		Map<Object, Object> msg = new HashMap<Object, Object>();
-		System.out.println("gkdlgkdl");
-		msg.put("msg", cartAmt);
+		msg.put("cartAmt", cartAmt);
 		
 		return msg;
 	}
