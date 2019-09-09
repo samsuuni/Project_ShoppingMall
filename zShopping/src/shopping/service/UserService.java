@@ -25,4 +25,6 @@ public interface UserService {
 	public UserVO selectUser(String email);
 	//회원 정보 (all)
 	public List<UserVO> selectAll();
+	//이메일 중복 체크
+	public boolean emailCheck(UserVO user, HttpSession session);
 }

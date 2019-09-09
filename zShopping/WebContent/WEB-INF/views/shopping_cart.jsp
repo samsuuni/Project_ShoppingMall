@@ -55,7 +55,7 @@
                         
                         <c:set var="sum" value="0"/>
                         <c:forEach var="cart" items="${cartList }">
-
+                        
                         <tr class="table_row">
                            <td class="column-1">
                               <div class="how-itemcart1">
@@ -132,5 +132,6 @@
    </form>
       
       <jsp:include page="footer.jsp"/>
+
 </body>
 </html>

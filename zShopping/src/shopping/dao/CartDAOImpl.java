@@ -47,6 +47,11 @@ public class CartDAOImpl implements CartDAO{
 		return false;
 	}
 
+	@Override
+	public CartVO selectOneWithCartId(int cart_id) {
+		return cartMapper.selectOneWithCartId(cart_id);
+	}
+
 	
 	
 
