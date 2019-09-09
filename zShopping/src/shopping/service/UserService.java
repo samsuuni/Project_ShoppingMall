@@ -16,7 +16,7 @@ public interface UserService {
 	//회원 로그아웃
 	public void logOut(HttpSession session);
 	//회원 가입
-	public void insertUser(UserVO user);
+	public int insertUser(UserVO user, HttpSession session);
 	//회원 정보 수정
 	public void updateUser(UserVO user);
 	//회원 탈퇴
@@ -26,5 +26,5 @@ public interface UserService {
 	//회원 정보 (all)
 	public List<UserVO> selectAll();
 	//이메일 중복 체크
-	public boolean emailCheck(UserVO user, HttpSession session);
+	public int emailCheck(String user_loginId);
 }

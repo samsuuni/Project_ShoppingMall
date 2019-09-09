@@ -31,8 +31,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 	//회원 가입
 	@Override
-	public void insertUser(UserVO user) {
-		userMapper.insertUser(user);
+	public int insertUser(UserVO user) {
+		return userMapper.insertUser(user);
 	}
 	//회원 정보(one)
 	@Override
@@ -61,4 +61,11 @@ public class UserDAOImpl implements UserDAO{
 //		session.removeAttribute("email");
 		session.invalidate();
 	}
+	//email 중복 체크
+	@Override
+	public int emailCheck(String user_loginId) {
+		int emailCheck = sqlSession.selectOne("shopping.mapper.UserMapper.emailCheck", user_loginId);
+		return emailCheck;
+	}
+	
 }

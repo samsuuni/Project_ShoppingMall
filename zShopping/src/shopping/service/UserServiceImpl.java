@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
 			
 			List<CartVO> cartList = cartDao.viewCartWithUserId(userDB.getUser_id());
 			session.setAttribute("cartList", cartList);
-			System.out.println("UserService에서 cartList : " + cartList);
+//			System.out.println("UserService에서 cartList : " + cartList);
 		}
 //		CartVO cart = new CartVO(1, 2, 1, "product-01", 50000, 2, 100000);
 //		CartVO cart2 = new CartVO(1, 2, 2, "product-02", 23400, 1, 23400);
@@ -59,10 +59,15 @@ public class UserServiceImpl implements UserService{
 		mav.addObject("msg", "logout");
 		session.invalidate();
 	}
-	
+	//회원 가입
 	@Override
-	public void insertUser(UserVO user) {
-		userDao.insertUser(user);
+	public int insertUser(UserVO user, HttpSession session) {
+		int result = userDao.insertUser(user);
+		if(result>0) {
+			UserVO userDB = viewUser(user);
+			session.setAttribute("user", userDB);
+		}
+		return result;
 	}
 	@Override
 	public void updateUser(UserVO user) {
@@ -82,14 +87,10 @@ public class UserServiceImpl implements UserService{
 	}
 	//이메일 중복 체크
 	@Override
-	public boolean emailCheck(UserVO user, HttpSession session) {
+	public int emailCheck(String user_loginId) {
 		//객체 존재 여부 확인
-		boolean result = userDao.loginCheck(user);
-		if(result) { // 객체 존재시 false 반환이니 다시 돌림
-			result = true;
-		}else {
-			result = false;
-		}
+		int result = userDao.emailCheck(user_loginId);
 		return result;
 	}
+	
 }
