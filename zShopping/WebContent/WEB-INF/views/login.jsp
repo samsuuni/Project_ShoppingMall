@@ -174,14 +174,6 @@ html, body {
 	<script src="js/logmain.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script>
-		$(function() {	
-			var msg = "${msg}";
-			if (msg == "failure") {
-				alert("please check your email or password");
-			}
-		});
-	</script>
 
 </body>
 </html>

@@ -94,11 +94,11 @@
 
 					<div class="header-cart-item-txt p-t-8">
 						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-							${cart.prod_name } </a> <span class="header-cart-item-info"> 1
+							${cart.prod_name } </a> <span class="header-cart-item-info"> ${cart.prod_cartAmt }
 							x $${cart.prod_price } </span>
 					</div>
 				</li>
-				<c:set var="sum" value="${sum + cart.prod_price }"/>
+				<c:set var="sum" value="${sum + cart.prod_totalPrice }"/>
 				</c:forEach>
 
 			</ul>
@@ -108,9 +108,9 @@
 				<div class="header-cart-total w-full p-tb-40">Total: ${sum }</div>
 
 				<div class="header-cart-buttons flex-w w-full">
-					<a href="shoping-cart.html"
+					<a href="shopping_cart?user_id=${user.user_id }"
 						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-						View Cart </a> <a href="shoping-cart.html"
+						View Cart </a> <a href="checkout"
 						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 						Check Out </a>
 				</div>

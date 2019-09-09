@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Shoping Cart</title>
+	<title>Shopping Cart</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -30,12 +31,13 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<script></script>
 </head>
 <body class="animsition">
 	<jsp:include page="header.jsp"/>
 	
 	
-	<!-- Shoping Cart -->
+	<!-- Shopping Cart -->
 	<form class="bg0 p-t-75 p-b-85">
 		<div class="container">
 			<div class="row">
@@ -47,35 +49,42 @@
 									<th class="column-1">Product</th>
 									<th class="column-2"></th>
 									<th class="column-3">Price</th>
-									<th class="column-4">Quantity</th>
+									<th class="column-4">Amount</th>
 									<th class="column-5">Total</th>
 								</tr>
+								
+								<c:set var="sum" value="0"/>
+								<c:forEach var="cart" items="${cartList }">
 
 								<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
+											<img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG">
 										</div>
 									</td>
-									<td class="column-2">Fresh Strawberries</td>
-									<td class="column-3">$ 36.00</td>
+									<td class="column-2">${cart.prod_name }</td>
+									<td class="column-3">${cart.prod_price }</td>
 									<td class="column-4">
 										<div class="wrap-num-product flex-w m-l-auto m-r-0">
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1">
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="${cart.prod_cartAmt }">
 
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
 									</td>
-									<td class="column-5">$ 36.00</td>
+									<td class="column-5">${cart.prod_totalPrice }</td>
+									<c:set var="sum" value="${sum+cart.prod_totalPrice}"/>
 								</tr>
-
-								<tr class="table_row">
+								
+								</c:forEach>
+								
+								<!-- row2 -->
+ 							<!-- <tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
 											<img src="images/item-cart-05.jpg" alt="IMG">
@@ -98,6 +107,9 @@
 									</td>
 									<td class="column-5">$ 16.00</td>
 								</tr>
+								 -->
+								 
+								 
 							</table>
 						</div>
 
@@ -133,21 +145,21 @@
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									$79.65
+									<c:out value="${sum }"/>
 								</span>
 							</div>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+						 <a href="checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 							Proceed to Checkout
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
 		
-	
+		<script src="js/cartpage.js"></script>
 		<jsp:include page="footer.jsp"/>
 </body>
 </html>

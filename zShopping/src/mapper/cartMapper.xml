@@ -26,5 +26,4 @@
 		select * from cart where user_id=#{user_id} and prod_id=#{prod_id}
 	</select>
 
-
 </mapper>
