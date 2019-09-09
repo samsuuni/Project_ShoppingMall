@@ -53,6 +53,7 @@ public class UserServiceImpl implements UserService{
 		mav.addObject("msg", "logout");
 		session.invalidate();
 	}
+	
 	@Override
 	public void insertUser(UserVO user) {
 		userDao.insertUser(user);
@@ -72,5 +73,17 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<UserVO> selectAll() {
 		return userDao.selectAll();
+	}
+	//이메일 중복 체크
+	@Override
+	public boolean emailCheck(UserVO user, HttpSession session) {
+		//객체 존재 여부 확인
+		boolean result = userDao.loginCheck(user);
+		if(result) { // 객체 존재시 false 반환이니 다시 돌림
+			result = true;
+		}else {
+			result = false;
+		}
+		return result;
 	}
 }

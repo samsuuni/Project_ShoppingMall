@@ -49,5 +49,4 @@ public class CartController {
 //	public void cleanCart(int user_id) {
 //		cartService.cleanCart(user_id);
 //	}
-	
 }

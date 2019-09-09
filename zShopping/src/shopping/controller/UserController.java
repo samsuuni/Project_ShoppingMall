@@ -22,7 +22,6 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
-	
 	//로그인 화면
 	@RequestMapping("/login")
 	public String login() {
@@ -30,6 +29,7 @@ public class UserController {
 	}
 
 
+	
 	
 	//로그인 처리
 	@RequestMapping("loginCheck")
@@ -57,10 +57,27 @@ public class UserController {
 	
 	
 	//메인화면
-	@RequestMapping("/main")
+	@RequestMapping("main")
 	public String main() {
-		return "main";
+		return "/main";
 	}
 	
-
+	//회원가입 화면
+	@RequestMapping("signUp")
+	public String signUp() {
+		return "/signUp";
+	}
+	
+	//email 중복 확인
+	@RequestMapping("emailCheck")
+	public Model emailCheck(@ModelAttribute UserVO user, HttpSession session) {
+		boolean result = userService.emailCheck(user, session);
+		Model model = null;
+		if(result) {
+			model.addAttribute("msg", "success");
+		}else {
+			model.addAttribute("msg", "failure");
+		}
+		return model;
+	}
 }

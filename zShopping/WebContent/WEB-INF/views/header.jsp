@@ -80,7 +80,7 @@
 				<!-- 장바구니에서 위에 카운트해주는거 -->
 				<c:set var="cnt" value="0"/>
 				<c:if test="${!empty cart_count}">
-					<c:set var="cnt" value=${cart_count }></c:set>
+					<c:set var="cnt" value="${cart_count }"></c:set>
 				</c:if>
 					<div
 						class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"

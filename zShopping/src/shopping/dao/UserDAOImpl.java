@@ -61,5 +61,4 @@ public class UserDAOImpl implements UserDAO{
 //		session.removeAttribute("email");
 		session.invalidate();
 	}
-	
 }
