@@ -20,11 +20,11 @@
 			  }else{
 				  alert("Can be used email");
 				  $('#name').focus();
+				  emailCheck = 1;
 			  }
 		  },
 		  error : function(error){
-			  alert("error : "+"null 값이야!");
-			  emailCheck = 1;
+			  alert("error : "+"null 값이adfa");
 		  }
 	  });
   });
@@ -78,10 +78,13 @@
 	      return false;
 	  }
 	  
-	  if(emailCheck==0){
+	  if(emailCheck == 0){
 		  alert("Please click Duplicate Button");
 		  $('#Duplicate').focus();
 		  return false;
 	  }
+	  alert("Enjoy your Shopping Time");
+	  $("#register-form").attr("action","insertUser");
+	  $("#register-form").submit();
   });
 })(jQuery);
