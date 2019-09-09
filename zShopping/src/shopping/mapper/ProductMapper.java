@@ -8,5 +8,6 @@ import shopping.vo.ProductVO;
 public interface ProductMapper {
 
 	public List<ProductVO> selectAll();
+	public List<ProductVO> selectProductCategory(String prod_category);
 	
 }

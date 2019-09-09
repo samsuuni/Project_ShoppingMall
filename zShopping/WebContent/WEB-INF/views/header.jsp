@@ -42,6 +42,44 @@
 					<ul class="main-menu">
 
 						<li class="active-menu">
+							<a href="product" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category0"
+								data-filter=".watches">All product</a>
+						</li>
+
+						<li class="test">
+							<a href="productCategory?prod_category=category1" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category1">
+								category1
+							</a>
+						</li>
+
+						<li>
+							<a href="productCategory?prod_category=category2" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category2">
+								category2
+							</a>
+						</li>
+
+						<li>
+							<a href="productCategory?prod_category=category3" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category3">
+								category3
+							</a>
+						</li>
+
+						<li>
+							<a href="productCategory?prod_category=category4" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category4">
+								category4
+							</a>
+						</li>
+						<li>
+							<a href="productCategory?prod_category=category5" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category5">
+								category5
+							</a>
+						</li>
+					</ul>
+				</div>
+<!-- 				<div class="menu-desktop flex-w flex-l-m filter-tope-group m-tb-10">
+					<ul class="main-menu">
+
+						<li class="active-menu">
 							<button
 								class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
 								data-filter="*">All Products</button>
@@ -70,8 +108,12 @@
 							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
 								data-filter=".watches">Watches</button>
 						</li>
+						<li>
+							<a href="productCategory?prod_category=category1" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+								data-filter=".watches">category1</a>
+						</li>
 					</ul>
-				</div>
+				</div> -->
 
 
 

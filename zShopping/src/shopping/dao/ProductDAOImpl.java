@@ -19,4 +19,9 @@ public class ProductDAOImpl implements ProductDAO{
 		return productMapper.selectAll();
 	}
 
+	@Override
+	public List<ProductVO> selectProductCategory(String prod_category) {
+		return productMapper.selectProductCategory(prod_category);
+	}
+
 }

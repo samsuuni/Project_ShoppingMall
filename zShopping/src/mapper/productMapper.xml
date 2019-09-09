@@ -10,6 +10,18 @@
 		select * from product
 	</select>
 	
+	<select id="selectProductCategory" parameterType="String" resultType="product">
+		select * from product where prod_category=#{prod_category}
+	</select>
+	
+	<select id="selectProductList" resultType="product">
+		select * from product order by prod_id asc limit #{begin}, #{end}
+	</select>
+	
+	<select id="selectProductListToCategory" resultType="product">
+		select * from product order by prod_id asc limit #{begin}, #{end}
+	</select>
+	
 <!-- userDB SQL Mapper -->
 <!-- <mapper namespace="shopping.mapper.UserMapper">
 	<insert id="insertUser" parameterType="user">
