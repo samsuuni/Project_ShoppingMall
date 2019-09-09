@@ -34,7 +34,7 @@ class TestJunit {
 		user.setUser_birth(birth);
 		
 		
-		us.insertUser(user);
+//		us.insertUser(user);
 //		us.deleteUser(1);
 		
 	}
