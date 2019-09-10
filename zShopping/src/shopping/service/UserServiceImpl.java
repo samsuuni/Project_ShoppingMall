@@ -32,16 +32,7 @@ public class UserServiceImpl implements UserService{
 			
 			List<CartVO> cartList = cartDao.viewCartWithUserId(userDB.getUser_id());
 			session.setAttribute("cartList", cartList);
-//			System.out.println("UserService에서 cartList : " + cartList);
 		}
-//		CartVO cart = new CartVO(1, 2, 1, "product-01", 50000, 2, 100000);
-//		CartVO cart2 = new CartVO(1, 2, 2, "product-02", 23400, 1, 23400);
-//		CartVO cart3 = new CartVO(1, 2, 3, "product-03", 23400, 3, 70200);
-//		List<CartVO> cartList = new ArrayList<CartVO>();
-//		
-//		cartList.add(cart);
-//		cartList.add(cart2);
-//		cartList.add(cart3);
 		
 		return result;
 	}

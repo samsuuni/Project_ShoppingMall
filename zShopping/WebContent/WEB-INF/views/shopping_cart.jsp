@@ -149,16 +149,7 @@
 		
 			$(function(){
 				var cartAmt = $('.cartAmt').val();
-				$(".cartAmt").on("propertychange change keyup paste input", function(){
-					var cartAmt = $(this).val();
-					alert(cartAmt);
-				});
-				$('.update').on('click',function(){
-					alert(cartAmt);
-					location.reload(true);
-					location.href=location.href;
-					history.go(0);
-				});
+
 				
 				
 				
@@ -167,24 +158,31 @@
 			        var numProduct2 = Number($(this).next().next().val());
 			        if(numProduct > 0) $(this).next().val(numProduct - 1);
 			        if(numProduct2 > 0) $(this).next().next().val(numProduct2 - 1);
-			        var cartAmt = $('.cartAmt').val();
+			        cartAmt = $('.cartAmt').val();
 			        alert(cartAmt);
-			      	  $.ajax({
+/* 			      	  $.ajax({
 			      		  type:'post',
 			      		  data: cartAmt,
 			      		  url:"shoppingCartUpdate",
 			      		  dataType:"json",
 			      		  contentType:"application/json; charset=UTF-8",
 			      		  success:function(cartAmt){
-			      				  alert("cartAmt" + cartAmt);
+			      				  alert("cartAmt" + cartAmt); 
 			      		  },
 			      		  error : function(error){
 			      			  alert("error : "+"null 값이adfa");
 			      		  }
-			      	  });
+			      	  }); */
+			
+				$('.update').on('click',function(){
+					alert(cartAmt);
+					location.reload(true);
+					location.href=location.href;
+					history.go(0);
+				});
 			        });
 
-			    });
+		
 
 			    $('.btn-num-product-upup').on('click', function(){
 			        var numProduct = Number($(this).prev().val());
@@ -195,6 +193,7 @@
 			        alert(cartAmt);
 			        
 			    });
+		    });
 		</script>
 		
 
