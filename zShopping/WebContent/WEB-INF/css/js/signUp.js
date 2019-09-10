@@ -1,9 +1,11 @@
 (function($) {
-
+  // reset
   $('#reset').on('click', function(){
       $('#register-form').reset();
   });
   var emailCheck = 0;
+  var oldVal = $('#loginId').val();
+  
   //email 중복 체크
   $('#Duplicate').on('click', function(){
 	  var email = $('#loginId').val();
@@ -17,6 +19,7 @@
 			  if(data.cnt){
 				  alert("Cannot be used email");
 				  $('#login').focus();
+				  emailCheck = 0;
 			  }else{
 				  alert("Can be used email");
 				  $('#name').focus();
@@ -28,6 +31,16 @@
 		  }
 	  });
   });
+  
+  // email값 변경시 emailCheck에 0집어넣기
+  $("#loginId").on("propertychange change keyup paste input", function() {
+	    var currentVal = $(this).val();
+	    if(currentVal == oldVal) {
+	        return;
+	    }
+	    oldVal = currentVal;
+	    emailCheck = 0;
+	});
   //회원 가입 유효성 검사
   $('#submit').on('click', function(){
 	  if($('#loginId').val().length == 0){

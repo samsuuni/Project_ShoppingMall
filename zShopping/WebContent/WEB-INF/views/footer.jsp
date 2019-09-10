@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Footer -->
 <footer class="bg3 p-t-75 p-b-32">
-	<div class="container">
+	<div class="container" style="background-color: #222222;">
 		<div class="row">
 			<div class="col-sm-6 col-lg-3 p-b-50">
 				<h4 class="stext-301 cl0 p-b-30">Categories</h4>
@@ -122,9 +122,9 @@
 <!-- Check email and password -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-	$(function(){
+	$(function() {
 		var msg = "${msg}";
-		if(msg=="failure"){
+		if (msg == "failure") {
 			alert("please check your email or password");
 		}
 	});
@@ -144,24 +144,23 @@
 	});
 </script> -->
 <script>
-/* url에서 파라미터값 가져오는 function */
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-		$(function(){
-			if(getParameterByName('prod_category')!=null){
-				
-			var test = getParameterByName('prod_category');
-			$("."+test).parent().parent().children().removeClass('active-menu');
-			$("."+test).parent().addClass('active-menu');
-			}
-		});
-		
+	/* url에서 파라미터값 가져오는 function */
 
-	
+	$(function() {
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex
+					.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1]
+					.replace(/\+/g, " "));
+		}
+		if (getParameterByName('prod_category')!=null) {
+
+			var test = getParameterByName('prod_category');
+			$("." + test).parent().parent().children().removeClass('active-menu');
+			$("." + test).parent().addClass('active-menu');
+		}
+	});
 </script>
 
 
