@@ -77,44 +77,6 @@
 						</li>
 					</ul>
 				</div>
-<!-- 				<div class="menu-desktop flex-w flex-l-m filter-tope-group m-tb-10">
-					<ul class="main-menu">
-
-						<li class="active-menu">
-							<button
-								class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
-								data-filter="*">All Products</button>
-						</li>
-
-						<li data-label1="">
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category1">category1</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category2">category2</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category3">category3</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category4">category4</button>
-						</li>
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".watches">Watches</button>
-						</li>
-						<li>
-							<a href="productCategory?prod_category=category1" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".watches">category1</a>
-						</li>
-					</ul>
-				</div> -->
 
 
 
