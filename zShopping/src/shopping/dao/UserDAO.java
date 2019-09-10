@@ -13,7 +13,7 @@ public interface UserDAO {
 	// User DB SQL
 	public void updateUser(UserVO user);
 	public void deleteUser(int id);
-	public void insertUser(UserVO user);
+	public int insertUser(UserVO user);
 	public UserVO selectOne(String email);
 	public List<UserVO> selectAll();
 	
@@ -23,4 +23,6 @@ public interface UserDAO {
 	public UserVO viewUser(UserVO user);
 	//로그아웃
 	public void logout(HttpSession session);
+	//email 중복 체크
+	public int emailCheck(String user_loginId);
 }

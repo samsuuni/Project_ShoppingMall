@@ -11,7 +11,7 @@ public class UserVO {
 	private String user_loginId;
 	private String user_password;
 	private String user_address;
-	@DateTimeFormat(pattern="yyyy-MM--dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate user_birth;
 	private int user_age;
 	private String user_phone;
