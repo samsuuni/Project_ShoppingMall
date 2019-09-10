@@ -214,7 +214,7 @@
 
     /*==================================================================
     [ +/- num product ]*/
-    $('.btn-num-product-down').on('click', function(){
+/*    $('.btn-num-product-down').on('click', function(){
         var numProduct = Number($(this).next().val());
         if(numProduct > 0) $(this).next().val(numProduct - 1);
         
@@ -225,9 +225,7 @@
         $(this).prev().val(numProduct + 1);
     });
     
-    $('.test').on('click', function(){
-    	alert('gkdl');
-    });
+*/
 
     /*==================================================================
     [ Rating ]*/

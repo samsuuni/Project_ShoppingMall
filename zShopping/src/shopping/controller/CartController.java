@@ -1,12 +1,16 @@
 package shopping.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import shopping.service.CartService;
 import shopping.vo.CartVO;
@@ -31,6 +35,16 @@ public class CartController {
 		model.addAttribute("cartList", cartList);
 		return "shopping_cart";
 	}
+	
+	@RequestMapping("/shoppingCartUpdate")
+	@ResponseBody
+	public Map cartUpdate(@RequestBody String cartAmt) {
+		Map<Object, Object> msg = new HashMap<Object, Object>();
+		msg.put("cartAmt", cartAmt);
+		
+		return msg;
+	}
+	
 //	
 //	
 //	//Ajax(장바구니 화면에서 실행)
