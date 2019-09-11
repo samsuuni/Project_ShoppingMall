@@ -44,6 +44,11 @@ public class CartController {
 		return "shoppingCartUpdate";
 	}
 	
+	@RequestMapping("/shoppingCartDelete")
+	public String shoppingCartDelete() {
+		return "shoppingCartDelete";
+	}
+	
 	// 카트 수정 데이터 받는 로직
 	@RequestMapping("/shoppingCartUpdateDo")
 	public String shoppingCartUpdateDo(String user_id, String cart_id, String cartAmt) {

@@ -82,7 +82,7 @@
                            <td class="column-5">${cart.prod_totalPrice }
                            </td>
                            <td class="colume-6"><button onclick="window.open('shoppingCartUpdate?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_cartAmt=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">update </button></td>
-                           <td class="colume-6"><button onclick="window.open('shoppingCartUpdate','shoppingCartUpdate','width=600,height=500,location=no,scrollbars=no')">delete</button></td>
+                           <td class="colume-6"><button onclick="window.open('shoppingCartDelete?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_cartAmt=${cart.prod_cartAmt}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">delete</button></td>
                            <c:set var="sum" value="${sum+cart.prod_totalPrice}"/>
                         </tr>
                         
