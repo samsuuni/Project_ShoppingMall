@@ -31,13 +31,20 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	@Override
-	public List<ProductVO> selectProductListToCategory(HashMap<Object, Integer> row) {
-		return productMapper.selectProductListToCategory(row);
+	public List<ProductVO> selectProductListToCategory(HashMap<Object, Object> row) {
+		return productMapper.selectProductCategoryList(row);
 	}
 
 	@Override
 	public int selectProductCount() {
 		return productMapper.selectProductCount();
 	}
+
+	@Override
+	public int selectProductCategoryCount(String prod_category) {
+		return productMapper.selectProductCategoryCount(prod_category);
+	}
+
+
 
 }

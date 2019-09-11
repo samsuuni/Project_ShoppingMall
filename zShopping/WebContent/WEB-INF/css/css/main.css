@@ -36,6 +36,9 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 
 
+/*//////////////////////////////////////////////////////////////////*/
+.cartUpdateBody {overflow-y: hidden; overflow-x: hidden;}
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -1930,6 +1933,7 @@ input.num-product::-webkit-inner-spin-button {
 .table-shopping-cart .column-1 {
   width: 133px;
   padding-left: 50px;
+  text-align: center;
 }
 
 .table-shopping-cart .column-2 {
@@ -1940,16 +1944,47 @@ input.num-product::-webkit-inner-spin-button {
 .table-shopping-cart .column-3 {
   width: 120px;
   font-size: 16px;
+  text-align: center;
 }
 
 .table-shopping-cart .column-4 {
   width: 145px;
-  text-align: right;
+  text-align: center;
+  font-size: 16px;
 }
 
+.table-shopping-cart .p-column-5 {
+  width: 172px;
+  text-align: right;
+  font-size: 16px;
+}
+.table-shopping-cart .column-6 {
+  width: 50px;
+  /* padding-right: 50px; */
+  text-align: right;
+  font-size: 16px;
+}
+.table-shopping-cart .column-7 {
+  width: 50px;
+  /* padding-right: 50px; */
+  text-align: right;
+  font-size: 16px;
+}
 .table-shopping-cart .column-5 {
   width: 172px;
   padding-right: 50px;
+  text-align: right;
+  font-size: 16px;
+}
+.table-shopping-cart .p-column-6 {
+  width: 70px;
+  padding-right: 20px;
+  text-align: right;
+  font-size: 16px;
+}
+.table-shopping-cart .p-column-7 {
+  width: 70px;
+  padding-right: 20px;
   text-align: right;
   font-size: 16px;
 }
@@ -2144,6 +2179,12 @@ input.num-product::-webkit-inner-spin-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
+.pageBtnstext {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 3.2;
+  text-transform: uppercase;
+}
 .stext-101 {
   font-family: Poppins-Medium;
   font-size: 15px;
@@ -2426,6 +2467,11 @@ input.num-product::-webkit-inner-spin-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ Size ]*/
+
+.pageBtnSize {
+  min-width: 16px;
+  height: 46px;
+}
 .size-101 {
   min-width: 161px;
   height: 46px;

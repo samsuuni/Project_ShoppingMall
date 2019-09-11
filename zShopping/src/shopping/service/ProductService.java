@@ -12,4 +12,5 @@ public interface ProductService {
 	public List<ProductVO> selectProductCategory(String prod_category);
 	
 	public ProductViewVO viewProductPage(int page);
+	public ProductViewVO viewProductCategoryPage(int page, String prod_category);
 }

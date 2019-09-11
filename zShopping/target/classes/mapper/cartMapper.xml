@@ -25,7 +25,7 @@
 	<select id="cartExists" parameterType="cart" resultType="cart">
 		select * from cart where user_id=#{user_id} and prod_id=#{prod_id}
 	</select>
-	<select id="selectOneWithCartId" parameterType="int">
+	<select id="selectOneWithCartId" parameterType="int" resultType="cart">
 		select * from cart where cart_id=#{cart_id}
 	</select>
 

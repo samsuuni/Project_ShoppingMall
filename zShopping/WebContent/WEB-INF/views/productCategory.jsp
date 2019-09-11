@@ -73,10 +73,7 @@
 				</div> -->
 				
 				
-				<c:set var="begin" value="${productList.size()}"/>
-				<c:set var="end" value="0"/>
-				
-				<c:forEach var="product" items="${productList }">
+				<c:forEach var="product" items="${productView.productList }">
 				
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${product.prod_category}">
 					<div class="block2">
@@ -98,6 +95,8 @@
 						</div>
 					</div>
 				</div>
+				
+				
 				</c:forEach>
 				
 				<!-- ajax로 화면 요청하기 만들기 -->
@@ -134,21 +133,18 @@
 				</div>
 			</div>
 
-			<!-- Load more -->
+			<!-- Page -->
 			<div class="flex-c-m flex-w w-full p-t-45">
 				<!-- <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 					Load More
 				</a> -->
 				
-				<c:forEach var="i" begin="0" end="5">
-					
-					<a href="#">${i }</a>
-				
+				<c:forEach var="pageNum" begin="1" end="${productView.productPageTotalCount }">
+					<a href="product?page=${pageNum}"  class="flex-c-m pageBtnstext cl5 pageBtnSize bg2 bor1 hov-btn1 p-lr-15 trans-04" style="line-height: 3;">
+						${pageNum }
+					</a>
+					&nbsp;&nbsp;&nbsp;
 				</c:forEach>
-				
-				<button class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 buttonTest">
-					Load More${begin }
-				</button>
 			</div>
 			
 			
