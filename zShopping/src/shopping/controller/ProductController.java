@@ -18,8 +18,8 @@ public class ProductController {
 	ProductService productService;
 	
 	@RequestMapping("/product")
-	public String productView(Model model) {
-		List<ProductVO> productList = productService.selectAll();
+	public String productView(int page, Model model) {
+		List<ProductVO> productList = productService.viewProduct(page, model);
 		model.addAttribute("productList", productList);
 		return "product";
 	}

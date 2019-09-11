@@ -1,10 +1,11 @@
 (function($) {
-
+  // reset
   $('#reset').on('click', function(){
       $('#register-form').reset();
   });
   var emailCheck = 0;
   var oldVal = $('#loginId').val();
+  
   //email 중복 체크
   $('#Duplicate').on('click', function(){
 	  var email = $('#loginId').val();

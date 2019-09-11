@@ -43,7 +43,7 @@
 					<ul class="main-menu">
 
 						<li class="active-menu">
-							<a href="product" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category0"
+							<a href="product?page=0" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category0"
 								data-filter=".watches">All product</a>
 						</li>
 

@@ -37,7 +37,6 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
@@ -48,7 +47,12 @@
     <link rel="stylesheet" href="css/signUp.css">
 </head>
 <body id="contents" style="background-color: white;">
-
+<script>
+	var msg = "${msg}";
+	if(msg!=""){
+		  alert(msg);
+	};
+</script>
     <div class="main">
 <jsp:include page="main_header.jsp"/>
         <div class="container">
@@ -76,12 +80,12 @@
                         <div class="form-radio">
                             <label for="gender" class="radio-label">Gender :</label>
                             <div class="form-radio-item">
-                                <input type="radio" name="user_gender" id="male" checked>
+                                <input type="radio" name="user_gender" id="male" value="male" checked>
                                 <label for="male">Male</label>
                                 <span class="check"></span>
                             </div>
                             <div class="form-radio-item">
-                                <input type="radio" name="user_gender" id="female">
+                                <input type="radio" name="user_gender" id="female" value="female">
                                 <label for="female">Female</label>
                                 <span class="check"></span>
                             </div>

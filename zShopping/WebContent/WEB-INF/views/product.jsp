@@ -100,35 +100,6 @@
 				</div>
 				</c:forEach>
 				
-				<!-- ajax로 화면 요청하기 만들기 -->
-				<!-- div append로 -->
-				<!-- 상품 전부 가져왔으면 load more버튼 없애기 -->
-				
-<%-- 				<div class="test" style="display: none">
-				<c:forEach var="product" items="${productList }">
-				
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${product.prod_category}">
-					<div class="block2">
-					
-						<div class="block2-pic hov-img0">
-							<img src="productImg/${product.prod_name}.jpg" alt="IMG-PRODUCT">
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Product Name : ${product.prod_name }
-								</a>
-
-								<span class="stext-105 cl3">
-									$Product Price : ${product.prod_price }
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				</c:forEach> --%>
-				
 				
 				
 				</div>
@@ -142,12 +113,12 @@
 				
 				<c:forEach var="i" begin="0" end="5">
 					
-					<a href="#">${i }</a>
+					<a href="product?page=${i }">${i }</a>
 				
 				</c:forEach>
 				
 				<button class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 buttonTest">
-					Load More${begin }
+					Load More${begin }--${test }
 				</button>
 			</div>
 			
