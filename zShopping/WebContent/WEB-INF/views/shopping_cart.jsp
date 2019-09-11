@@ -49,7 +49,7 @@
    <!-- Shopping Cart -->
    <!-- <form class="bg0 p-t-75 p-b-85"> -->
       <div class="container">
-         <div class="row">
+         <div class="row" style="margin-top: 50px;">
             <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
                <div class="m-l-25 m-r--38 m-lr-0-xl">
                   <div class="wrap-table-shopping-cart">
@@ -82,7 +82,7 @@
                            <td class="column-5">${cart.prod_totalPrice }
                            </td>
                            <td class="colume-6"><button onclick="window.open('shoppingCartUpdate?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_cartAmt=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">update </button></td>
-                           <td class="colume-6"><button onclick="window.open('shoppingCartDelete?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_cartAmt=${cart.prod_cartAmt}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">delete</button></td>
+                           <td class="colume-6"><button onclick="window.open('shoppingCartDelete?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_cartAmt=0','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">delete</button></td>
                            <c:set var="sum" value="${sum+cart.prod_totalPrice}"/>
                         </tr>
                         
@@ -95,13 +95,7 @@
 
 
 
-                  <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-                     <div class="flex-w flex-m m-r-20 m-tb-5">
-                     </div>
-                     <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-                        Update Cart
-                     </div>
-                  </div>
+
                </div>
             </div>
 
