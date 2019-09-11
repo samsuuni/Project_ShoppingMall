@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import shopping.service.ProductService;
 import shopping.vo.ProductVO;
+import shopping.vo.ProductViewVO;
 
 @Controller
 public class ProductController {
@@ -19,8 +20,12 @@ public class ProductController {
 	
 	@RequestMapping("/product")
 	public String productView(int page, Model model) {
-		List<ProductVO> productList = productService.viewProduct(page, model);
+		List<ProductVO> productList = productService.selectAll();
+		ProductViewVO productView = productService.viewProductPage(page);
 		model.addAttribute("productList", productList);
+		model.addAttribute("productView", productView);
+		
+		
 		return "product";
 	}
 	

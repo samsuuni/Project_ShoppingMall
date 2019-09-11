@@ -1,5 +1,6 @@
 package shopping.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,21 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public List<ProductVO> selectProductCategory(String prod_category) {
 		return productMapper.selectProductCategory(prod_category);
+	}
+
+	@Override
+	public List<ProductVO> selectProductList(HashMap<Object, Integer> row) {
+		return productMapper.selectProductList(row);
+	}
+
+	@Override
+	public List<ProductVO> selectProductListToCategory(HashMap<Object, Integer> row) {
+		return productMapper.selectProductListToCategory(row);
+	}
+
+	@Override
+	public int selectProductCount() {
+		return productMapper.selectProductCount();
 	}
 
 }
