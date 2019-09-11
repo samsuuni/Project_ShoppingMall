@@ -38,11 +38,12 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void updateAmt(int cart_id, int prod_cartAmt) {
 		CartVO cart = cartDao.selectOneWithCartId(cart_id);
-		cart.setProd_cartAmt(prod_cartAmt);
-		cart.setProd_totalPrice(cart.getProd_price()*prod_cartAmt);
-		cartDao.updateCartAmt(cart);
 		if(prod_cartAmt==0) {
 			cartDao.deleteCart(cart);
+		} else {
+			cart.setProd_cartAmt(prod_cartAmt);
+			cart.setProd_totalPrice(cart.getProd_price()*prod_cartAmt);
+			cartDao.updateCartAmt(cart);
 		}
 	}
 
