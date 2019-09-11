@@ -43,35 +43,35 @@
 					<ul class="main-menu">
 
 						<li class="active-menu">
-							<a href="product?page=0" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category0"
+							<a href="product?page=1" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category0"
 								data-filter=".watches">All product</a>
 						</li>
 
 						<li class="test">
-							<a href="productCategory?prod_category=category1" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category1">
+							<a href="productCategory?page=1&prod_category=category1" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category1">
 								category1
 							</a>
 						</li>
 
 						<li>
-							<a href="productCategory?prod_category=category2" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category2">
+							<a href="productCategory?page=1&prod_category=category2" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category2">
 								category2
 							</a>
 						</li>
 
 						<li>
-							<a href="productCategory?prod_category=category3" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category3">
+							<a href="productCategory?page=1&prod_category=category3" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category3">
 								category3
 							</a>
 						</li>
 
 						<li>
-							<a href="productCategory?prod_category=category4" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category4">
+							<a href="productCategory?page=1&prod_category=category4" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category4">
 								category4
 							</a>
 						</li>
 						<li>
-							<a href="productCategory?prod_category=category5" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category5">
+							<a href="productCategory?page=1&prod_category=category5" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category5">
 								category5
 							</a>
 						</li>

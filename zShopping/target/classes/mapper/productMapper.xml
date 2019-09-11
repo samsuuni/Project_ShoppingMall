@@ -18,10 +18,20 @@
 	<select id="selectProductCount" resultType="int">
 	  select count(*) from product
 	</select>
+	<!-- productCategory Count -->
+	<select id="selectProductCategoryCount" parameterType="String" resultType="int">
+	  select count(*) from product where prod_category=#{prod_category}
+	</select>
+	
 	
 	<!-- get product list for page -->
 	<select id="selectProductList" parameterType="hashmap" resultType="product">
 		select * from product order by prod_id asc limit #{firstRow}, #{endRow}
+	</select>
+	
+	<!-- get productCategory list for page -->
+	<select id="selectProductCategoryList" parameterType="hashmap" resultType="product">
+		select * from product where prod_category=#{prod_category} order by prod_id asc limit #{firstRow}, #{endRow}
 	</select>
 	
 	

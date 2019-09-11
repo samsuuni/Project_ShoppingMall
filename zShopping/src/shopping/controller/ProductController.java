@@ -20,19 +20,16 @@ public class ProductController {
 	
 	@RequestMapping("/product")
 	public String productView(int page, Model model) {
-		List<ProductVO> productList = productService.selectAll();
 		ProductViewVO productView = productService.viewProductPage(page);
-		model.addAttribute("productList", productList);
 		model.addAttribute("productView", productView);
-		
-		
 		return "product";
 	}
 	
 	@RequestMapping("/productCategory")
-	public String productViewCategory(String prod_category, Model model) {
-		List<ProductVO> productList = productService.selectProductCategory(prod_category);
-		model.addAttribute("productList", productList);
+	public String productViewCategory(int page, String prod_category, Model model) {
+		ProductViewVO productView = productService.viewProductCategoryPage(page, prod_category);
+		model.addAttribute("productView", productView);
+		
 		return "productCategory";
 	}
 

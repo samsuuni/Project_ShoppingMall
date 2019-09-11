@@ -2144,6 +2144,12 @@ input.num-product::-webkit-inner-spin-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
+.pageBtnstext {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 3.2;
+  text-transform: uppercase;
+}
 .stext-101 {
   font-family: Poppins-Medium;
   font-size: 15px;
@@ -2426,6 +2432,11 @@ input.num-product::-webkit-inner-spin-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ Size ]*/
+
+.pageBtnSize {
+  min-width: 16px;
+  height: 46px;
+}
 .size-101 {
   min-width: 161px;
   height: 46px;

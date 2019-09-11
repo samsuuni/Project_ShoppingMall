@@ -131,18 +131,7 @@
 </script>
 
 
-<!-- Load More Button -->
-<!-- <script>
-	$(function() {
-		$(".buttonTest").on('click', function() {
-			/* isotope-grid클래스의 height에 1251.27 더해야함 */
-			var h = $(".isotope-grid").height() + 1251.27 +"px";
-			alert(h);
-			$(".istope-grid").css("height",h);
-			$(".test").css('display','');
-		});
-	});
-</script> -->
+
 <script>
 	/* url에서 파라미터값 가져오는 function */
 
@@ -274,7 +263,7 @@
 	});
 </script>
 <!--===============================================================================================-->
-<script src="js/main.js"></script>
+<script src="js/main.js?1"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>

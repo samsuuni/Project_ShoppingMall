@@ -38,14 +38,19 @@ public class CartController {
 //		model.addAttribute("user", user);
 		return "checkout";
 	}
-
+	/*
+	 * @RequestMapping("/shoppingCartUpdate")
+	 * 
+	 * @ResponseBody public Map cartUpdate(@RequestBody String cartAmt) {
+	 * Map<Object, Object> msg = new HashMap<Object, Object>(); msg.put("cartAmt",
+	 * cartAmt);
+	 * 
+	 * return msg; }
+	 */
+	
 	@RequestMapping("/shoppingCartUpdate")
-	@ResponseBody
-	public Map cartUpdate(@RequestBody String cartAmt) {
-		Map<Object, Object> msg = new HashMap<Object, Object>();
-		msg.put("cartAmt", cartAmt);
-
-		return msg;
+	public String shoppingCartUpdate() {
+		return "shoppingCartUpdate";
 	}
 
 //	

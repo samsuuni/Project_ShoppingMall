@@ -31,14 +31,23 @@
    <link rel="stylesheet" type="text/css" href="css/util.css">
    <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-<script></script>
+<script>
+	function popup(){
+		sw = screen.availWidth;
+		sh = screen.availHeight;
+		alert(sw);
+		alert(sh);
+		px = (sw-cw)/2;
+		py = (sh-ch)/2;
+	}
+</script>
 </head>
 <body class="animsition">
    <jsp:include page="header.jsp"/>
    
    
    <!-- Shopping Cart -->
-   <form class="bg0 p-t-75 p-b-85">
+   <!-- <form class="bg0 p-t-75 p-b-85"> -->
       <div class="container">
          <div class="row">
             <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -49,8 +58,10 @@
                            <th class="column-1">Product</th>
                            <th class="column-2"></th>
                            <th class="column-3">Price</th>
-                           <th class="column-4">Amount</th>
+                           <th class="column-4" style="text-align: center;">Amount</th>
                            <th class="column-5">Total</th>
+                           <th class="column-6">Update</th>
+                           <th class="column-7">Delete</th>
                         </tr>
                         
                         <c:set var="sum" value="0"/>
@@ -65,20 +76,14 @@
                            <td class="column-2">${cart.prod_name }</td>
                            <td class="column-3">${cart.prod_price }</td>
                            <td class="column-4">
-                              <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                                 <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                           		<div>
+                                 <input class="mtext-104 cl3 txt-center num-product" style="width:100%;" type="number" name="num-product1" value="${cart.prod_cartAmt }">
                                  </div>
-
-                                 <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="${cart.prod_cartAmt }">
-
-                                 <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                    <i class="fs-16 zmdi zmdi-plus"></i>
-                                 </div>
-                              </div>
                            </td>
                            <td class="column-5">${cart.prod_totalPrice }
                            </td>
+                           <td class="colume-6"><button onclick="window.open('shoppingCartUpdate?cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_amount=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1000,height=300,location=yes,scrollbars=no, right=20, top=200')">update </button></td>
+                           <td class="colume-6"><button onclick="window.open('shoppingCartUpdate','shoppingCartUpdate','width=600,height=500,location=no,scrollbars=no')">delete</button></td>
                            <c:set var="sum" value="${sum+cart.prod_totalPrice}"/>
                         </tr>
                         
@@ -129,7 +134,7 @@
             </div>
          </div>
       </div>
-   </form>
+   <!-- </form> -->
       
       <jsp:include page="footer.jsp"/>
 </body>
