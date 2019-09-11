@@ -18,12 +18,15 @@
 		  success:function(data){
 			  if(data.cnt){
 				  alert("Cannot be used email");
+				  alert("Cannot be used email");
 				  $('#login').focus();
 				  emailCheck = 0;
 			  }else{
 				  alert("Can be used email");
+				  alert("Can be used email");
 				  $('#name').focus();
 				  emailCheck = 1;
+				  alert(emailCheck);
 			  }
 		  },
 		  error : function(error){
@@ -32,7 +35,7 @@
 	  });
   });
   
-  // email값 변경시 emailCheck에 0집어넣기
+//   email값 변경시 emailCheck에 0집어넣기
   $("#loginId").on("propertychange change keyup paste input", function() {
 	    var currentVal = $(this).val();
 	    if(currentVal == oldVal) {
@@ -94,6 +97,7 @@
 	  if(emailCheck == 0){
 		  alert("Please click Duplicate Button");
 		  $('#Duplicate').focus();
+		  alert(emailCheck);
 		  return false;
 	  }
 	  alert("Enjoy your Shopping Time");

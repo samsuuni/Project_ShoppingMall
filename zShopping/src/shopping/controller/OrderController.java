@@ -13,29 +13,24 @@ import shopping.vo.OrderVO;
 
 @Controller
 public class OrderController {
-	
+
 	@Autowired
 	private OrderService orderService;
-	
-	//결제 페이지 매핑
-	@RequestMapping("/checkout")
-	public String checkout() {
-		return "checkout";
-	}
-	
-	//주문 확정
+
+	// 주문 확정 페이지 
 	@RequestMapping("/confirm_order")
-	public String confirmOrder(List<CartVO> cartList, OrderVO order) {
-		orderService.checkoutOrder(cartList, order);
+	public String confirmOrder(int user_id, Model model) {
+		OrderVO order = orderService.checkoutOrder(user_id);
+		model.addAttribute("order", order);
 		return "confirm_order";
 	}
-	
-	//나의 주문 내역 
+
+	// 나의 주문 내역
 	@RequestMapping("/myhistory")
 	public String viewMyOrderHistory(int user_id, Model model) {
 		List<OrderVO> orderList = orderService.viewMyOrderHistory(user_id);
 		model.addAttribute("orderList", orderList);
 		return "myhistory";
 	}
-	
+
 }

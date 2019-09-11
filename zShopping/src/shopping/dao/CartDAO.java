@@ -12,5 +12,6 @@ public interface CartDAO {
 	public List<CartVO> viewCartWithUserId(int user_id);
 	public void cleanCart(int user_id);
 	public boolean cartExists(CartVO cart);
+	public CartVO selectOneWithCartId(int cart_id);
 
 }

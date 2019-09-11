@@ -134,6 +134,6 @@
 	<jsp:include page="footer.jsp"/>
     <!-- JS -->
     <script src="vendor/jquery/signUpJquery.min.js"></script>
-    <script src="js/signUp.js"></script>
+    <script src="js/signUp.js?1"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

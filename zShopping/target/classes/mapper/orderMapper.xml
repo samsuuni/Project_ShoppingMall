@@ -7,11 +7,11 @@
 <!-- orderDB SQL Mapper -->
 <mapper namespace="shopping.mapper.OrderMapper">
 	<insert id="insertOrder" parameterType="order">
-		insert into order(user_id, order_content, order_totalPrice) 
+		insert into history(user_id, order_content, order_totalPrice) 
 		values(#{user_id}, #{order_content}, #{order_totalPrice})
 	</insert>
 	<select id="viewMyOrderHistory" parameterType="int" resultType="order">
-		select * from order where user_id=#{user_id}
+		select * from history where user_id=#{user_id}
 	</select>
 
 

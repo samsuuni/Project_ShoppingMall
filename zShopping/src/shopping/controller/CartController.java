@@ -17,34 +17,37 @@ import shopping.vo.CartVO;
 
 @Controller
 public class CartController {
-	
+
 	@Autowired
 	private CartService cartService;
+
 	
-//	//장바구니 상품 추가
-//	public String addToCart(CartVO cart, Model model) {		
-//		cartService.addToCart(cart);
-//		model.addAttribute("cart", cart);
-//		return "shopping_cart";
-//	}
-//	
-	//장바구니 목록 불러오기
+	// 장바구니 목록 불러오기
 	@RequestMapping("/shopping_cart")
-	public String viewUserCart(int user_id, Model model) {		
+	public String viewUserCart(int user_id, Model model) {
 		List<CartVO> cartList = cartService.viewUserCart(user_id);
 		model.addAttribute("cartList", cartList);
 		return "shopping_cart";
 	}
-	
+
+	// 결제 페이지 매핑
+	@RequestMapping("/checkout")
+	public String checkout(int user_id, Model model) {
+		List<CartVO> cartList = cartService.viewUserCart(user_id);
+		model.addAttribute("cartList", cartList);
+//		model.addAttribute("user", user);
+		return "checkout";
+	}
+
 	@RequestMapping("/shoppingCartUpdate")
 	@ResponseBody
 	public Map cartUpdate(@RequestBody String cartAmt) {
 		Map<Object, Object> msg = new HashMap<Object, Object>();
 		msg.put("cartAmt", cartAmt);
-		
+
 		return msg;
 	}
-	
+
 //	
 //	
 //	//Ajax(장바구니 화면에서 실행)
@@ -61,10 +64,10 @@ public class CartController {
 //		cartService.cleanCart(user_id);
 //	}
 //	}
-	
+
 //	@RequestMapping("/cart")
 //	public String cart() {
 //		return "shopping_cart";
 //	}
-	
+
 }

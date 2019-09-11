@@ -13,5 +13,6 @@ public interface CartMapper {
 	public List<CartVO> viewCartWithUserId(int user_id);
 	public void cleanCart(int user_id);
 	public CartVO cartExists(CartVO cart);
+	public CartVO selectOneWithCartId(int cart_id);
 
 }
