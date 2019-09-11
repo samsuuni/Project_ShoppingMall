@@ -92,7 +92,7 @@ public class UserController {
 			mav.setViewName("main");
 		}else {
 			mav.setViewName("signUp");
-			mav.addObject("msg", "failure");
+			mav.addObject("msg", "signUp fail");
 		}
 		return mav;
 	}

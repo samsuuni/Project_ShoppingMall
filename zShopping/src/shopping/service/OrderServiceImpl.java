@@ -20,19 +20,24 @@ public class OrderServiceImpl implements OrderService {
 	private CartDAO cartDao;
 
 	@Override
-	public OrderVO checkoutOrder(int user_id, List<CartVO> cartList) {
+	public OrderVO checkoutOrder(int user_id) {
+		List<CartVO> cartList = cartDao.viewCartWithUserId(user_id);
 		String content = "";
 		int totalPrice = 0;
 		for (int i = 0; i < cartList.size(); i++) {
 			content += cartList.get(i).getProd_name();
+			content += "(";
 			content += cartList.get(i).getProd_price();
-			content += " × ";
+			content += ")";
+			content += "X";
 			content += cartList.get(i).getProd_cartAmt();
-			content += " ＝ ";
+			content += "=";
 			content += cartList.get(i).getProd_totalPrice();
 			content += "\r\n";
 			totalPrice += cartList.get(i).getProd_totalPrice();
 		}
+		System.out.println(content);
+		System.out.println(totalPrice);
 		OrderVO order = new OrderVO();
 		order.setUser_id(user_id);
 		order.setOrder_content(content);

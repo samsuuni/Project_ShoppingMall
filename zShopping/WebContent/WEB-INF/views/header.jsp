@@ -43,7 +43,7 @@
 					<ul class="main-menu">
 
 						<li class="active-menu">
-							<a href="product" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category0"
+							<a href="product?page=0" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 category0"
 								data-filter=".watches">All product</a>
 						</li>
 
@@ -77,44 +77,6 @@
 						</li>
 					</ul>
 				</div>
-<!-- 				<div class="menu-desktop flex-w flex-l-m filter-tope-group m-tb-10">
-					<ul class="main-menu">
-
-						<li class="active-menu">
-							<button
-								class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
-								data-filter="*">All Products</button>
-						</li>
-
-						<li data-label1="">
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category1">category1</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category2">category2</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category3">category3</button>
-						</li>
-
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".category4">category4</button>
-						</li>
-						<li>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".watches">Watches</button>
-						</li>
-						<li>
-							<a href="productCategory?prod_category=category1" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-								data-filter=".watches">category1</a>
-						</li>
-					</ul>
-				</div> -->
 
 
 
@@ -185,7 +147,7 @@
 				<div class="header-cart-buttons flex-w w-full">
 					<a href="shopping_cart?user_id=${user.user_id }"
 						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-						View Cart </a> <a href="checkout"
+						View Cart </a> <a href="checkout?user_id=${user.user_id }"
 						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 						Check Out </a>
 				</div>

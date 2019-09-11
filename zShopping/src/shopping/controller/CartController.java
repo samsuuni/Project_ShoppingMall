@@ -21,13 +21,7 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 
-//	//장바구니 상품 추가
-//	public String addToCart(CartVO cart, Model model) {		
-//		cartService.addToCart(cart);
-//		model.addAttribute("cart", cart);
-//		return "shopping_cart";
-//	}
-//	
+	
 	// 장바구니 목록 불러오기
 	@RequestMapping("/shopping_cart")
 	public String viewUserCart(int user_id, Model model) {
@@ -37,13 +31,13 @@ public class CartController {
 	}
 
 	// 결제 페이지 매핑
-//	@RequestMapping("/checkout")
-//	public String checkout(int user_id, Model model) {
-//		List<CartVO> cartList = cartService.viewUserCart(user_id);
-//		model.addAttribute("cartList", cartList);
+	@RequestMapping("/checkout")
+	public String checkout(int user_id, Model model) {
+		List<CartVO> cartList = cartService.viewUserCart(user_id);
+		model.addAttribute("cartList", cartList);
 //		model.addAttribute("user", user);
-//		return "checkout";
-//	}
+		return "checkout";
+	}
 
 	@RequestMapping("/shoppingCartUpdate")
 	@ResponseBody
