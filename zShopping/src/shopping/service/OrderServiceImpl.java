@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService {
 	private CartDAO cartDao;
 
 	@Override
-	public void checkoutOrder(List<CartVO> cartList, OrderVO order) {
+	public OrderVO checkoutOrder(int user_id, List<CartVO> cartList) {
 		String content = "";
 		int totalPrice = 0;
 		for (int i = 0; i < cartList.size(); i++) {
@@ -33,11 +33,15 @@ public class OrderServiceImpl implements OrderService {
 			content += "\r\n";
 			totalPrice += cartList.get(i).getProd_totalPrice();
 		}
+		OrderVO order = new OrderVO();
+		order.setUser_id(user_id);
 		order.setOrder_content(content);
 		order.setOrder_totalPrice(totalPrice);
 		orderDao.insertOrder(order);
 		
 		cartDao.cleanCart(order.getUser_id());
+		
+		return order;
 	}
 
 	@Override

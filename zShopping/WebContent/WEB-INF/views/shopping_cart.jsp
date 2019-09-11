@@ -4,15 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
    <title>Shopping Cart</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->   
    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-=======
 	<title>Shopping Cart</title>
-	<style type="text/css">
+<style type="text/css">
 	.btn-num-product-upup,
 .btn-num-product-downdown {
   width: 45px;
@@ -24,7 +22,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
->>>>>>> branch 'master' of https://github.com/samsuuni/Project_ShoppingMall.git
 <!--===============================================================================================-->
    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -203,16 +200,7 @@
    </form>
       
       <jsp:include page="footer.jsp"/>
-						 <a href="checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-							Proceed to Checkout
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
 		
-		<jsp:include page="footer.jsp"/>
 		<script>
 		
 		
@@ -220,16 +208,7 @@
 		
 			$(function(){
 				var cartAmt = $('.cartAmt').val();
-				$(".cartAmt").on("propertychange change keyup paste input", function(){
-					var cartAmt = $(this).val();
-					alert(cartAmt);
-				});
-				$('.update').on('click',function(){
-					alert(cartAmt);
-					location.reload(true);
-					location.href=location.href;
-					history.go(0);
-				});
+
 				
 				
 				
@@ -238,24 +217,31 @@
 			        var numProduct2 = Number($(this).next().next().val());
 			        if(numProduct > 0) $(this).next().val(numProduct - 1);
 			        if(numProduct2 > 0) $(this).next().next().val(numProduct2 - 1);
-			        var cartAmt = $('.cartAmt').val();
+			        cartAmt = $('.cartAmt').val();
 			        alert(cartAmt);
-			      	  $.ajax({
+/* 			      	  $.ajax({
 			      		  type:'post',
 			      		  data: cartAmt,
 			      		  url:"shoppingCartUpdate",
 			      		  dataType:"json",
 			      		  contentType:"application/json; charset=UTF-8",
 			      		  success:function(cartAmt){
-			      				  alert("cartAmt" + cartAmt);
+			      				  alert("cartAmt" + cartAmt); 
 			      		  },
 			      		  error : function(error){
 			      			  alert("error : "+"null 값이adfa");
 			      		  }
-			      	  });
+			      	  }); */
+			
+				$('.update').on('click',function(){
+					alert(cartAmt);
+					location.reload(true);
+					location.href=location.href;
+					history.go(0);
+				});
 			        });
 
-			    });
+		
 
 			    $('.btn-num-product-upup').on('click', function(){
 			        var numProduct = Number($(this).prev().val());
@@ -266,6 +252,7 @@
 			        alert(cartAmt);
 			        
 			    });
+		    });
 		</script>
 		
 </body>

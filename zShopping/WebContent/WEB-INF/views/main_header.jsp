@@ -7,7 +7,7 @@
 	<div class="container-menu-desktop">
 		<!-- Topbar -->
 		<div class="top-bar">
-			<div class="content-topbar flex-sb-m h-full container">
+			<div class="content-topbar flex-sb-m h-full container" style="background-color: #222222;">
 				<c:if test="${empty user.user_name}">
 				<div class="left-top-bar">please login your account</div>
 				</c:if>
@@ -21,6 +21,7 @@
 					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
 					</c:if>
 					<c:if test="${!empty user.user_name}">
+					<span class="myPage"><a href="myPage" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>
 					<span class="logCheck"><a href="logout?page=${ pageContext.request.requestURL }" class="flex-c-m trans-04 p-lr-25"> LOG OUT </a></span>
 					</c:if>
 				</div>

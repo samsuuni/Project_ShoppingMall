@@ -7,7 +7,7 @@ import shopping.vo.OrderVO;
 
 public interface OrderService {
 	
-	public void checkoutOrder(List<CartVO> cartList, OrderVO order);
+	public OrderVO checkoutOrder(int user_id, List<CartVO> cartList);
 	public List<OrderVO> viewMyOrderHistory(int user_id);
 
 }
