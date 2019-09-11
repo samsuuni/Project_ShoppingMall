@@ -29,7 +29,7 @@
    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
    <link rel="stylesheet" type="text/css" href="css/util.css">
-   <link rel="stylesheet" type="text/css" href="css/main.css">
+   <link rel="stylesheet" type="text/css" href="css/main.css?1">
 <!--===============================================================================================-->
 <script>
 	function popup(){
@@ -55,13 +55,12 @@
                   <div class="wrap-table-shopping-cart">
                      <table class="table-shopping-cart">
                         <tr class="table_head">
-                           <th class="column-1">Product</th>
-                           <th class="column-2"></th>
+                           <th class="column-1" colspan="2">Product</th>
                            <th class="column-3">Price</th>
                            <th class="column-4" style="text-align: center;">Amount</th>
                            <th class="column-5">Total</th>
-                           <th class="column-6">Update</th>
-                           <th class="column-7">Delete</th>
+                           <th class="p-column-6">Update</th>
+                           <th class="p-column-7">Delete</th>
                         </tr>
                         
                         <c:set var="sum" value="0"/>
@@ -75,14 +74,14 @@
                            </td>
                            <td class="column-2">${cart.prod_name }</td>
                            <td class="column-3">${cart.prod_price }</td>
-                           <td class="column-4">
-                           		<div>
+                           <td class="column-4">${cart.prod_cartAmt }
+                           		<%-- <div>
                                  <input class="mtext-104 cl3 txt-center num-product" style="width:100%;" type="number" name="num-product1" value="${cart.prod_cartAmt }">
-                                 </div>
+                                 </div> --%>
                            </td>
                            <td class="column-5">${cart.prod_totalPrice }
                            </td>
-                           <td class="colume-6"><button onclick="window.open('shoppingCartUpdate?cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_amount=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1000,height=300,location=yes,scrollbars=no, right=20, top=200')">update </button></td>
+                           <td class="colume-6"><button onclick="window.open('shoppingCartUpdate?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_cartAmt=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">update </button></td>
                            <td class="colume-6"><button onclick="window.open('shoppingCartUpdate','shoppingCartUpdate','width=600,height=500,location=no,scrollbars=no')">delete</button></td>
                            <c:set var="sum" value="${sum+cart.prod_totalPrice}"/>
                         </tr>

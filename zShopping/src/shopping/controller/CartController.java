@@ -24,7 +24,7 @@ public class CartController {
 	
 	// 장바구니 목록 불러오기
 	@RequestMapping("/shopping_cart")
-	public String viewUserCart(int user_id, Model model) {
+	public String viewUserCart(@RequestParam int user_id, Model model) {
 		List<CartVO> cartList = cartService.viewUserCart(user_id);
 		model.addAttribute("cartList", cartList);
 		return "shopping_cart";
@@ -35,44 +35,20 @@ public class CartController {
 	public String checkout(int user_id, Model model) {
 		List<CartVO> cartList = cartService.viewUserCart(user_id);
 		model.addAttribute("cartList", cartList);
-//		model.addAttribute("user", user);
 		return "checkout";
 	}
-	/*
-	 * @RequestMapping("/shoppingCartUpdate")
-	 * 
-	 * @ResponseBody public Map cartUpdate(@RequestBody String cartAmt) {
-	 * Map<Object, Object> msg = new HashMap<Object, Object>(); msg.put("cartAmt",
-	 * cartAmt);
-	 * 
-	 * return msg; }
-	 */
-	
+
+	// 카트 수정 팝업 페이지
 	@RequestMapping("/shoppingCartUpdate")
 	public String shoppingCartUpdate() {
 		return "shoppingCartUpdate";
 	}
-
-//	
-//	
-//	//Ajax(장바구니 화면에서 실행)
-//	//상품 삭제
-//	public void removeFromCart(CartVO cart) {
-//		cartService.removeFromCart(cart);
-//	}
-//	//상품 수량 변경
-//	public void updateAmt(CartVO cart) {
-//		cartService.updateAmt(cart);
-//	}
-//	//장바구니 비우기
-//	public void cleanCart(int user_id) {
-//		cartService.cleanCart(user_id);
-//	}
-//	}
-
-//	@RequestMapping("/cart")
-//	public String cart() {
-//		return "shopping_cart";
-//	}
+	
+	// 카트 수정 데이터 받는 로직
+	@RequestMapping("/shoppingCartUpdateDo")
+	public String shoppingCartUpdateDo(String user_id, String cart_id, String cartAmt) {
+		cartService.updateAmt(Integer.parseInt(cart_id), Integer.parseInt(cartAmt));
+		return "redirect:shopping_cart?user_id="+user_id;
+	}
 
 }
