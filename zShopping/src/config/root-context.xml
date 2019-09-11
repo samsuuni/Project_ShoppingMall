@@ -53,7 +53,6 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:mapper/cartMapper.xml</value>
-				<value>classpath:mapper/inventoryMapper.xml</value>
 				<value>classpath:mapper/orderMapper.xml</value>
 				<value>classpath:mapper/productMapper.xml</value>
 				<value>classpath:mapper/userMapper.xml</value>
