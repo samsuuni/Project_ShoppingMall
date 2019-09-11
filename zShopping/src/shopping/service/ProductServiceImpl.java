@@ -1,6 +1,5 @@
 package shopping.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,9 +61,8 @@ public class ProductServiceImpl implements ProductService{
 		endRow = productCountPerPage;
 		int productPageTotalCount = productTotalCount/productCountPerPage;
 		if(productTotalCount%productCountPerPage>0) {
-			productTotalCount++;
+			productPageTotalCount++;
 		}
-		System.out.println(productPageTotalCount);
 		HashMap<Object, Object> row = new HashMap<Object, Object>();
 		row.put("firstRow", firstRow);
 		row.put("endRow", endRow);

@@ -132,25 +132,6 @@
 
 
 
-<script>
-	/* url에서 파라미터값 가져오는 function */
-
-	$(function() {
-		function getParameterByName(name) {
-			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex
-					.exec(location.search);
-			return results === null ? "" : decodeURIComponent(results[1]
-					.replace(/\+/g, " "));
-		}
-		if (getParameterByName('prod_category')!=null) {
-
-			var test = getParameterByName('prod_category');
-			$("." + test).parent().parent().children().removeClass('active-menu');
-			$("." + test).parent().addClass('active-menu');
-		}
-	});
-</script>
 
 
 
