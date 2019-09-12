@@ -23,7 +23,7 @@
 					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
 					</c:if>
 					<c:if test="${!empty user.user_name}">
-					<span class="logCheck"><a href="myPage" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>
+					<span class="logCheck"><a href="mypage?user_id=${user.user_id }" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>
 					<span class="logCheck"><a href="logout" class="flex-c-m trans-04 p-lr-25"> LOG OUT </a></span>
 					</c:if>
 				</div>

@@ -95,4 +95,9 @@ public class UserController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping("/mypage")
+	public String goMypage() {
+		return "mypage";
+	}
 }

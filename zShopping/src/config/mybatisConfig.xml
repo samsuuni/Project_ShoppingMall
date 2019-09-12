@@ -13,7 +13,6 @@
 	<!-- 알리아스 설정 -->
 	<typeAliases>
 		<typeAlias type="shopping.vo.CartVO" alias="cart" />
-		<typeAlias type="shopping.vo.InventoryVO" alias="inventory" />
 		<typeAlias type="shopping.vo.OrderVO" alias="order" />
 		<typeAlias type="shopping.vo.ProductVO" alias="product" />
 		<typeAlias type="shopping.vo.UserVO" alias="user" />
