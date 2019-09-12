@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript">
+	function newpop(){
+		alert('gg');
+		window.open('test','test','width=300,height=200,left=30,top=30,scrollbars=no,titlebar=no,resizable=no,fullscreen=no');
+	}
+</script>
 <!-- Header -->
 <header class="header-v4">
 	<!-- Header desktop -->
@@ -21,7 +27,7 @@
 					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
 					</c:if>
 					<c:if test="${!empty user.user_name}">
-					<span class="myPage"><a href="myPage" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>
+					<span class="myPage"><a href="mypage?user_id=${user.user_id }" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>
 					<span class="logCheck"><a href="logout?page=${ pageContext.request.requestURL }" class="flex-c-m trans-04 p-lr-25"> LOG OUT </a></span>
 					</c:if>
 				</div>
@@ -90,7 +96,9 @@
 				<c:forEach var="cart" items="${cartList }">
 				<li class="header-cart-item flex-w flex-t m-b-12">
 					<div class="header-cart-item-img">
-						<img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG">
+						<%-- <img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG"> --%>
+						<img src="productImg/${cart.prod_name}-cart.jpg"
+						 onclick="window.open('data.jsp','data','width=500,height=200')" alt="IMG">
 					</div>
 
 					<div class="header-cart-item-txt p-t-8">

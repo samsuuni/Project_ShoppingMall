@@ -140,19 +140,48 @@
 				</a> -->
 				
 				<c:forEach var="pageNum" begin="1" end="${productView.productPageTotalCount }">
-					<a href="product?page=${pageNum}"  class="flex-c-m pageBtnstext cl5 pageBtnSize bg2 bor1 hov-btn1 p-lr-15 trans-04" style="line-height: 3;">
+					<a href="productCategory?page=${pageNum}&prod_category=${productView.productList[0].prod_category}"  class="flex-c-m pageBtnstext cl5 pageBtnSize bg2 bor1 hov-btn1 p-lr-15 trans-04 page${pageNum }" style="line-height: 3;">
 						${pageNum }
 					</a>
 					&nbsp;&nbsp;&nbsp;
 				</c:forEach>
 			</div>
-			
-			
+		<input type="hidden" class="page" value="page${param.page }">
 		</div>
 
 		
 <jsp:include page="footer.jsp"></jsp:include>
 
+<script>
+$(function(){
+	var pageNum = '.'+$('.page').val();
+	$('.productActive').addClass('active-menu');
+	$(pageNum).removeClass('hov-btn1');
+	$(pageNum).removeClass('trans-04');
+	$(pageNum).removeClass('flex-c-m');
+	$(pageNum).removeClass('bg2');
+	$(pageNum).removeClass('cl5');
+	
+	$(pageNum).addClass('color-white');
+});
+
+	/* url에서 파라미터값 가져오는 function */
+	$(function() {
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex
+					.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1]
+					.replace(/\+/g, " "));
+		}
+		if (getParameterByName('prod_category')!=null) {
+
+			var test = "."+getParameterByName('prod_category');
+			$(test).parent().parent().children().removeClass('active-menu');
+			$(test).parent().addClass('active-menu');
+		}
+	});
+</script>
 
 
 

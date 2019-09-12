@@ -7,6 +7,8 @@
    <title>Shopping Cart</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
 <!--===============================================================================================-->   
    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -31,21 +33,9 @@
    <link rel="stylesheet" type="text/css" href="css/util.css">
    <link rel="stylesheet" type="text/css" href="css/main.css?1">
 <!--===============================================================================================-->
-<script>
-	function popup(){
-		sw = screen.availWidth;
-		sh = screen.availHeight;
-		alert(sw);
-		alert(sh);
-		px = (sw-cw)/2;
-		py = (sh-ch)/2;
-	}
-</script>
 </head>
 <body class="animsition">
    <jsp:include page="header.jsp"/>
-   
-   
    <!-- Shopping Cart -->
    <!-- <form class="bg0 p-t-75 p-b-85"> -->
       <div class="container">
@@ -59,8 +49,8 @@
                            <th class="column-3">Price</th>
                            <th class="column-4" style="text-align: center;">Amount</th>
                            <th class="column-5">Total</th>
-                           <th class="p-column-6">Update</th>
-                           <th class="p-column-7">Delete</th>
+                           <th class="p-column-6" style="padding: 15px 20px 15px 20px;">Update</th>
+                           <th class="p-column-7" style="padding: 15px 20px 15px 20px;">Delete</th>
                         </tr>
                         
                         <c:set var="sum" value="0"/>
@@ -79,13 +69,20 @@
                                  <input class="mtext-104 cl3 txt-center num-product" style="width:100%;" type="number" name="num-product1" value="${cart.prod_cartAmt }">
                                  </div> --%>
                            </td>
-                           <td class="column-5">${cart.prod_totalPrice }
+                           <td class="column-5" style="font-weight: bold; font-size: 16px;">${cart.prod_totalPrice }
                            </td>
-                           <td class="colume-6"><button onclick="window.open('shoppingCartUpdate?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_cartAmt=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">update </button></td>
-                           <td class="colume-6"><button onclick="window.open('shoppingCartDelete?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_cartAmt=0','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">delete</button></td>
-                           <c:set var="sum" value="${sum+cart.prod_totalPrice}"/>
+                           <td class="colume-6" style="text-align: center;">
+                           		<button onclick="window.open('shoppingCartUpdate?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_cartAmt=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">
+                           			<img src="images/icons/update3_25.jpg">
+                           		</button>
+                           	</td>
+                            <td class="colume-6" style="text-align: center;">
+                           		<button onclick="window.open('shoppingCartDelete?user_id=${user.user_id }&cart_id=${cart.cart_id}&prod_name=${cart.prod_name}&prod_price=${cart.prod_price}&prod_cartAmt=${cart.prod_cartAmt}&prod_totalPrice=${cart.prod_totalPrice}','shoppingCartUpdate','width=1300,height=400,location=yes,scrollbars=no, left=300, top=200')">
+                           			<img src="images/icons/delete2_25_red.jpg">
+                           		</button>
+                            </td>
+                            <c:set var="sum" value="${sum+cart.prod_totalPrice}"/>
                         </tr>
-                        
                         </c:forEach>
                      </table>
                   </div>
@@ -114,7 +111,7 @@
                      </div>
 
                      <div class="size-209 p-t-1">
-                        <span class="mtext-110 cl2">
+                        <span class="mtext-110 cl2" style="font-weight: bold; font-size: 20px;">
                            <c:out value="${sum }"/>
                         </span>
                      </div>

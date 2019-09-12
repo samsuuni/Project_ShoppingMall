@@ -2,7 +2,7 @@
 (function ($) {
     "use strict";
 
-    /*[ Load page ]
+/*    [ Load page ]
     ===========================================================*/
     $(".animsition").animsition({
         inClass: 'fade-in',
@@ -24,7 +24,28 @@
         transition: function(url){ window.location.href = url; }
     });
     
-    /*[ Back to top ]
+/*    ==================================================================
+    [ Cart ]*/
+    $('.js-show-cart').on('click',function(){
+        $('.js-panel-cart').addClass('show-header-cart');
+    });
+
+    $('.js-hide-cart').on('click',function(){
+        $('.js-panel-cart').removeClass('show-header-cart');
+    });
+
+/*    ==================================================================
+    [ Cart ]*/
+    $('.js-show-sidebar').on('click',function(){
+        $('.js-sidebar').addClass('show-sidebar');
+    });
+
+    $('.js-hide-sidebar').on('click',function(){
+        $('.js-sidebar').removeClass('show-sidebar');
+    });
+
+    
+/*    [ Back to top ]
     ===========================================================*/
     var windowH = $(window).height()/2;
 
@@ -41,7 +62,7 @@
     });
 
 
-    /*==================================================================
+/*    ==================================================================
     [ Fixed Header ]*/
     var headerDesktop = $('.container-menu-desktop');
     var wrapMenu = $('.wrap-menu-desktop');
@@ -75,7 +96,7 @@
     });
 
 
-    /*==================================================================
+/*    ==================================================================
     [ Menu mobile ]*/
     $('.btn-show-menu-mobile').on('click', function(){
         $(this).toggleClass('is-active');
@@ -109,7 +130,7 @@
     });
 
 
-    /*==================================================================
+/*    ==================================================================
     [ Show / hide modal search ]*/
     $('.js-show-modal-search').on('click', function(){
         $('.modal-search-header').addClass('show-modal-search');
@@ -126,9 +147,9 @@
     });
 
 
-    /*==================================================================
+/*    ==================================================================
     [ Isotope ]*/
-/*    var $topeContainer = $('.isotope-grid');
+    var $topeContainer = $('.isotope-grid');
     var $filter = $('.filter-tope-group');
 
     // filter items on button click
@@ -165,9 +186,9 @@
 
             $(this).addClass('how-active1');
         });
-    });*/
+    });
 
-    /*==================================================================
+/*    ==================================================================
     [ Filter / Search product ]*/
     $('.js-show-filter').on('click',function(){
         $(this).toggleClass('show-filter');
@@ -192,27 +213,8 @@
 
 
 
-    /*==================================================================
-    [ Cart ]*/
-    $('.js-show-cart').on('click',function(){
-        $('.js-panel-cart').addClass('show-header-cart');
-    });
-
-    $('.js-hide-cart').on('click',function(){
-        $('.js-panel-cart').removeClass('show-header-cart');
-    });
-
-    /*==================================================================
-    [ Cart ]*/
-    $('.js-show-sidebar').on('click',function(){
-        $('.js-sidebar').addClass('show-sidebar');
-    });
-
-    $('.js-hide-sidebar').on('click',function(){
-        $('.js-sidebar').removeClass('show-sidebar');
-    });
-
-    /*==================================================================
+  
+/*    ==================================================================
     [ +/- num product ]*/
     $('.btn-num-product-down').on('click', function(){
         var numProduct = Number($(this).next().val());
@@ -226,7 +228,7 @@
     });
 
 
-    /*==================================================================
+/*    ==================================================================
     [ Rating ]*/
     $('.wrap-rating').each(function(){
         var item = $(this).find('.item-rating');
@@ -268,7 +270,7 @@
         });
     });
     
-    /*==================================================================
+/*    ==================================================================
     [ Show modal1 ]*/
     $('.js-show-modal1').on('click',function(e){
         e.preventDefault();
