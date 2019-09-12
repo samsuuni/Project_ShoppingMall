@@ -47,7 +47,6 @@ public class UserController {
 			mav.setViewName("login");
 			mav.addObject("msg", "failure");
 		}
-		
 		return mav;
 	}
 
