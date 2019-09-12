@@ -53,12 +53,16 @@ public class UserServiceImpl implements UserService{
 	//회원 가입
 	@Override
 	public int insertUser(UserVO user, HttpSession session) {
-		int result = userDao.insertUser(user);
-		if(result>0) {
-			UserVO userDB = viewUser(user);
-			session.setAttribute("user", userDB);
+		try {
+			int result = userDao.insertUser(user);
+			if(result>0) {
+				UserVO userDB = viewUser(user);
+				session.setAttribute("user", userDB);
+			}
+			return result;
+		}catch(Exception e) {
+			return 0;
 		}
-		return result;
 	}
 	@Override
 	public void updateUser(UserVO user) {

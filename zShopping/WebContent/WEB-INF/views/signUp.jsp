@@ -108,18 +108,7 @@
                             <label for="birth_date">Date Of Birth :</label>
                             <input type="date" name="user_birth" id="birth_date">
                         </div>
-<!--                         <div class="form-group">
-                            <label for="job">Job :</label>
-                            <div class="form-select">
-                                <select name="job" id="job">
-                                    <option value=""></option>
-                                    <option value="computer">Computer Operator &nbsp; Pragramming Assistant</option>
-                                    <option value="desiger">Designer</option>
-                                    <option value="marketing">Marketing</option>
-                                </select>
-                                <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                            </div>
-                        </div> -->
+
                         <div class="form-submit">
                             <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
                             <input type="submit" value="Submit Form" class="submit" name="submit" id="submit" />
@@ -134,6 +123,6 @@
 	<jsp:include page="footer.jsp"/>
     <!-- JS -->
     <script src="vendor/jquery/signUpJquery.min.js"></script>
-    <script src="js/signUp.js?1"></script>
+    <script src="js/signUp.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
