@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +23,7 @@
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="css/sb-admin.css" rel="stylesheet">
+<link href="css/sb-admin.css?1" rel="stylesheet">
 
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href="images/icons/favicon.png" />
@@ -58,10 +57,13 @@
 <link rel="stylesheet" type="text/css" href="css/util.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<!-- Font Icon -->
+<link rel="stylesheet"
+	href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/signUp2.css">
-    
+<!-- Main css -->
+<link rel="stylesheet" href="css/signUp2.css?2">
+
 <style type="text/css">
 	.breadcrumb {
 		font-family: Poppins-Medium;
@@ -82,47 +84,75 @@
 
 				<!-- Breadcrumbs-->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="mypage?user_id=${user.user_id }">My Info</a></li>
-					<li class="breadcrumb-item"><a href="">History</a></li>
+					<li class="breadcrumb-item"><a href="">My Info</a></li>
+					<li class="breadcrumb-item"><a
+						href="myhistory?user_id=${user.user_id }">History</a></li>
 				</ol>
 
-
-				<!-- DataTables Example -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<i class="fas fa-table"></i> My Order History
+						<i class="fas fa-fw fa-folder"></i> My Information
 					</div>
 					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable" width="100%"
-								cellspacing="0">
-								<thead>
-									<tr>
-										<th>No</th>
-										<th>order_content</th>
-										<th>order_day</th>
-										<th>order_totalPrice</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:set var="cnt" value="1"/>
-									<c:forEach var="order" items="${orderList }">
-										<tr>
-											<td>${cnt }</td>
-											<td>
-											<%    
-											pageContext.setAttribute("cr", "\r"); //Space
-											pageContext.setAttribute("cn", "\n"); //Enter
-											 %>
-											${fn:replace(order.order_content, cn, "<br/>")}
-											</td>
-											<td>${order.order_day }</td>
-											<td>${order.order_totalPrice }</td>
-										</tr>
-										<c:set var="cnt" value="${cnt+1 }"></c:set>
-									</c:forEach>
-								</tbody>
-							</table>
+						<div class="signup-content">
+							<div class="signup-img">
+								<img src="images/signup-img.jpg" alt="">
+							</div>
+							<div class="signup-form">
+								<form method="POST" class="register-form" id="register-form">
+
+									<div class="form-group">
+										<label for="email">E-mail ID :</label> <input type="email"
+											name="user_loginId" id="loginId" value="${user.user_loginId }" required />
+									</div>
+
+									<div class="form-group">
+										<label for="name">Name :</label> <input type="text"
+											name="user_name" id="name" value="${user.user_name }" required />
+									</div>
+									<div class="form-radio">
+										<label for="gender" class="radio-label">Gender :</label>
+										<div class="form-radio-item">
+											<input type="radio" name="user_gender" id="male" value="male">
+											<label for="male">Male</label>
+											<span class="check"></span>
+										</div>
+										<div class="form-radio-item">
+											<input type="radio" name="user_gender" id="female" value="female">
+											<label for="female">Female</label>
+											<span class="check"></span>
+										</div>
+									</div>
+									<div class="form-low">
+										<div class="form-group">
+											<label for="password">Password :</label> <input
+												type="password" name="user_password" id="password">
+										</div>
+										<div class="form-group">
+											<label for="pw-verification">Password verification :</label>
+											<input type="password" name="pw-verification"
+												id="pw-verification">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="address">Address :</label> <input type="text"
+											name="user_address" id="address" value="${user.user_address }" required />
+									</div>
+									<div class="form-group">
+										<label for="birth_date">Date Of Birth (Age) :</label> 
+										<input type="text" name="user_birth" id="birth_date" value="${user.user_birth } (${user.user_age})" readonly>
+									</div>
+									<div class="form-group">
+										<label for="phone">Phone :</label> <input type="text"
+											name="user_phone" id="phone" value="${user.user_phone }" >
+									</div>
+
+									<div class="form-submit">
+										<input type="submit" value="Reset" class="submit" name="reset" id="reset" />
+										<input type="submit" value="Update" class="submit" name="submit" id="submit" />
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

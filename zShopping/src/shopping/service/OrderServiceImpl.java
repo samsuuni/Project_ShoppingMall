@@ -51,6 +51,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<OrderVO> viewMyOrderHistory(int user_id) {
+		System.out.println(orderDao.viewMyOrderHistory(user_id));
 		return orderDao.viewMyOrderHistory(user_id);
 	}
 
