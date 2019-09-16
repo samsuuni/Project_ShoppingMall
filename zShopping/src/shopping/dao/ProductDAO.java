@@ -13,5 +13,6 @@ public interface ProductDAO {
 	public List<ProductVO> selectProductListToCategory(HashMap<Object, Object> row);
 	public int selectProductCount();
 	public int selectProductCategoryCount(String prod_category);
+	public ProductVO selectOneProduct(int prod_id);
 
 }

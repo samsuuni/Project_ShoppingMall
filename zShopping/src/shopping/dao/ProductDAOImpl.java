@@ -45,6 +45,11 @@ public class ProductDAOImpl implements ProductDAO{
 		return productMapper.selectProductCategoryCount(prod_category);
 	}
 
+	@Override
+	public ProductVO selectOneProduct(int prod_id) {
+		return productMapper.selectOneProduct(prod_id);
+	}
+
 
 
 }

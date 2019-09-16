@@ -70,6 +70,12 @@ public class ProductServiceImpl implements ProductService{
 		List<ProductVO> productList = productDao.selectProductListToCategory(row);
 		return new ProductViewVO(productList, productTotalCount, currentPageNumber, productCountPerPage, firstRow, endRow, productPageTotalCount);
 	}
+
+	@Override
+	public ProductVO viewProductOne(int prod_id) {
+		
+		return productDao.selectOneProduct(prod_id);
+	}
 	
 	
 	

@@ -13,4 +13,6 @@ public interface ProductService {
 	
 	public ProductViewVO viewProductPage(int page);
 	public ProductViewVO viewProductCategoryPage(int page, String prod_category);
+	
+	public ProductVO viewProductOne(int prod_id);
 }

@@ -48,44 +48,20 @@
 		
 			<div class="row isotope-grid">
 			
-			
-				<!-- Block2 -->
-				<!-- 상품 하나블록 -->
-<!-- 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<div class="block2">
-					
-						<div class="block2-pic hov-img0">
-							<img src="images/product-01.jpg" alt="IMG-PRODUCT">
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Product Name
-								</a>
-
-								<span class="stext-105 cl3">
-									$Product Price
-								</span>
-							</div>
-						</div>
-					</div>
-				</div> -->
-				
-				
-				
 				<c:forEach var="product" items="${productView.productList }">
 				
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${product.prod_category}">
 					<div class="block2">
 					
 						<div class="block2-pic hov-img0">
+						<a href="product-detail?prod_id=${product.prod_id}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 							<img src="productImg/${product.prod_name}.jpg" alt="IMG-PRODUCT">
+							</a>
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product-detail?prod_id=${product.prod_id}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									Product Name : ${product.prod_name }
 								</a>
 

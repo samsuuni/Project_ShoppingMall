@@ -29,8 +29,14 @@ public class ProductController {
 	public String productViewCategory(int page, String prod_category, Model model) {
 		ProductViewVO productView = productService.viewProductCategoryPage(page, prod_category);
 		model.addAttribute("productView", productView);
-		
 		return "productCategory";
+	}
+	
+	@RequestMapping("/product-detail")
+	public String productDetail(int prod_id, Model model) {
+		ProductVO product = productService.viewProductOne(prod_id);
+		model.addAttribute("product", product);
+		return "productDetail";
 	}
 
 }
