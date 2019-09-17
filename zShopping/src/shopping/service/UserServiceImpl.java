@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService{
 	public int insertUser(UserVO user, HttpSession session) {
 		try {
 			int result = userDao.insertUser(user);
+			
 			if(result>0) {
 				UserVO userDB = viewUser(user);
 				session.setAttribute("user", userDB);

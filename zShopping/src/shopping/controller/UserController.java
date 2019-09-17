@@ -81,6 +81,13 @@ public class UserController {
 		map.put("cnt", count); //숫자로 반환
 		return map;
 	}
+	
+	// 주소 검색
+	@RequestMapping("/jusoPopup")
+	public String jusoPopup() {
+		return "jusoPopup";
+	}
+	
 	//회원 가입
 	@RequestMapping("insertUser")
 	public ModelAndView signUp(@ModelAttribute UserVO user, HttpSession session) {

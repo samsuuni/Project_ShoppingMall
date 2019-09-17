@@ -47,12 +47,7 @@
     <link rel="stylesheet" href="css/signUp.css">
 </head>
 <body id="contents" style="background-color: white;">
-<script>
-	var msg = "${msg}";
-	if(msg!=""){
-		  alert(msg);
-	};
-</script>
+
     <div class="main">
 <jsp:include page="main_header.jsp"/>
         <div class="container">
@@ -61,7 +56,7 @@
                     <img src="images/signup-img.jpg" alt="">
                 </div>
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                    <form method="POST" class="register-form" id="register-form" name="form">
                         <h2>student registration form</h2>
                         <div class="form-low">
                         	<div class="form-submit">
@@ -101,8 +96,14 @@
 	                        </div>
 	                    </div>
                         <div class="form-group">
-                            <label for="address">Address :</label>
-                            <input type="text" name="user_address" id="address" required/>
+                            <label for="address">Address</label>
+							<div style="float: left;"><input type="text" id="zipNo" style="width:150px;, float: left;" readonly="readonly" placeholder="post number"></div>
+                            <div> <input type="button" onClick="addressSearch();" class="submit" value="Address Search"/></div>
+    					    <div><input type="text" id="roadAddr" readonly="readonly" placeholder="address"></div>
+       						<input type="text" id="addrDetail" readonly="readonly" placeholder="detail address">
+       						<input type="text" id="roadFullAddr" name="user_address" readonly="readonly" required="required">
+                            
+                                   
                         </div>
                         <div class="form-group">
                             <label for="birth_date">Date Of Birth :</label>
@@ -121,7 +122,30 @@
 
 	<jsp:include page="footer.jsp"/>
     <!-- JS -->
+    <script>
+	var msg = "${msg}";
+	if(msg!=""){
+		  alert(msg);
+	};
+
+	function addressSearch(){
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrEngUrl.do)를 호출하게 됩니다.
+		var pop = window.open("jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	}
+	
+
+	function jusoCallBack(roadFullAddr, roadAddr, addrDetail, zipNo){
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+			document.form.roadFullAddr.value = roadFullAddr;
+			document.form.roadAddr.value = roadAddr;
+			document.form.addrDetail.value = addrDetail;
+			document.form.zipNo.value = zipNo;
+	}
+
+	
+</script>
     <script src="vendor/jquery/signUpJquery.min.js"></script>
-    <script src="js/signUp.js"></script>
+    <script src="js/signUp.js?1"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

@@ -88,7 +88,7 @@
            return false;
      }
        
-     if($('#address').val().length == 0){
+     if($('#roadFullAddr').val().length == 0){
          alert("Please write address");
          $("#address").focus();
          return false;
