@@ -16,5 +16,8 @@ public interface ProductMapper {
 	public int selectProductCount();
 	public int selectProductCategoryCount(String prod_category);
 	public ProductVO selectOneProduct(int prod_id);
+	public int searchProductCount(String prod_name);
+	public List<ProductVO> searchProduct(HashMap<Object, Object> row);
+	
 
 }

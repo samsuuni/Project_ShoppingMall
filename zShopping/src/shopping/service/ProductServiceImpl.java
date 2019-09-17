@@ -13,6 +13,8 @@ import shopping.vo.ProductViewVO;
 @Service
 public class ProductServiceImpl implements ProductService{
 	
+
+	
 	@Autowired
 	ProductDAO productDao;
 
@@ -28,13 +30,13 @@ public class ProductServiceImpl implements ProductService{
 
 	
 	
+	static int productCountPerPage = 9;
+	static int firstRow = 0;
+	static int endRow = 0;
 	@Override
 	public ProductViewVO viewProductPage(int page) {
-		int productCountPerPage = 11;
 		int currentPageNumber = page;
 		int productTotalCount = productDao.selectProductCount();
-		int firstRow = 0;
-		int endRow = 0;
 		
 		firstRow = (page-1) * productCountPerPage;
 		endRow = productCountPerPage;
@@ -51,11 +53,8 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public ProductViewVO viewProductCategoryPage(int page, String prod_category) {
-		int productCountPerPage = 11;
 		int currentPageNumber = page;
 		int productTotalCount = productDao.selectProductCategoryCount(prod_category);
-		int firstRow = 0;
-		int endRow = 0;
 		
 		firstRow = (page-1) * productCountPerPage;
 		endRow = productCountPerPage;
@@ -76,7 +75,27 @@ public class ProductServiceImpl implements ProductService{
 		
 		return productDao.selectOneProduct(prod_id);
 	}
-	
+
+	@Override
+	public ProductViewVO searchProduct(int page, String prod_name) {
+		
+		int currentPageNumber = page;
+		int productTotalCount = productDao.searchProductCount(prod_name);
+		firstRow = (page-1) * productCountPerPage;
+		endRow = productCountPerPage;
+		int productPageTotalCount = productTotalCount/productCountPerPage;
+		if(productTotalCount%productCountPerPage>0) {
+			productPageTotalCount++;
+		}
+		HashMap<Object, Object> row = new HashMap<Object, Object>();
+		row.put("firstRow", firstRow);
+		row.put("endRow", endRow);
+		row.put("prod_name", prod_name);
+		List<ProductVO> productList = productDao.searchProduct(row);
+		return new ProductViewVO(productList, productTotalCount, currentPageNumber, productCountPerPage, firstRow, endRow, productPageTotalCount);
+		
+		
+	}
 	
 	
 
