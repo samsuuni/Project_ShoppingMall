@@ -25,7 +25,6 @@ class TestJunit {
 		user.setUser_loginId("powerRanger");
 		user.setUser_name("blue");
 		user.setUser_gender("Man");
-		user.setUser_age(31);
 		user.setUser_address("Tokyo");
 		user.setUser_password("123123");
 		user.setUser_phone("01012345678");

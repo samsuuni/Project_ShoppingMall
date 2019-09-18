@@ -24,10 +24,12 @@
 				
 				<div class="right-top-bar flex-w h-full">
 					<c:if test="${empty user.user_name}">
+					<span class="logCheck"><a href="signUp" class="flex-c-m trans-04 p-lr-25"> SIGN UP </a></span>
 					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
 					</c:if>
 					<c:if test="${!empty user.user_name}">
 					<span class="myPage"><a href="mypage?user_id=${user.user_id }" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>
+					<span class="myPage"><a href="myhistory?user_id=${user.user_id }" class="flex-c-m trans-04 p-lr-25"> History </a></span>
 					<span class="logCheck"><a href="logout?page=${ pageContext.request.requestURL }" class="flex-c-m trans-04 p-lr-25"> LOG OUT </a></span>
 					</c:if>
 				</div>

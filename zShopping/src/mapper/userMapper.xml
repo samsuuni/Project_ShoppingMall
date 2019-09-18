@@ -11,18 +11,20 @@
 			user_name,
 			user_loginId,
 			user_password,
+			user_postAddress,
 			user_address,
+			user_detailAddress,
 			user_birth,
-			user_age,
 			user_phone,
 			user_gender
 		)values(
 			#{user_name},
 			#{user_loginId},
 			#{user_password},
+			#{user_postAddress},
 			#{user_address},
+			#{user_detailAddress},
 			#{user_birth},
-			#{user_age},
 			#{user_phone},
 			#{user_gender}
 		)
@@ -55,11 +57,7 @@
 	</select>
 	
 	<select id="viewUser" resultType="user" parameterType="user">
-		select user_name, user_loginId, user_id, 
-		user_address, user_birth, user_age, 
-		user_phone, user_gender, user_password 
-		from user 
-		where user_loginId=#{user_loginId} and user_password=#{user_password}
+		select * from user where user_loginId=#{user_loginId} and user_password=#{user_password}
 	</select>
 	<select id="emailCheck" resultType="Integer" parameterType="String">
 		select COUNT(*)

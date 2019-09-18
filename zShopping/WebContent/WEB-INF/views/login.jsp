@@ -93,31 +93,6 @@ html, body {
 <!-- google api -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id" content="347213457559-9581admdp2ss541c7944n1nl7e8t9ef7.apps.googleusercontent.com">
-<script>
-
-	function onSignIn(googleUser){
-		var auth2 = gapi.auth2.getAuthInstance();
-		alert(auth2);
-		$('#googleAuth').val(auth2);
-		var profile = googleUser.getBasicProfile();
-		var auth2 = gapi.auth2.getAuthInstance();
-		auth2.signOut().then(function(){
-			alert('user signed outdd');
-		});
-		location.href="signUp?user_id="+profile.getId()+"&user_name="+profile.getName()+"&user_email="+profile.getEmail();
-		auth2.disconnect();
-	}
-	
-	function signOut(){
-		var auth2 = gapi.auth2.getAuthInstance();
-		auth2.signOut().then(function(){
-			console.log('user signed out');
-		});
-		auth2.disconnect();
-	}
-
-</script>
-
 
 
 </head>
@@ -203,6 +178,29 @@ html, body {
 	<script src="js/logmain.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+
+	function onSignIn(googleUser){
+		var auth2 = gapi.auth2.getAuthInstance();
+		var profile = googleUser.getBasicProfile();
+		var auth2 = gapi.auth2.getAuthInstance();
+		auth2.signOut().then(function(){
+		});
+		location.href="signUp?user_id="+profile.getId()+"&user_name="+profile.getName()+"&user_email="+profile.getEmail();
+		auth2.disconnect();
+	}
+	
+	function signOut(){
+		var auth2 = gapi.auth2.getAuthInstance();
+		auth2.signOut().then(function(){
+			console.log('user signed out');
+		});
+		auth2.disconnect();
+	}
+
+</script>
+
+	
 
 </body>
 </html>

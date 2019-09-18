@@ -97,13 +97,11 @@
 	                    </div>
                         <div class="form-group">
                             <label for="address">Address</label>
-							<div style="float: left;"><input type="text" id="zipNo" style="width:150px;, float: left;" readonly="readonly" placeholder="post number"></div>
+							<div style="float: left;"><input type="text" id="zipNo" style="width:150px;, float: left;" name="user_postAddress" readonly="readonly" placeholder="post number"></div>
                             <div> <input type="button" onClick="addressSearch();" class="submit" value="Address Search"/></div>
-    					    <div><input type="text" id="roadAddr" readonly="readonly" placeholder="address"></div>
-       						<input type="text" id="addrDetail" readonly="readonly" placeholder="detail address">
-       						<input type="hidden" id="roadFullAddr" name="user_address" readonly="readonly" required="required">
-                            
-                                   
+    					    <div><input type="text" id="roadAddr" readonly="readonly" name="user_address" placeholder="address"></div>
+       						<input type="text" id="addrDetail" readonly="readonly" name="user_detailAddress" placeholder="detail address">
+       						<input type="hidden" id="roadFullAddr" readonly="readonly" required="required">
                         </div>
                         <div class="form-group">
                             <label for="birth_date">Date Of Birth :</label>
@@ -135,14 +133,21 @@
 	}
 	
 
-	function jusoCallBack(roadFullAddr, roadAddr, addrDetail, zipNo){
+/* 	function jusoCallBack(roadFullAddr, roadAddr, addrDetail, zipNo){
 			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
 			document.form.roadFullAddr.value = roadFullAddr;
 			document.form.roadAddr.value = roadAddr;
 			document.form.addrDetail.value = addrDetail;
 			document.form.zipNo.value = zipNo;
-	}
+	} */
 
+	function jusoCallBack(roadFullAddr, roadAddr, addrDetail, zipNo){
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+		document.getElementById("zipNo").value = zipNo;
+		document.getElementById("roadFullAddr").value = roadFullAddr;
+		document.getElementById("roadAddr").value = roadAddr;
+		document.getElementById("addrDetail").value = addrDetail;
+}
 	
 </script>
     <script src="vendor/jquery/signUpJquery.min.js"></script>

@@ -2,6 +2,8 @@ package shopping.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,22 +38,18 @@ public class OrderServiceImpl implements OrderService {
 			content += "\r\n";
 			totalPrice += cartList.get(i).getProd_totalPrice();
 		}
-		System.out.println(content);
-		System.out.println(totalPrice);
 		OrderVO order = new OrderVO();
 		order.setUser_id(user_id);
 		order.setOrder_content(content);
 		order.setOrder_totalPrice(totalPrice);
 		orderDao.insertOrder(order);
 		
-		cartDao.cleanCart(order.getUser_id());
 		
 		return order;
 	}
 
 	@Override
 	public List<OrderVO> viewMyOrderHistory(int user_id) {
-		System.out.println(orderDao.viewMyOrderHistory(user_id));
 		return orderDao.viewMyOrderHistory(user_id);
 	}
 
