@@ -102,6 +102,16 @@ public class UserController {
 		return mav;
 	}
 	
+	
+	//회원 정보 수정
+	@RequestMapping("updateUser")
+	public String updateUser(int user_id, String user_phone, String user_address, HttpSession session, Model model) {
+		userService.updateUser(user_id, user_phone, user_address, session);
+		System.out.println("updateUser");
+		
+		return "mypage";
+	}
+	
 	@RequestMapping("/mypage")
 	public String goMypage() {
 		return "mypage";

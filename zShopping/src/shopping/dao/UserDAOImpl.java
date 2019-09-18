@@ -68,4 +68,10 @@ public class UserDAOImpl implements UserDAO{
 		return emailCheck;
 	}
 	
+	//user_id로 selectOne
+	@Override
+	public UserVO selectOneWithUserId(int user_id) {
+		return userMapper.selectOneWithUserId(user_id);
+	}
+	
 }

@@ -82,11 +82,6 @@
            return false;
      }
        
-     if($('#male').val() == 0){
-           alert("Please choice Gender");
-           $("#email").focus();
-           return false;
-     }
        
      if($('#roadFullAddr').val().length == 0){
          alert("Please write address");
@@ -97,6 +92,12 @@
      if($('#birth_date').val().length == 0){
          alert("Please write birth_date");
          $("#birth_date").focus();
+         return false;
+     }
+     
+     if($('#phone').val().length == 0){
+         alert("Please write phone number"); 
+         $("#phone").focus();
          return false;
      }
      

@@ -14,4 +14,5 @@ public interface UserMapper {
 	public void loginCheck(UserVO user);
 	public void viewUser(UserVO user);
 	public void emailCheck(String email);
+	public UserVO selectOneWithUserId(int user_id);
 }

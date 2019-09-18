@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/signUp.css">
+    <link rel="stylesheet" href="css/signUp.css?1">
 </head>
 <body id="contents" style="background-color: white;">
 
@@ -57,11 +57,8 @@
                 </div>
                 <div class="signup-form">
                     <form method="POST" class="register-form" id="register-form" name="form">
-                        <h2>student registration form</h2>
+                        <h2>registration form</h2>
                         <div class="form-low">
-                        	<div class="form-submit">
-                        		
-                        	</div>
 	                        <div class="form-group">
 	                            <label for="email">E-mail ID :</label>
 	                            <input type="email" name="user_loginId" id="loginId" required/>
@@ -98,7 +95,7 @@
                         <div class="form-group">
                             <label for="address">Address</label>
 							<div style="float: left;"><input type="text" id="zipNo" style="width:150px;, float: left;" readonly="readonly" placeholder="post number"></div>
-                            <div> <input type="button" onClick="addressSearch();" class="submit" value="Address Search"/></div>
+                            <div>&nbsp;&nbsp;<input type="button" onClick="addressSearch();" class="submit" value="Address Search"/></div>
     					    <div><input type="text" id="roadAddr" readonly="readonly" placeholder="address"></div>
        						<input type="text" id="addrDetail" readonly="readonly" placeholder="detail address">
        						<input type="text" id="roadFullAddr" name="user_address" readonly="readonly" required="required">
@@ -109,6 +106,11 @@
                             <label for="birth_date">Date Of Birth :</label>
                             <input type="date" name="user_birth" id="birth_date">
                         </div>
+                        <div class="form-group">
+                              <label for="phone">Phone :</label>
+                              <input type="text" name="user_phone" id="phone" value="${user.user_phone }" >
+                        </div>
+                        
 
                         <div class="form-submit">
                             <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />

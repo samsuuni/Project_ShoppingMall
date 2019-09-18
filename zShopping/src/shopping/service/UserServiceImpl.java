@@ -66,8 +66,14 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 	@Override
-	public void updateUser(UserVO user) {
+	public void updateUser(int user_id, String user_phone, String user_address, HttpSession session) {
+		UserVO user = userDao.selectOneWithUserId(user_id);
+		user.setUser_phone(user_phone);
+		user.setUser_address(user_address);
 		userDao.updateUser(user);
+		
+		UserVO userDB = viewUser(user);
+		session.setAttribute("user", userDB);
 	}
 	@Override
 	public void deleteUser(int id) {
@@ -88,5 +94,11 @@ public class UserServiceImpl implements UserService{
 		int result = userDao.emailCheck(user_loginId);
 		return result;
 	}
+	@Override
+	public UserVO selectOneWithUserId(int user_id) {
+		return userDao.selectOneWithUserId(user_id);
+	}
+	
+	
 	
 }

@@ -16,6 +16,7 @@ public interface UserDAO {
 	public int insertUser(UserVO user);
 	public UserVO selectOne(String email);
 	public List<UserVO> selectAll();
+	public UserVO selectOneWithUserId(int user_id);
 	
 	//로그인 체크
 	public boolean loginCheck(UserVO user);
