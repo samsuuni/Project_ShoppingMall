@@ -9,7 +9,7 @@ import shopping.vo.CartVO;
 public interface CartMapper {
 	
 	public void insertCart(CartVO cart);
-	public void deleteCart(CartVO cart);
+	public void deleteCart(int cart_id);
 	public void updateCartAmt(CartVO cart);
 	public List<CartVO> viewCartWithUserId(int user_id);
 	public void cleanCart(int user_id);

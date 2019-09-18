@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
 		boolean result = userDao.loginCheck(user);
 		if(result) { // 로그인 성공시 loginID , name 세션에 등록  +user_id
 			UserVO userDB = viewUser(user);
-			System.out.println(user);
+			System.out.println(userDB);
 			session.setAttribute("user", userDB);
 			List<CartVO> cartList = cartDao.viewCartWithUserId(userDB.getUser_id());
 			session.setAttribute("cartList", cartList);

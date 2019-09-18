@@ -32,6 +32,7 @@ public class CartServiceImpl implements CartService {
 			cart.setProd_id(prod_id);
 			cart.setProd_name(pd.getProd_name());
 			cart.setProd_price(pd.getProd_price());
+			cart.setProd_cartAmt(prod_cartAmt);
 			cart.setProd_totalPrice(pd.getProd_price()*prod_cartAmt);
 			cartDao.insertCart(cart);
 			
@@ -45,8 +46,8 @@ public class CartServiceImpl implements CartService {
 
 	//장바구니 화면에서 상품별 삭제
 	@Override
-	public void removeFromCart(CartVO cart) {
-		cartDao.deleteCart(cart);
+	public void removeFromCart(int cart_id) {
+		cartDao.deleteCart(cart_id);
 	}
 
 	//장바구니 화면에서 상품별 수량 변경
@@ -54,7 +55,7 @@ public class CartServiceImpl implements CartService {
 	public void updateAmt(int cart_id, int prod_cartAmt) {
 		CartVO cart = cartDao.selectOneWithCartId(cart_id);
 		if(prod_cartAmt==0) {
-			cartDao.deleteCart(cart);
+			cartDao.deleteCart(cart_id);
 		} else {
 			cart.setProd_cartAmt(prod_cartAmt);
 			cart.setProd_totalPrice(cart.getProd_price()*prod_cartAmt);

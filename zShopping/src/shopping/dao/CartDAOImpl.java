@@ -21,8 +21,8 @@ public class CartDAOImpl implements CartDAO{
 	}
 
 	@Override
-	public void deleteCart(CartVO cart) {
-		cartMapper.deleteCart(cart);
+	public void deleteCart(int cart_id) {
+		cartMapper.deleteCart(cart_id);
 	}
 
 	@Override

@@ -45,7 +45,7 @@
 							<td class="column-3">${param.prod_price}</td>
 							<td class="column-4">
 								<div style="text-align: center">
-									<input class="mtext-104 cl3 txt-center cartAmt"
+									<input class="mtext-104 cl3 txt-center prod_cartAmt"
 										style="width: 100%; text-align: center" type="number"
 										name="prod_cartAmt" readonly="readonly" value="${param.prod_cartAmt}">
 								</div>
@@ -67,10 +67,7 @@
 				</div>
 		</div>
 		
-		
-	<input type="hidden" class="user_id" value="${param.user_id }">
-	<input type="hidden" class="cart_id" value="${param.cart_id }">
-	<input type="hidden" class="prod_cartAmt" value="${param.prod_cartAmt }">
+
 	
 
 </div>
