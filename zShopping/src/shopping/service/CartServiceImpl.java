@@ -38,19 +38,19 @@ public class CartServiceImpl implements CartService {
 			cart.setProd_totalPrice(pd.getProd_price()*prod_cartAmt);
 			cartDao.insertCart(cart);
 			
-			cartList = cartDao.viewCartWithUserId(user_id);
+			cartList = viewUserCart(user_id);
 			session.setAttribute("cartList", cartList);
 		}else {
 			cart = cartDao.cartExists(user_id, prod_id);
 			cart.setProd_cartAmt(cart.getProd_cartAmt()+prod_cartAmt);
 			cartDao.updateCartAmt(cart);
 			
-			cartList = cartDao.viewCartWithUserId(user_id);
+			cartList = viewUserCart(user_id);
 			session.setAttribute("cartList", cartList);
 		}
 	}
 
-	//장바구니 화면에서 상품별 삭제
+	//장바구니 화면에서 상품별 삭제(사용X 업데이트에서 수행)
 	@Override
 	public void removeFromCart(int cart_id) {
 		cartDao.deleteCart(cart_id);
@@ -58,14 +58,19 @@ public class CartServiceImpl implements CartService {
 
 	//장바구니 화면에서 상품별 수량 변경
 	@Override
-	public void updateAmt(int cart_id, int prod_cartAmt) {
+	public void updateAmt(int user_id, int cart_id, int prod_cartAmt, HttpSession session) {
 		CartVO cart = cartDao.selectOneWithCartId(cart_id);
+		List<CartVO> cartList = new ArrayList<CartVO>();
 		if(prod_cartAmt==0) {
 			cartDao.deleteCart(cart_id);
+			cartList = viewUserCart(user_id);
+			session.setAttribute("cartList", cartList);
 		} else {
 			cart.setProd_cartAmt(prod_cartAmt);
 			cart.setProd_totalPrice(cart.getProd_price()*prod_cartAmt);
 			cartDao.updateCartAmt(cart);
+			cartList = viewUserCart(user_id);
+			session.setAttribute("cartList", cartList);
 		}
 	}
 

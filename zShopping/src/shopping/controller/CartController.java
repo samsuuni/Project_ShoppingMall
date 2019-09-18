@@ -59,8 +59,8 @@ public class CartController {
 	
 	// 카트 수정 데이터 받는 로직
 	@RequestMapping("/shoppingCartUpdateDo")
-	public String shoppingCartUpdateDo(int user_id, int cart_id, int prod_cartAmt) {
-		cartService.updateAmt(cart_id, prod_cartAmt);
+	public String shoppingCartUpdateDo(int user_id, int cart_id, int prod_cartAmt, HttpSession session) {
+		cartService.updateAmt(user_id, cart_id, prod_cartAmt, session);
 		return "redirect:shopping_cart?user_id="+user_id;
 	}
 	

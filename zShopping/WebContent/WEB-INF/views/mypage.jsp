@@ -1,6 +1,3 @@
-<%@page import="java.time.format.DateTimeFormatter"%>
-<%@page import="java.time.LocalDate"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -66,7 +63,7 @@
 	href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
 <!-- Main css -->
-<link rel="stylesheet" href="css/signUp2.css?2">
+<link rel="stylesheet" href="css/signUp2.css">
 
 <style type="text/css">
 .breadcrumb {
@@ -167,9 +164,9 @@
 											required="required" value="${user.user_address }">
 									</div>
 									<div class="form-group">
-										<label for="birth_date">Date Of Birth (Age) :</label>
+										<label for="birth_date">Date Of Birth :</label>
 										<input type="text" name="user_birth" id="birth_date"
-										value="${user.user_birth } (${user.user_age})" readonly>
+										value="${user.user_birth }" readonly>
 
 									</div>
 									<div class="form-group">
