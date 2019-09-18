@@ -1,5 +1,7 @@
 package shopping.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -24,10 +26,10 @@ public class CartServiceImpl implements CartService {
 	//상품 상세화면에서 장바구니에 상품 추가
 	@Override
 	public void addToCart(int user_id, int prod_id, int prod_cartAmt, HttpSession session) {
-		
-		if(!cartDao.cartExists(user_id, prod_id)) {
+		CartVO cart = new CartVO();
+		List<CartVO> cartList = new ArrayList<CartVO>();
+		if(!cartExists(user_id, prod_id)) {
 			ProductVO pd = productDao.selectOneProduct(prod_id);
-			CartVO cart = new CartVO();
 			cart.setUser_id(user_id);
 			cart.setProd_id(prod_id);
 			cart.setProd_name(pd.getProd_name());
@@ -36,11 +38,15 @@ public class CartServiceImpl implements CartService {
 			cart.setProd_totalPrice(pd.getProd_price()*prod_cartAmt);
 			cartDao.insertCart(cart);
 			
-			List<CartVO> cartList = cartDao.viewCartWithUserId(user_id);
+			cartList = cartDao.viewCartWithUserId(user_id);
 			session.setAttribute("cartList", cartList);
 		}else {
-			System.out.println("장바구니에 있는 상품입니다.");
-			System.out.println("수량 변경은 장바구니 화면에서만 가능");
+			cart = cartDao.cartExists(user_id, prod_id);
+			cart.setProd_cartAmt(cart.getProd_cartAmt()+prod_cartAmt);
+			cartDao.updateCartAmt(cart);
+			
+			cartList = cartDao.viewCartWithUserId(user_id);
+			session.setAttribute("cartList", cartList);
 		}
 	}
 
@@ -73,6 +79,16 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void cleanCart(int user_id) {
 		cartDao.cleanCart(user_id);
+	}
+
+	//장바구니에 상품 존재 여부 확인
+	@Override
+	public boolean cartExists(int user_id, int prod_id) {
+		if(cartDao.cartExists(user_id, prod_id)!=null) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }

@@ -41,14 +41,11 @@ public class CartDAOImpl implements CartDAO{
 	}
 
 	@Override
-	public boolean cartExists(int user_id, int prod_id) {
+	public CartVO cartExists(int user_id, int prod_id) {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		map.put("user_id", user_id);
 		map.put("prod_id", prod_id);
-		if(cartMapper.cartExists(map)!=null) {
-			return true;
-		}
-		return false;
+		return cartMapper.cartExists(map);
 	}
 
 	@Override
