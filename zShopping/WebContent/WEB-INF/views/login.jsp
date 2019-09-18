@@ -90,6 +90,35 @@ html, body {
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 
+<!-- google api -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="347213457559-9581admdp2ss541c7944n1nl7e8t9ef7.apps.googleusercontent.com">
+<script>
+
+	function onSignIn(googleUser){
+		var auth2 = gapi.auth2.getAuthInstance();
+		alert(auth2);
+		$('#googleAuth').val(auth2);
+		var profile = googleUser.getBasicProfile();
+		var auth2 = gapi.auth2.getAuthInstance();
+		auth2.signOut().then(function(){
+			alert('user signed outdd');
+		});
+		location.href="signUp?user_id="+profile.getId()+"&user_name="+profile.getName()+"&user_email="+profile.getEmail();
+		auth2.disconnect();
+	}
+	
+	function signOut(){
+		var auth2 = gapi.auth2.getAuthInstance();
+		auth2.signOut().then(function(){
+			console.log('user signed out');
+		});
+		auth2.disconnect();
+	}
+
+</script>
+
+
 
 </head>
 <body id="contents" style="background-color: #666666;">
@@ -137,12 +166,12 @@ html, body {
 						<span class="txt2"> or sign up using </span>
 					</div>
 
+
+
 					<div class="login100-form-social flex-c-m">
-						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-							<i class="fa fa-facebook-f" aria-hidden="true"></i>
-						</a> <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-						</a>
+
+						
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
 					</div>
 				</form>
 

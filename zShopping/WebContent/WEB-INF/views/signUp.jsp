@@ -64,13 +64,13 @@
                         	</div>
 	                        <div class="form-group">
 	                            <label for="email">E-mail ID :</label>
-	                            <input type="email" name="user_loginId" id="loginId" required/>
+	                            <input type="email" name="user_loginId" id="loginId" value="${param.user_email }" required/>
 	                            <input type="button" value="Duplicate check" class="submit" name="Duplicate" id="Duplicate" />
 	                        </div>
                         </div>
                         <div class="form-group">
                             <label for="name">Name :</label>
-                            <input type="text" name="user_name" id="name" required/>
+                            <input type="text" name="user_name" id="name" value="${param.user_name }" required/>
                         </div>
                         <div class="form-radio">
                             <label for="gender" class="radio-label">Gender :</label>
@@ -101,7 +101,7 @@
                             <div> <input type="button" onClick="addressSearch();" class="submit" value="Address Search"/></div>
     					    <div><input type="text" id="roadAddr" readonly="readonly" placeholder="address"></div>
        						<input type="text" id="addrDetail" readonly="readonly" placeholder="detail address">
-       						<input type="text" id="roadFullAddr" name="user_address" readonly="readonly" required="required">
+       						<input type="hidden" id="roadFullAddr" name="user_address" readonly="readonly" required="required">
                             
                                    
                         </div>
