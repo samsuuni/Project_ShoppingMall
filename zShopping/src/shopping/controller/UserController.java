@@ -105,7 +105,7 @@ public class UserController {
 	
 	//회원 정보 수정
 	@RequestMapping("updateUser")
-	public String updateUser(int user_id, String user_phone, String user_address, HttpSession session, Model model) {
+	public String updateUser(int user_id, String user_phone, String user_address, HttpSession session) {
 		userService.updateUser(user_id, user_phone, user_address, session);
 		System.out.println("updateUser");
 		

@@ -2,6 +2,8 @@ package shopping.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +21,8 @@ public class OrderController {
 
 	// 주문 확정 페이지 
 	@RequestMapping("/confirm_order")
-	public String confirmOrder(int user_id, Model model) {
-		OrderVO order = orderService.checkoutOrder(user_id);
+	public String confirmOrder(int user_id, Model model, HttpSession session) {
+		OrderVO order = orderService.checkoutOrder(user_id, session);
 		model.addAttribute("order", order);
 		return "confirm_order";
 	}

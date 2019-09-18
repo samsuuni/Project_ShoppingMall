@@ -26,12 +26,12 @@
 	
 	<!-- get product list for page -->
 	<select id="selectProductList" parameterType="hashmap" resultType="product">
-		select * from product order by prod_id asc limit #{firstRow}, #{endRow}
+		select * from product order by prod_id ASC limit #{firstRow}, #{endRow}
 	</select>
 	
 	<!-- get productCategory list for page -->
 	<select id="selectProductCategoryList" parameterType="hashmap" resultType="product">
-		select * from product where prod_category=#{prod_category} order by prod_id asc limit #{firstRow}, #{endRow}
+		select * from product where prod_category=#{prod_category} order by prod_id ASC limit #{firstRow}, #{endRow}
 	</select>
 	
 	<!-- get product One -->
@@ -39,5 +39,14 @@
 		select * from product where prod_id=#{prod_id}
 	</select>
 	
+	<!-- search product Count -->
+	<select id="searchProductCount" parameterType="String" resultType="int">
+		select count(*) from product where prod_name like CONCAT('%',#{prod_name},'%')
+	</select>
+	
+	<!-- search product -->
+	<select id="searchProduct" parameterType="hashmap" resultType="product">
+		select * from product where prod_name like CONCAT('%',#{prod_name},'%') order by prod_id ASC limit #{firstRow}, #{endRow}
+	</select>
 
 </mapper>

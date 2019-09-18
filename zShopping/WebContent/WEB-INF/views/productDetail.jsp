@@ -111,7 +111,11 @@
 				</div>
 					
 				<div class="col-md-6 col-lg-5 p-b-30">
+				<form method="post" class="product-detail" id="product-detail" name="product-detail">
+					<input type="hidden" class="user_id" name="user_id" value="${user.user_id }">
+					<input type="hidden" class="prod_id" name="prod_id" value="${product.prod_id }">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
+					
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
 							${product.prod_name }
 						</h4>
@@ -122,6 +126,7 @@
 
 						<p class="stext-102 cl3 p-t-23">
 							Goooooooooooooooooooooooooooooooooooooooooooooooooooooood Product!!!!!!!!!!!!!!!! It's good. Buy it.
+							id : ${user.user_id }
 						</p>
 						
 						<!--  -->
@@ -171,7 +176,7 @@
 											<i class="fs-16 zmdi zmdi-minus"></i>
 										</div>
 
-										<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+										<input class="mtext-104 cl3 txt-center num-product" type="number" name="prod_cartAmt" value="1">
 
 										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 											<i class="fs-16 zmdi zmdi-plus"></i>
@@ -206,6 +211,7 @@
 							</a>
 						</div>
 					</div>
+					</form>
 				</div>
 			</div>
 

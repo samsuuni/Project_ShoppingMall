@@ -75,6 +75,9 @@
 								category5
 							</a>
 						</li>
+						<li>
+
+						</li>
 					</ul>
 				</div>
 
@@ -90,6 +93,14 @@
 					<c:forEach var="cart" items="${cartList }">
 						<c:set var="cnt" value="${cnt + 1 }"/>
 					</c:forEach>
+					<!-- product Search -->
+					<form action="productSearch">
+						<input type="hidden" name="page" value="1">
+						<input type="text" style="width: 170px; height:25px; border: 1px solid gray; float: left;" name="prod_name" placeholder="search">&nbsp;
+						<!-- <a href="productSearch"><img src="images/icons/search.jpg" style="width: 20px;"></a> -->
+						<button><img src="images/icons/search.jpg" style="width: 20px;"></button>
+					</form>
+						
 					<div
 						class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
 						data-notify="${cnt }">
@@ -100,7 +111,6 @@
 		</div>
 	</div>
 </header>
-
 
 
 
@@ -119,11 +129,11 @@
 		</div>
 
 		<div class="header-cart-content flex-w js-pscroll">
-		
 			<!-- Cart Image Start  -->
 			<ul class="header-cart-wrapitem w-full">
 				<c:set var="sum" value="0"/>
 				<c:forEach var="cart" items="${cartList }">
+
 				<li class="header-cart-item flex-w flex-t m-b-12">
 					<div class="header-cart-item-img">
 						<%-- <img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG"> --%>

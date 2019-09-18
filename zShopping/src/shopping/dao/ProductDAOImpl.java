@@ -50,6 +50,16 @@ public class ProductDAOImpl implements ProductDAO{
 		return productMapper.selectOneProduct(prod_id);
 	}
 
+	@Override
+	public List<ProductVO> searchProduct(HashMap<Object, Object> row) {
+		return productMapper.searchProduct(row);
+	}
+
+	@Override
+	public int searchProductCount(String prod_name) {
+		return productMapper.searchProductCount(prod_name);
+	}
+
 
 
 }

@@ -13,7 +13,7 @@
     $('.downBtn').on('click',function(){
        var cartAmt = Number($('.cartAmt').val());
        if(cartAmt==1){
-          alert("It can't be less then one!");
+          alert("It can't be less than one!");
        }
        if(cartAmt>1){
           var price = Number($('.price').val());

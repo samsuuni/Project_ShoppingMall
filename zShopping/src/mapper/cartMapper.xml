@@ -22,7 +22,7 @@
 	<delete id="cleanCart" parameterType="int">
 		delete from cart where user_id=#{user_id}
 	</delete>
-	<select id="cartExists" parameterType="cart" resultType="cart">
+	<select id="cartExists" parameterType="map" resultType="cart">
 		select * from cart where user_id=#{user_id} and prod_id=#{prod_id}
 	</select>
 	<select id="selectOneWithCartId" parameterType="int" resultType="cart">

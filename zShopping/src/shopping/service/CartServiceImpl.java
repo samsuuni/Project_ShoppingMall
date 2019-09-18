@@ -2,11 +2,15 @@ package shopping.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shopping.dao.CartDAO;
+import shopping.dao.ProductDAO;
 import shopping.vo.CartVO;
+import shopping.vo.ProductVO;
 
 @Service("cartService")
 public class CartServiceImpl implements CartService {
@@ -14,14 +18,25 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	private CartDAO cartDao;
 	
+	@Autowired
+	private ProductDAO productDao;
+	
 	//상품 상세화면에서 장바구니에 상품 추가
 	@Override
-	public void addToCart(CartVO cart) {
-		if(!cartDao.cartExists(cart)) {
-			int cartAmt = cart.getProd_cartAmt();
-			int price = cart.getProd_price();
-			cart.setProd_totalPrice(price*cartAmt);
+	public void addToCart(int user_id, int prod_id, int prod_cartAmt, HttpSession session) {
+		
+		if(!cartDao.cartExists(user_id, prod_id)) {
+			ProductVO pd = productDao.selectOneProduct(prod_id);
+			CartVO cart = new CartVO();
+			cart.setUser_id(user_id);
+			cart.setProd_id(prod_id);
+			cart.setProd_name(pd.getProd_name());
+			cart.setProd_price(pd.getProd_price());
+			cart.setProd_totalPrice(pd.getProd_price()*prod_cartAmt);
 			cartDao.insertCart(cart);
+			
+			List<CartVO> cartList = cartDao.viewCartWithUserId(user_id);
+			session.setAttribute("cartList", cartList);
 		}else {
 			System.out.println("장바구니에 있는 상품입니다.");
 			System.out.println("수량 변경은 장바구니 화면에서만 가능");

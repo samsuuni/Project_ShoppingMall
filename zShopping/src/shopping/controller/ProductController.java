@@ -38,5 +38,12 @@ public class ProductController {
 		model.addAttribute("product", product);
 		return "productDetail";
 	}
+	
+	@RequestMapping("/productSearch")
+	public String productSearch(int page, String prod_name, Model model) {
+		ProductViewVO productView = productService.searchProduct(page ,prod_name);
+		model.addAttribute("productView", productView);
+		return "productSearch";
+	}
 
 }

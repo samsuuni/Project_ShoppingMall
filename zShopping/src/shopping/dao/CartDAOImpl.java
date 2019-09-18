@@ -1,5 +1,6 @@
 package shopping.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,11 @@ public class CartDAOImpl implements CartDAO{
 	}
 
 	@Override
-	public boolean cartExists(CartVO cart) {
-		if(cartMapper.cartExists(cart)!=null) {
+	public boolean cartExists(int user_id, int prod_id) {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("user_id", user_id);
+		map.put("prod_id", prod_id);
+		if(cartMapper.cartExists(map)!=null) {
 			return true;
 		}
 		return false;
