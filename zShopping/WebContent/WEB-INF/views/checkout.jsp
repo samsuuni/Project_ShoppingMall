@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?1">
     
     <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
@@ -70,10 +70,19 @@
               </div>
 
               <div class="form-group row">
+              
                 <div class="col-md-12">
+                
                   <label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_address" name="c_address" value="${user.user_address }">
+					<div style="float: left;"><input type="text"  class="form-control" id="zipNo" style="width:150px;, float: left;" readonly="readonly" value="${user.user_postAddress }"></div>
+                    <div> <input type="button" onClick="addressSearch();" class="btn" value="Address Search"/></div>
+    				<div><input type="text"  class="form-control" id="roadAddr" readonly="readonly" value="${user.user_address }"></div>
+       				<input type="text"  class="form-control" id="addrDetail" readonly="readonly" value="${user.user_detailAddress }">
+                  
                 </div>
+                
+
+                
               </div>
 
               <div class="form-group row mb-5">
@@ -116,8 +125,10 @@
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
+                    <tr>
                       <th>Product</th>
                       <th>Total</th>
+                    </tr>
                     </thead>
                     <tbody>
                     <c:set var="sum" value="0"/>
@@ -165,6 +176,22 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main_checkout.js"></script>
-    
+  <script type="text/javascript">
+
+	function addressSearch(){
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrEngUrl.do)를 호출하게 됩니다.
+		var pop = window.open("jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	}
+	
+
+	function jusoCallBack(roadFullAddr, roadAddr, addrDetail, zipNo){
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+			document.getElementById("zipNo").value = zipNo;
+			document.getElementById("roadAddr").value = roadAddr;
+			document.getElementById("addrDetail").value = addrDetail;
+	}
+	
+  </script>
   </body>
 </html>

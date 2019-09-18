@@ -49,6 +49,18 @@ public class UserController {
 		}
 		return mav;
 	}
+	
+	
+	
+	
+	// 구글api 로그인
+	@RequestMapping("/googleApiLogin")
+	public String googleApiLogin(String user_id, String user_name, String user_email) {
+		System.out.println(user_id);
+		System.out.println(user_name);
+		System.out.println(user_email);
+		return "googleApiLogin";
+	}
 
 	
 	//로그아웃 처리
