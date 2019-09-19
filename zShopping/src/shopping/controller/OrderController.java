@@ -22,7 +22,7 @@ public class OrderController {
 	// 주문 확정 페이지 
 	@RequestMapping("/confirm_order")
 	public String confirmOrder(int user_id, Model model, HttpSession session) {
-		OrderVO order = orderService.checkoutOrder(user_id, session);
+		OrderVO order = orderService.checkoutOrder(user_id, session, model);
 		model.addAttribute("order", order);
 		return "confirm_order";
 	}

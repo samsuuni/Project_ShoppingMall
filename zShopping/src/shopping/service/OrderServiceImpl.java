@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import shopping.dao.CartDAO;
 import shopping.dao.OrderDAO;
@@ -22,8 +23,9 @@ public class OrderServiceImpl implements OrderService {
 	private CartDAO cartDao;
 
 	@Override
-	public OrderVO checkoutOrder(int user_id, HttpSession session) {
+	public OrderVO checkoutOrder(int user_id, HttpSession session, Model model) {
 		List<CartVO> cartList = cartDao.viewCartWithUserId(user_id);
+		model.addAttribute("orderList", cartList);
 		String content = "";
 		int totalPrice = 0;
 		for (int i = 0; i < cartList.size(); i++) {

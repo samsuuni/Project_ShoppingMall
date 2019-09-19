@@ -146,7 +146,7 @@
 									<div class="form-group">
 										<label for="address">Address</label>
 										<div style="float: left;">
-											<input type="text" id="zipNo" style="width: 150px; , float: left;" readonly="readonly"
+											<input type="text" id="zipNo" style="width: 150px; , float: left;" readonly="readonly" value="${user.user_postAddress }"
 												placeholder="post number">
 										</div>
 										<div>
@@ -155,13 +155,11 @@
 											class="submit" value="Address Search" />
 										</div>
 										<div>
-										<input type="text" id="roadAddr" readonly="readonly"
+										<input type="text" id="roadAddr" readonly="readonly" value="${user.user_address }"
 											placeholder="address">
 										</div>
-										<input type="text" id="addrDetail" readonly="readonly"
+										<input type="text" id="addrDetail" readonly="readonly" value="${user.user_detailAddress }"
 											placeholder="detail address">
-										<input type="text" id="roadFullAddr" name="user_address" readonly="readonly"
-											required="required" value="${user.user_address }">
 									</div>
 									<div class="form-group">
 										<label for="birth_date">Date Of Birth :</label>
@@ -206,7 +204,6 @@
 
 		function jusoCallBack(roadFullAddr, roadAddr, addrDetail, zipNo) {
 			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-			document.form.roadFullAddr.value = roadFullAddr;
 			document.form.roadAddr.value = roadAddr;
 			document.form.addrDetail.value = addrDetail;
 			document.form.zipNo.value = zipNo;
