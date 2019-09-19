@@ -183,10 +183,16 @@
 											<i class="fs-16 zmdi zmdi-plus"></i>
 										</div>
 									</div>
-
+									<c:if test="${empty user.user_id}">
+									<a href="addToCart?user_id=0&prod_id=0&prod_cartAmt=0" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04" style="color: white;">
+									Add to cart
+									</a>
+									</c:if>
+									<c:if test="${!empty user.user_id}">
 									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 										Add to cart
 									</button>
+									</c:if>
 								</div>
 							</div>	
 						</div>

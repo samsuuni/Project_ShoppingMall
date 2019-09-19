@@ -4,6 +4,7 @@ package shopping.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import shopping.service.UserService;
 import shopping.vo.CartVO;
@@ -56,19 +58,17 @@ public class UserController {
 	// 구글api 로그인
 	@RequestMapping("/googleApiLogin")
 	public String googleApiLogin(String user_id, String user_name, String user_email) {
-		System.out.println(user_id);
-		System.out.println(user_name);
-		System.out.println(user_email);
 		return "googleApiLogin";
 	}
 
 	
 	//로그아웃 처리
 	@RequestMapping("/logout")
-	public String logout(String page, HttpSession session, Model model) {
+	public String logout(String page, HttpSession session, HttpServletRequest request, RedirectAttributes redirectAttributes) {
+		
 		userService.logOut(session);
-		model.addAttribute("page", page);
-		return "main";
+		String referer = request.getHeader("Referer");
+		return "redirect:"+referer;
 	}
 	
 	
@@ -119,7 +119,6 @@ public class UserController {
 	@RequestMapping("updateUser")
 	public String updateUser(int user_id, String user_phone, String user_address, HttpSession session) {
 		userService.updateUser(user_id, user_phone, user_address, session);
-		System.out.println("updateUser");
 		
 		return "mypage";
 	}

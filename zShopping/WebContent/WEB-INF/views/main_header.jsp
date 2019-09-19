@@ -6,6 +6,7 @@
 		alert('gg');
 		window.open('test','test','width=300,height=200,left=30,top=30,scrollbars=no,titlebar=no,resizable=no,fullscreen=no');
 	}
+
 </script>
 <!-- Header -->
 <header class="header-v4">
@@ -119,11 +120,22 @@
 				<div class="header-cart-total w-full p-tb-40">Total: ${sum }</div>
 
 				<div class="header-cart-buttons flex-w w-full">
-					<a href="shopping_cart?user_id=${user.user_id }"
-						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-						View Cart </a> <a href="checkout?user_id=${user.user_id }"
-						class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-						Check Out </a>
+					<c:if test="${empty user.user_id}">
+					<a href="shopping_cart?user_id=0" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						View Cart 
+					</a> 
+					<a href="checkout?user_id=0" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						Check Out 
+					</a>
+					</c:if>
+					<c:if test="${!empty user.user_id}">
+					<a href="shopping_cart?user_id=${user.user_id }" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						View Cart 
+					</a> 
+					<a href="checkout?user_id=${user.user_id }" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						Check Out 
+					</a>
+					</c:if>
 				</div>
 			</div>
 			
