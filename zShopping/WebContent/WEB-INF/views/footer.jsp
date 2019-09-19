@@ -96,9 +96,9 @@
 			<p class="stext-107 cl6 txt-center">
 				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 				Copyright &copy;
-				<script>
+			<!-- 	<script>
 					document.write(new Date().getFullYear());
-				</script>
+				</script> -->
 				All rights reserved |Made with <i class="fa fa-heart-o"
 					aria-hidden="true"></i> by <a href="https://colorlib.com"
 					target="_blank">Colorlib</a> &amp; distributed by <a
@@ -120,7 +120,7 @@
 
 
 <!-- Check email and password -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
 	$(function() {
 		var msg = "${msg}";
@@ -129,7 +129,7 @@
 		}
 	});
 </script>
-
+ -->
 
 
 

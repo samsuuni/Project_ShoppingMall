@@ -53,7 +53,8 @@
   //회원 가입 유효성 검사
   $('#submit').on('click', function(){
      if($('#loginId').val().length == 0){
-           alert("Please write loginId"); 
+           alert("Please write loginId");
+           alert($('#zipNo').val());
            $("#userid").focus();
            return false;
      }
@@ -75,17 +76,10 @@
            $("#pw-verification").focus();
            return false; 
      }
-    
-     if($('#email').val() == 0){
-           alert("Please write email");
-           $("#email").focus();
-           return false;
-     }
        
-       
-     if($('#roadFullAddr').val().length == 0){
+     if($('#zipNo').val().length ==0){
          alert("Please write address");
-         $("#address").focus();
+         $(".addressSearch").focus();
          return false;
      }
        
@@ -104,11 +98,9 @@
      if(emailCheck == 0){
         alert("Please click Duplicate Button");
         $('#Duplicate').focus();
-        alert(emailCheck);
         return false;
      }
 
-     $("#register-form").attr("action","insertUser");
      $("#register-form").submit();
   });
 })(jQuery);
