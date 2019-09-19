@@ -103,16 +103,11 @@ public class UserController {
 	//회원 가입
 	@RequestMapping("insertUser")
 	public ModelAndView signUp(@ModelAttribute UserVO user, HttpSession session) {
-		System.out.println("유저 insert 시작");
 		int result = userService.insertUser(user, session);
-		System.out.println("유저 입력 성공");
 		ModelAndView mav = new ModelAndView();
 		if(result>0) {
-			System.out.println("로그인 체크로 넘어가기");
 			mav.setViewName("loginCheck");
-			System.out.println("로그인 체크 끝");
 		}else {
-			System.out.println("유저 입력 실패");
 			mav.setViewName("loginCheck");
 			mav.addObject("msg", "signUp fail");
 		}

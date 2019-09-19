@@ -219,11 +219,11 @@
 
 	$('.js-addcart-detail').each(
 			function() {
+				
 				var nameProduct = $(this).parent().parent().parent().parent()
 						.find('.js-name-detail').html();
 				$(this).on('click', function() {
 					$('#product-detail').attr("action","addToCart");
-					$('#product-detail').submit();
 					swal(nameProduct, "is added to cart !", "success");
 				});
 			});
