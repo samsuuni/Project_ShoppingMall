@@ -16,6 +16,7 @@
 		<typeAlias type="shopping.vo.OrderVO" alias="order" />
 		<typeAlias type="shopping.vo.ProductVO" alias="product" />
 		<typeAlias type="shopping.vo.UserVO" alias="user" />
+		<typeAlias type="shopping.vo.ReviewVO" alias="review"/>
 	</typeAliases>
 
 </configuration>

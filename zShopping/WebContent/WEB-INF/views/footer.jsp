@@ -227,6 +227,13 @@
 					swal(nameProduct, "is added to cart !", "success");
 				});
 			});
+	
+
+	$('#review-submit').on('click', function(){
+		$('#review-form').attr('action', 'addReview')
+	});
+	
+	
 </script>
 <!--===============================================================================================-->
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
