@@ -7,17 +7,14 @@ public class ProductVO {
 	private int prod_price;
 	private String prod_image;
 	private String prod_category;
-	private int amount;
-	
 	
 	public ProductVO() {}
-	public ProductVO(int prod_id, String prod_name, int prod_price, String prod_image, String prod_category, int amount) {
+	public ProductVO(int prod_id, String prod_name, int prod_price, String prod_image, String prod_category) {
 		this.prod_id = prod_id;
 		this.prod_name = prod_name;
 		this.prod_price = prod_price;
 		this.prod_image = prod_image;
 		this.prod_category = prod_category;
-		this.amount = amount;
 	}
 	public int getProd_id() {
 		return prod_id;
@@ -49,17 +46,13 @@ public class ProductVO {
 	public void setProd_category(String prod_category) {
 		this.prod_category = prod_category;
 	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
 	@Override
 	public String toString() {
 		return "ProductVO [prod_id=" + prod_id + ", prod_name=" + prod_name + ", prod_price=" + prod_price
-				+ ", prod_image=" + prod_image + ", category=" + prod_category + ", amount=" + amount + "]";
-	}
+				+ ", prod_image=" + prod_image + ", prod_category=" + prod_category + "]";
+	}	
+	
+
 	
 	
 	
