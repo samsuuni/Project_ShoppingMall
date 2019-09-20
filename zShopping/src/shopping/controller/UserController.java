@@ -68,7 +68,13 @@ public class UserController {
 		
 		userService.logOut(session);
 		String referer = request.getHeader("Referer");
-		return "redirect:"+referer;
+		if(referer.contains("shopping_cart") || referer.contains("checkout") || 
+		referer.contains("confirm_order") || referer.contains("mypage") || referer.contains("myhistory")) {
+			return "redirect:main";
+		}else {
+			return "redirect:"+referer;
+		}
+		
 	}
 	
 	
