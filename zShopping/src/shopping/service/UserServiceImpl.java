@@ -69,10 +69,12 @@ public class UserServiceImpl implements UserService{
 	
 	
 	@Override
-	public void updateUser(int user_id, String user_phone, String user_address, HttpSession session) {
+	public void updateUser(int user_id, String user_phone, String user_postAddress, String user_address, String user_detailAddress, HttpSession session) {
 		UserVO user = userDao.selectOneWithUserId(user_id);
 		user.setUser_phone(user_phone);
+		user.setUser_postAddress(user_postAddress);
 		user.setUser_address(user_address);
+		user.setUser_detailAddress(user_detailAddress);
 		userDao.updateUser(user);
 		
 		UserVO userDB = viewUser(user);

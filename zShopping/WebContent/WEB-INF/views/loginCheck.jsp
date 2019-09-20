@@ -10,7 +10,7 @@
 		if(msg!=""){
 			  alert(msg);
 			  alert('Please check e-mail ID');
-			  location.href='signUp';
+			  location.href='login';
 		} else{
 			  alert("Enjoy your Shopping Time");
 			  location.href=returnUrl;

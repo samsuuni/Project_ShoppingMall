@@ -46,7 +46,7 @@ public class UserController {
 		if(result) { // login 성공시 page 전환
 			mav.addObject("returnUrl", returnUrl);
 		}else { // login 실패시 page 전환
-			mav.setViewName("login");
+			mav.setViewName("loginCheck");
 			mav.addObject("msg", "failure");
 		}
 		return mav;
@@ -117,8 +117,8 @@ public class UserController {
 	
 	//회원 정보 수정
 	@RequestMapping("updateUser")
-	public String updateUser(int user_id, String user_phone, String user_address, HttpSession session) {
-		userService.updateUser(user_id, user_phone, user_address, session);
+	public String updateUser(int user_id, String user_postAddress, String user_address, String user_detailAddress, String user_phone, HttpSession session) {
+		userService.updateUser(user_id, user_phone, user_postAddress, user_address, user_detailAddress, session);
 		
 		return "mypage";
 	}

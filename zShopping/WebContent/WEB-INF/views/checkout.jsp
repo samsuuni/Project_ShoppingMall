@@ -153,7 +153,7 @@
 
 			
                   <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-lg py-3 btn-block" id="placeorder_btn" value="Place Order" formaction="confirm_order">
+                    <button class="btn btn-primary btn-lg py-3 btn-block" id="placeorder_btn">Place Order</button>
                   </div>
          
              
