@@ -26,7 +26,7 @@
 				<div class="right-top-bar flex-w h-full">
 					<c:if test="${empty user.user_name}">
 					<span class="logCheck"><a href="signUp" class="flex-c-m trans-04 p-lr-25"> SIGN UP </a></span>
-					<span class="logCheck"><a href="login" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
+					<span class="logCheck"><a href="#none" onclick="location.href='login?returnUrl='+encodeURIComponent(location)" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
 					</c:if>
 					<c:if test="${!empty user.user_name}">
 					<span class="myPage"><a href="mypage?user_id=${user.user_id }" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>

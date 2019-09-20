@@ -7,6 +7,7 @@
 jQuery(document).ready(function($) {
 
 	"use strict";
+	
 
 	var slider = function() {
 		$('.nonloop-block-3').owlCarousel({

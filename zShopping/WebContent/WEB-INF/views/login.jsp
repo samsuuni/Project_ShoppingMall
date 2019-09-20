@@ -103,6 +103,7 @@ html, body {
 			<div class="wrap-login100">
 				<form class="login100-form p-t-80 validate-form" action="loginCheck"
 					method="post" name="loginForm">
+					<input type="hidden" class="returnUrl" name="returnUrl" value="${param.returnUrl }">
 					<span class="login100-form-title p-b-43"> Login to continue
 					</span>
 

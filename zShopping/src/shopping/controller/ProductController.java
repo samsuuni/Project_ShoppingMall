@@ -54,8 +54,14 @@ public class ProductController {
 	
 	@RequestMapping("addReview")
 	public String addReview(int prod_id, int user_id, String review_content, int review_rating) {	
-		reviewService.addReview(prod_id, user_id, review_content, review_rating);
-		return "redirect:product-detail?prod_id="+prod_id;
+		if(user_id!=0) {
+			reviewService.addReview(prod_id, user_id, review_content, review_rating);
+			return "redirect:product-detail?prod_id="+prod_id;
+		} else {
+			return "pageBack";
+		}
+		
+		
 	}
 	
 	

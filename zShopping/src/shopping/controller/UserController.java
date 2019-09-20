@@ -40,11 +40,11 @@ public class UserController {
 	
 	//로그인 처리
 	@RequestMapping("loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
+	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session, String returnUrl) {
 		boolean result = userService.loginCheck(user, session);
 		ModelAndView mav = new ModelAndView();
 		if(result) { // login 성공시 page 전환
-			mav.setViewName("main");
+			mav.addObject("returnUrl", returnUrl);
 		}else { // login 실패시 page 전환
 			mav.setViewName("login");
 			mav.addObject("msg", "failure");
