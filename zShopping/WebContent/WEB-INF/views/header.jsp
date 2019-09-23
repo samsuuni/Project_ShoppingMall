@@ -139,12 +139,11 @@
 				<li class="header-cart-item flex-w flex-t m-b-12">
 					<div class="header-cart-item-img">
 						<%-- <img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG"> --%>
-						<img src="productImg/${cart.prod_name}-cart.jpg"
-						 onclick="window.open('data.jsp','data','width=500,height=200')" alt="IMG">
+						<img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG">
 					</div>
 
 					<div class="header-cart-item-txt p-t-8">
-						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+						<a href="product-detail?prod_id=${cart.prod_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 							${cart.prod_name } </a> <span class="header-cart-item-info"> ${cart.prod_cartAmt }
 							x $${cart.prod_price } </span>
 					</div>

@@ -9,11 +9,15 @@
 		var returnUrl = "${returnUrl}";
 		if(msg!=""){
 			  alert(msg);
-			  alert('Please check e-mail ID');
+			  alert('Please check e-mail ID or password');
 			  location.href='login';
 		} else{
 			  alert("Enjoy your Shopping Time");
-			  location.href=returnUrl;
+			  if(returnUrl.includes('signUp')){
+				  location.href="main";
+			  }else{
+				  location.href=returnUrl;
+			  }
 		}
 	});
 </script>

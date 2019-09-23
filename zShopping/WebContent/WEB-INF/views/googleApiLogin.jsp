@@ -23,7 +23,7 @@
 <body>
 google api login
 	<input type="hidden" class="g-signin2" data-onsuccess="onSignIn">
-	<a href="#" onclick="signOut();">Sing Out</a>
+	<a href="#" onclick="signOut();">Sign Out</a>
 	<button onclick="getProfile()">getget</button>
 </body>
 </html>
