@@ -96,7 +96,7 @@ html, body {
 
 
 </head>
-<body id="contents" style="background-color: #666666;">
+<body id="" style="background-color: #666666;">
 	<jsp:include page="main_header.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
@@ -152,12 +152,12 @@ html, body {
 				</form>
 
 				<div class="login100-more"
-					style="background-image: url('images/bg-01.jpg');"></div>
+					style="background-image: url('images/bg-04.jpg');"></div>
 			</div>
 		</div>
 	</div>
 
-
+	<jsp:include page="footer.jsp"/>
 
 
 
@@ -199,6 +199,7 @@ html, body {
 		auth2.disconnect();
 	}
 
+	
 </script>
 
 	

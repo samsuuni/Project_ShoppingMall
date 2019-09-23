@@ -44,8 +44,9 @@ public class OrderServiceImpl implements OrderService {
 		order.setUser_id(user_id);
 		order.setOrder_content(content);
 		order.setOrder_totalPrice(totalPrice);
-		orderDao.insertOrder(order);
-		
+		if(content.length()>0) {
+			orderDao.insertOrder(order);
+		}
 		cartDao.cleanCart(order.getUser_id());
 		cartList = cartDao.viewCartWithUserId(user_id);
 		session.setAttribute("cartList", cartList);

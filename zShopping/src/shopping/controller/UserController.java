@@ -37,6 +37,19 @@ public class UserController {
 
 
 	
+	//회원 가입
+	@RequestMapping("insertUser")
+	public ModelAndView signUp(@ModelAttribute UserVO user, HttpSession session) {
+		int result = userService.insertUser(user, session);
+		ModelAndView mav = new ModelAndView();
+		if(result>0) {
+			mav.setViewName("insertCheck");
+		}else {
+			mav.setViewName("insertCheck");
+			mav.addObject("msg", "signUp fail");
+		}
+		return mav;
+	}
 	
 	//로그인 처리
 	@RequestMapping("loginCheck")
@@ -105,20 +118,7 @@ public class UserController {
 	public String jusoPopup() {
 		return "jusoPopup";
 	}
-	
-	//회원 가입
-	@RequestMapping("insertUser")
-	public ModelAndView signUp(@ModelAttribute UserVO user, HttpSession session) {
-		int result = userService.insertUser(user, session);
-		ModelAndView mav = new ModelAndView();
-		if(result>0) {
-			mav.setViewName("loginCheck");
-		}else {
-			mav.setViewName("loginCheck");
-			mav.addObject("msg", "signUp fail");
-		}
-		return mav;
-	}
+
 	
 	
 	//회원 정보 수정

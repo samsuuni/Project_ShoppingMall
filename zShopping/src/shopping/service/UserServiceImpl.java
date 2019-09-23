@@ -53,7 +53,6 @@ public class UserServiceImpl implements UserService{
 	//회원 가입
 	@Override
 	public int insertUser(UserVO user, HttpSession session) {
-		System.out.println(user);
 		try {
 			int result = userDao.insertUser(user);
 			if(result>0) {

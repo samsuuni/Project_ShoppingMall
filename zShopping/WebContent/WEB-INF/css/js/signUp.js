@@ -50,6 +50,7 @@
        oldVal = currentVal;
        emailCheck = 0;
    });
+  
   //회원 가입 유효성 검사
   $('#submit').on('click', function(){
      if($('#loginId').val().length == 0){
@@ -70,7 +71,14 @@
          $("#password").focus();
          return false;
      }
-    
+     
+     var passRule = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+     if(!passRule.test($('#password').val())) {
+    	 	alert("Please make your password at least as long as 8~15blanks, with a combination of letters, numbers, and marks.")
+    	 	$("#password").focus();
+    	    return false;
+    	}
+     
      if($('#password').val() != $('#pw-verification').val()){
            alert("비밀번호가 서로 다릅니다. 비밀번호를 확인해 주세요."); 
            $("#pw-verification").focus();
@@ -93,7 +101,18 @@
          alert("Please write phone number"); 
          $("#phone").focus();
          return false;
+     }	
+     
+     var phoneExp = /^\d{3}-\d{3,4}-\d{4}$/;
+     if(!phoneExp.test($('#phone').val())) {
+    	 alert("Please Enter Phone Number : 000-0000-0000");
+    	 $("#phone").focus();
+    	 return false;
+     } else{
      }
+    
+     
+
      
      if(emailCheck == 0){
         alert("Please click Duplicate Button");
