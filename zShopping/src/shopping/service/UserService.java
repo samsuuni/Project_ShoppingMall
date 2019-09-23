@@ -18,7 +18,7 @@ public interface UserService {
 	//회원 가입
 	public int insertUser(UserVO user, HttpSession session);
 	//회원 정보 수정
-	public void updateUser(int user_id, String user_phone, String user_address, HttpSession session);
+	public void updateUser(int user_id, String user_phone, String user_postAddress, String user_address, String user_detailAddress, HttpSession session);
 	//회원 탈퇴
 	public void deleteUser(int id);
 	//회원 정보 (1인)

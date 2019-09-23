@@ -56,16 +56,18 @@
 
     <div class="site-section">
       <div class="container">
-        
+         
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
             <h2 class="h3 mb-3 text-black">Billing Details</h2>
             <div class="p-3 p-lg-5 border">
              
+            
+             
               <div class="form-group row">
                 <div class="col-md-6">
                   <label for="c_fname" class="text-black">Name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_fname" name="c_fname" value="${user.user_name }">
+                  <input type="text" class="form-control" id="c_fname" name="c_fname" value="${user.user_name }" readonly="readonly">
                 </div>
               </div>
 
@@ -75,9 +77,9 @@
                 
                   <label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
 					<div style="float: left;"><input type="text"  class="form-control" id="zipNo" style="width:150px;, float: left;" readonly="readonly" value="${user.user_postAddress }"></div>
-                    <div> <input type="button" onClick="addressSearch();" class="btn" value="Address Search"/></div>
-    				<div><input type="text"  class="form-control" id="roadAddr" readonly="readonly" value="${user.user_address }"></div>
-       				<input type="text"  class="form-control" id="addrDetail" readonly="readonly" value="${user.user_detailAddress }">
+                    <div><input type="button" onClick="addressSearch();" class="btn" value="Address Search"/></div>
+    				<div><input type="text" class="form-control" id="roadAddr" readonly="readonly" value="${user.user_address }"></div>
+       				<input type="text" class="form-control" id="addrDetail" readonly="readonly" value="${user.user_detailAddress }">
                   
                 </div>
                 
@@ -105,7 +107,7 @@
                 </div>
                 <div class="col-md-6">
                   <label for="c_creditcard_pwd" class="text-black">Password <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_creditcard_pwd" name="c_creditcard_pwd">
+                  <input type="password" class="form-control" id="c_creditcard_pwd" name="c_creditcard_pwd">
                 </div>
               </div>
               
@@ -113,6 +115,7 @@
                 <label for="c_order_notes" class="text-black">Order Notes</label>
                 <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Write your notes here..."></textarea>
               </div>
+              
                           
 
             </div>
@@ -148,10 +151,13 @@
 
                   
 
-
+			
                   <div class="form-group">
-                    <a href="confirm_order?user_id=${user.user_id }" class="btn btn-primary btn-lg py-3 btn-block">Place Order</a>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" id="placeorder_btn">Place Order</button>
                   </div>
+         
+             
+                  
 
                 </div>
               </div>
@@ -159,7 +165,7 @@
 
           </div>
         </div>
-        <!-- </form> -->
+      
       </div>
     </div>
 
@@ -191,6 +197,48 @@
 			document.getElementById("roadAddr").value = roadAddr;
 			document.getElementById("addrDetail").value = addrDetail;
 	}
+	
+	$('#placeorder_btn').on('click', function(){
+		 if($('#zipNo').val().length == 0 || $('#roadAddr').val().length == 0){
+	           alert("Please check address"); 
+	           return false;
+	     }
+	       
+	     if($('#c_email_address').val().length == 0){
+	         alert("Please check email address");
+	         $("#c_email_address").focus();
+	         return false;
+	     }
+	     
+	     if($('#c_phone').val().length == 0){
+	         alert("Please check phone number"); 
+	         $("#c_phone").focus();
+	         return false;
+	     }
+
+	     if($('#c_creditcard_number').val().length == 0){
+	         alert("Please write creditcard number"); 
+	         $("#c_creditcard_number").focus();
+	         return false;
+	     }
+
+	     if($('#c_creditcard_pwd').val().length == 0){
+	         alert("Please write creditcard password"); 
+	         $("#c_creditcard_pwd").focus();
+	         return false;
+	     }
+	     
+	     var user_id="${user.user_id}";
+	     location.href="confirm_order?user_id="+user_id;
+	     
+	    
+		
+	});
+	
+
+	
+	
+	
 	
   </script>
   </body>

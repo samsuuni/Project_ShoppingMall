@@ -96,13 +96,14 @@ html, body {
 
 
 </head>
-<body id="contents" style="background-color: #666666;">
+<body id="" style="background-color: #666666;">
 	<jsp:include page="main_header.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form class="login100-form p-t-80 validate-form" action="loginCheck"
 					method="post" name="loginForm">
+					<input type="hidden" class="returnUrl" name="returnUrl" value="${param.returnUrl }">
 					<span class="login100-form-title p-b-43"> Login to continue
 					</span>
 
@@ -151,12 +152,12 @@ html, body {
 				</form>
 
 				<div class="login100-more"
-					style="background-image: url('images/bg-01.jpg');"></div>
+					style="background-image: url('images/bg-04.jpg');"></div>
 			</div>
 		</div>
 	</div>
 
-
+	<jsp:include page="footer.jsp"/>
 
 
 
@@ -198,6 +199,7 @@ html, body {
 		auth2.disconnect();
 	}
 
+	
 </script>
 
 	

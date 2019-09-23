@@ -37,16 +37,29 @@ public class UserController {
 
 
 	
+	//회원 가입
+	@RequestMapping("insertUser")
+	public ModelAndView signUp(@ModelAttribute UserVO user, HttpSession session) {
+		int result = userService.insertUser(user, session);
+		ModelAndView mav = new ModelAndView();
+		if(result>0) {
+			mav.setViewName("insertCheck");
+		}else {
+			mav.setViewName("insertCheck");
+			mav.addObject("msg", "signUp fail");
+		}
+		return mav;
+	}
 	
 	//로그인 처리
 	@RequestMapping("loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
+	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session, String returnUrl) {
 		boolean result = userService.loginCheck(user, session);
 		ModelAndView mav = new ModelAndView();
 		if(result) { // login 성공시 page 전환
-			mav.setViewName("main");
+			mav.addObject("returnUrl", returnUrl);
 		}else { // login 실패시 page 전환
-			mav.setViewName("login");
+			mav.setViewName("loginCheck");
 			mav.addObject("msg", "failure");
 		}
 		return mav;
@@ -68,7 +81,13 @@ public class UserController {
 		
 		userService.logOut(session);
 		String referer = request.getHeader("Referer");
-		return "redirect:"+referer;
+		if(referer.contains("shopping_cart") || referer.contains("checkout") || 
+		referer.contains("confirm_order") || referer.contains("mypage") || referer.contains("myhistory")) {
+			return "redirect:main";
+		}else {
+			return "redirect:"+referer;
+		}
+		
 	}
 	
 	
@@ -99,26 +118,13 @@ public class UserController {
 	public String jusoPopup() {
 		return "jusoPopup";
 	}
-	
-	//회원 가입
-	@RequestMapping("insertUser")
-	public ModelAndView signUp(@ModelAttribute UserVO user, HttpSession session) {
-		int result = userService.insertUser(user, session);
-		ModelAndView mav = new ModelAndView();
-		if(result>0) {
-			mav.setViewName("loginCheck");
-		}else {
-			mav.setViewName("loginCheck");
-			mav.addObject("msg", "signUp fail");
-		}
-		return mav;
-	}
+
 	
 	
 	//회원 정보 수정
 	@RequestMapping("updateUser")
-	public String updateUser(int user_id, String user_phone, String user_address, HttpSession session) {
-		userService.updateUser(user_id, user_phone, user_address, session);
+	public String updateUser(int user_id, String user_postAddress, String user_address, String user_detailAddress, String user_phone, HttpSession session) {
+		userService.updateUser(user_id, user_phone, user_postAddress, user_address, user_detailAddress, session);
 		
 		return "mypage";
 	}

@@ -53,11 +53,13 @@ public class UserServiceImpl implements UserService{
 	//회원 가입
 	@Override
 	public int insertUser(UserVO user, HttpSession session) {
-		System.out.println(user);
+		System.out.println("회원가입 user 정보" + user);
 		try {
 			int result = userDao.insertUser(user);
+			System.out.println("userServiceImpl의 result  : " + result);
 			if(result>0) {
 				UserVO userDB = viewUser(user);
+				System.out.println("userDB의 값 : " + userDB);
 				session.setAttribute("user", userDB);
 			}
 			return result;
@@ -69,10 +71,12 @@ public class UserServiceImpl implements UserService{
 	
 	
 	@Override
-	public void updateUser(int user_id, String user_phone, String user_address, HttpSession session) {
+	public void updateUser(int user_id, String user_phone, String user_postAddress, String user_address, String user_detailAddress, HttpSession session) {
 		UserVO user = userDao.selectOneWithUserId(user_id);
 		user.setUser_phone(user_phone);
+		user.setUser_postAddress(user_postAddress);
 		user.setUser_address(user_address);
+		user.setUser_detailAddress(user_detailAddress);
 		userDao.updateUser(user);
 		
 		UserVO userDB = viewUser(user);

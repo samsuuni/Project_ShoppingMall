@@ -146,8 +146,8 @@
 									<div class="form-group">
 										<label for="address">Address</label>
 										<div style="float: left;">
-											<input type="text" id="zipNo" style="width: 150px; , float: left;" readonly="readonly" value="${user.user_postAddress }"
-												placeholder="post number">
+											<input type="text" id="zipNo" style="width: 150px; , float: left;" readonly="readonly" 
+											value="${user.user_postAddress }" placeholder="post number" name="user_postAddress">
 										</div>
 										<div>
 											&nbsp;&nbsp;
@@ -156,10 +156,11 @@
 										</div>
 										<div>
 										<input type="text" id="roadAddr" readonly="readonly" value="${user.user_address }"
-											placeholder="address">
+											placeholder="address" name="user_address">
 										</div>
 										<input type="text" id="addrDetail" readonly="readonly" value="${user.user_detailAddress }"
-											placeholder="detail address">
+											placeholder="detail address" name="user_detailAddress">
+										
 									</div>
 									<div class="form-group">
 										<label for="birth_date">Date Of Birth :</label>
@@ -208,6 +209,45 @@
 			document.form.addrDetail.value = addrDetail;
 			document.form.zipNo.value = zipNo;
 		}
+		
+		$('#reset').on('click', function(){
+		      $('#register-form').reset();
+		});
+		  
+		 
+		  
+		  //입력 유효성 검사
+		$('#submit').on('click', function(){
+			  
+			var user_password = "${user.user_password}";
+			  
+			 if($('#password').val() != user_password){
+				 alert("please check password")
+				 return false;
+			 }
+		    
+		     if($('#password').val().length == 0){
+		         alert("Please write password");
+		         $("#password").focus();
+		         return false;
+		     }
+		    
+		     if($('#password').val() != $('#pw-verification').val()){
+		           alert("비밀번호가 서로 다릅니다. 비밀번호를 확인해 주세요."); 
+		           $("#pw-verification").focus();
+		           return false; 
+		     }
+		       
+		     if($('#phone').val().length == 0){
+		         alert("Please write phone number"); 
+		         $("#phone").focus();
+		         return false;
+		     }
+		     
+
+		     $("#register-form").attr("action","updateUser");
+		     $("#register-form").submit();
+		  });
 	</script>
 
 	<!-- Bootstrap core JavaScript-->
@@ -223,7 +263,6 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="js/sb-admin.min.js"></script>
-	<script src="js/signUp2.js"></script>
 
 	<!-- Demo scripts for this page-->
 	<script src="js/demo/datatables-demo.js"></script>

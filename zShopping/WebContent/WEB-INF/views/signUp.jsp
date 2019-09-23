@@ -8,6 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form by Colorlib</title>
+    <script type="text/javascript">
+	function onlyNumber(event){
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 || keyID == 109 || keyID == 189 ) 
+			return;
+		else
+			return false;
+	}
+
+    </script>
 	<style type="text/css">
 	html,body {height:100%; margin:0; padding:0;}
 	</style>
@@ -54,7 +65,7 @@
         <div class="container">
             <div class="signup-content">
                 <div class="signup-img">
-                    <img src="images/signup-img.jpg" alt="">
+                    <img src="images/signup-img2.jpg" alt="">
                 </div>
                 <div class="signup-form">
                     <form method="POST" class="register-form" id="register-form">
@@ -111,10 +122,9 @@
                         </div>
                         <div class="form-group">
                               <label for="phone">Phone</label>
-                              <input type="text" name="user_phone" id="phone">
+                              <input type="text" name="user_phone" id="phone" onkeydown='return onlyNumber(event)' style='ime-mode:disabled;'>
                         </div>
                          
-
                         <div class="form-submit">
                             <input type="reset" value="Reset All" class="submit" name="reset" id="reset" />
                             <input type="submit" value="Submit Form" class="submit" name="submit" id="submit" formaction="insertUser" />
@@ -122,7 +132,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 
 	<jsp:include page="footer.jsp"/>
@@ -150,6 +160,6 @@
 	
 </script>
     <script src="vendor/jquery/signUpJquery.min.js"></script>
-    <script src="js/signUp.js"></script>
+    <script src="js/signUp.js?1"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

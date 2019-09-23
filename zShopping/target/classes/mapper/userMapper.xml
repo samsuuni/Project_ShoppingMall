@@ -34,9 +34,11 @@
 	</delete>
 	<update id="updateUser" parameterType="user">
 		update user
-		set user_address = #{user_address},
-			user_phone = #{user_phone} 
-		where user_id = #{user_id}
+		set user_postAddress=#{user_postAddress}, 
+			user_address=#{user_address}, 
+			user_detailAddress=#{user_detailAddress}, 
+			user_phone=#{user_phone} 
+		where user_id=#{user_id}
 	</update>
 	<select id="selectAll" resultType="user">
 		select * from user
