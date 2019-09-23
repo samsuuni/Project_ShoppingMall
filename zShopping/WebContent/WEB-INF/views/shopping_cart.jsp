@@ -62,7 +62,7 @@
                                  <img src="productImg/${cart.prod_name}-cart.jpg" alt="IMG">
                               </div>
                            </td>
-                           <td class="column-2">${cart.prod_name }</td>
+                           <td class="column-2"><a href="product-detail?prod_id=${cart.prod_id}" class="clblack">${cart.prod_name }</a></td>
                            <td class="column-3">${cart.prod_price }</td>
                            <td class="column-4">${cart.prod_cartAmt }
                            		<%-- <div>

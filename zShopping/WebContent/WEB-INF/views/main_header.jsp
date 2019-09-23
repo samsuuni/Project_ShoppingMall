@@ -105,7 +105,7 @@
 					</div>
 
 					<div class="header-cart-item-txt p-t-8">
-						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+						<a href="product-detail?prod_id=${cart.prod_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 							${cart.prod_name } </a> <span class="header-cart-item-info"> ${cart.prod_cartAmt }
 							x $${cart.prod_price } </span>
 					</div>
