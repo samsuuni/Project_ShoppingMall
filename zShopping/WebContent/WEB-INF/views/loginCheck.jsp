@@ -13,11 +13,7 @@
 			  location.href='login';
 		} else{
 			  alert("Enjoy your Shopping Time");
-			  if(returnUrl.includes('signUp')){
-				  location.href="main";
-			  }else{
-				  location.href=returnUrl;
-			  }
+			  location.href=returnUrl;
 		}
 	});
 </script>
