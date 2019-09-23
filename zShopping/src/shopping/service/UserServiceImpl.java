@@ -53,13 +53,10 @@ public class UserServiceImpl implements UserService{
 	//회원 가입
 	@Override
 	public int insertUser(UserVO user, HttpSession session) {
-		System.out.println("회원가입 user 정보" + user);
 		try {
 			int result = userDao.insertUser(user);
-			System.out.println("userServiceImpl의 result  : " + result);
 			if(result>0) {
 				UserVO userDB = viewUser(user);
-				System.out.println("userDB의 값 : " + userDB);
 				session.setAttribute("user", userDB);
 			}
 			return result;
