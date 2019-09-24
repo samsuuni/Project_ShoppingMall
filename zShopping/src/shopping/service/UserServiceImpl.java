@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService{
 			List<CartVO> cartList = cartDao.viewCartWithUserId(userDB.getUser_id());
 			session.setAttribute("cartList", cartList);
 		}
-		
 		return result;
 	}
 	//로그인 정보

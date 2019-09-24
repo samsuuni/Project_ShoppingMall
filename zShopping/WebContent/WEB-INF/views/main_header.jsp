@@ -28,6 +28,7 @@
 					<span class="logCheck"><a href="signUp" class="flex-c-m trans-04 p-lr-25"> SIGN UP </a></span>
 					<span class="logCheck"><a href="#none" onclick="location.href='login?returnUrl='+encodeURIComponent(location)" class="flex-c-m trans-04 p-lr-25"> LOG IN </a></span>
 					</c:if>
+					
 					<c:if test="${!empty user.user_name}">
 					<span class="myPage"><a href="mypage?user_id=${user.user_id }" class="flex-c-m trans-04 p-lr-25"> My Page </a></span>
 					<span class="myPage"><a href="myhistory?user_id=${user.user_id }" class="flex-c-m trans-04 p-lr-25"> History </a></span>
@@ -36,6 +37,7 @@
 				</div>
 			</div>
 		</div>
+		
 
 		<div class="wrap-menu-desktop how-shadow1">
 			<nav class="limiter-menu-desktop container">
