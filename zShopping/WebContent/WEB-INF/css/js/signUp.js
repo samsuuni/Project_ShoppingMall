@@ -92,7 +92,7 @@
      }
        
      if($('#birth_date').val().length == 0){
-         alert("Please write birth_date");
+         alert("Please write birth_date");d
          $("#birth_date").focus();
          return false;
      }
@@ -108,7 +108,6 @@
     	 alert("Please Enter Phone Number : 000-0000-0000");
     	 $("#phone").focus();
     	 return false;
-     } else{
      }
     
      

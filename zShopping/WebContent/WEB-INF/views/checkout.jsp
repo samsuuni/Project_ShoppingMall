@@ -215,6 +215,12 @@
 	         $("#c_phone").focus();
 	         return false;
 	     }
+	     var phoneExp = /^\d{3}-\d{3,4}-\d{4}$/;
+	     if(!phoneExp.test($('#c_phone').val())) {
+	    	 alert("Please Enter Phone Number : 000-0000-0000");
+	    	 $("#c_phone").focus();
+	    	 return false;
+	     }
 
 	     if($('#c_creditcard_number').val().length == 0){
 	         alert("Please write creditcard number"); 
