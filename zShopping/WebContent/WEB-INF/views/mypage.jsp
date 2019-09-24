@@ -233,7 +233,7 @@
 		     }
 		    
 		     if($('#password').val() != $('#pw-verification').val()){
-		           alert("비밀번호가 서로 다릅니다. 비밀번호를 확인해 주세요."); 
+		           alert("Password and confirm password does not match"); 
 		           $("#pw-verification").focus();
 		           return false; 
 		     }
