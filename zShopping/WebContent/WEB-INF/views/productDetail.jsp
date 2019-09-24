@@ -127,7 +127,7 @@
 
 
 						<p class="stext-102 cl3 p-t-23">
-							Goooooooooooooooooooooooooooooooooooooooooooooooooooooood Product!!!!!!!!!!!!!!!! It's good. Buy it.
+							${product.prod_comment }
 						</p>
 						
 						<!--  -->
